@@ -1,0 +1,167 @@
+@charset "UTF-8";
+@use "variables" as *;
+
+// ---------------------------------------------
+//  投稿記事WYSIWIG用
+// ---------------------------------------------
+
+.post_content {
+  overflow: auto;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0.5em;
+    font-weight: bold;
+
+    &:not(:first-child) {
+      margin-top: 1.5em;
+    }
+  }
+
+  h1 {
+    font-size: var(--fz30);
+  }
+
+  h2 {
+    font-size: var(--fz25);
+    border-bottom: solid 1px #000;
+  }
+
+  h3 {
+    padding-left: 15px;
+    font-size: var(--fz20);
+    border-left: solid 5px #ccc;
+  }
+
+  h4 {
+    font-size: var(--fz18);
+  }
+
+  p {
+    margin-bottom: 1em;
+  }
+
+  ul {
+    margin-bottom: 1.5em;
+
+    li {
+      margin-left: 1.5em;
+      list-style: disc;
+    }
+  }
+
+  ol {
+    margin-bottom: 1.5em;
+
+    li {
+      margin-left: 1.5em;
+      list-style: decimal;
+    }
+  }
+
+  blockquote {
+    padding: 10px 20px;
+    margin-bottom: 1em;
+    background: #eee;
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  code {
+    font-family: monospace;
+  }
+
+  figure {
+    width: fit-content;
+    margin-bottom: 1em;
+
+    figcaption {
+      font-size: var(--fz12);
+      text-align: center;
+    }
+  }
+}
+
+// WordPress投稿機能のデフォルト設定
+// デフォルトで用意されている色と文字サイズのみ反映されないため
+.has-black-color {
+  color: #000;
+}
+
+.has-cyan-bluish-gray-color {
+  color: #abb8c3;
+}
+
+.has-white-color {
+  color: #fff;
+}
+
+.has-pale-pink-color {
+  color: #f78da7;
+}
+
+.has-vivid-red-color {
+  color: #cf2e2e;
+}
+
+.has-luminous-vivid-orange-color {
+  color: #ff6900;
+}
+
+.has-luminous-vivid-amber-color {
+  color: #fcb900;
+}
+
+.has-light-green-cyan-color {
+  color: #7bdcb5;
+}
+
+.has-vivid-green-cyan-color {
+  color: #00d084;
+}
+
+.has-pale-cyan-blue-color {
+  color: #8ed1fc;
+}
+
+.has-vivid-cyan-blue-color {
+  color: #0693e3;
+}
+
+.has-vivid-purple-color {
+  color: #9b51e0;
+}
+
+.has-small-font-size {
+  font-size: calc(1em * 0.8);
+}
+
+.has-medium-font-size {
+  font-size: 1em;
+}
+
+.has-large-font-size {
+  font-size: calc(1em * 1.5);
+}
+
+.has-x-large-font-size {
+  font-size: calc(1em * 2);
+}

@@ -1,0 +1,31 @@
+.wp-block-custom-section{
+    padding:0 10px;
+    border: solid 1px #ccc;
+    margin: 10px -10px;
+}
+.wp-block-custom-section::before{
+    content:'section class="' attr(class) '"';
+    font-family: sans-serif;
+    background: #999;
+    color:#fff;
+    font-size: 10px;
+    display: inline-block;
+    padding: 1px 10px;
+    margin: 0 0 0 -10px;
+}
+
+.wp-block-custom-div{
+    padding:0 10px;
+    margin: 0px -5px;
+    border: dashed 1px #ccc;
+}
+.wp-block-custom-div::before{
+    content:'div class="' attr(class) '"';
+    font-family: sans-serif;
+    background: #999;
+    color:#fff;
+    font-size: 10px;
+    display: inline-block;
+    padding: 1px 10px;
+    margin: 0 0 0 -10px;
+}

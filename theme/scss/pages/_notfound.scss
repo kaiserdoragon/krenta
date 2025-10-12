@@ -1,0 +1,27 @@
+@charset "UTF-8";
+@use "../variables" as *;
+
+// ---------------------------------------------
+//  404ページ専用
+// ---------------------------------------------
+.notfound_page {
+  text-align: center;
+
+  // notfound_page--ttl
+  &--ttl {
+    margin-bottom: 30px;
+    font-size: var(--fz20);
+  }
+
+  // notfound_page--paragraph
+  &--paragraph {
+    margin-bottom: 1em;
+  }
+
+  // notfound_page--link
+  &--link {
+    a {
+      text-decoration: underline;
+    }
+  }
+}

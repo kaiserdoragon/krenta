@@ -1,0 +1,85 @@
+@charset "UTF-8";
+@use "sass:map"; // 追加
+
+// ---------------------------------------------
+// ここから変数
+// ---------------------------------------------
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap");
+
+// color
+$color-body: #000; // 本文のテキスト用
+$color-primary: #008080; // サイト内で１番よく使う色、ベースカラー
+$color-secondary: #fafad2; // サイト内で２番目に使う色、サブカラー
+$color-accent: #ff6347; // サイト内で３番目に使う色、アクセントカラー
+
+// font
+$font-sans: "Noto Sans JP", sans-serif;
+$font-yugo: "游ゴシック体", "YuGothic", "游ゴシック", "Yu Gothic", sans-serif;
+$font-yumin: "YuMincho", "Yu Mincho", "游明朝体", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro", "MS P明朝", "MS PMincho", "Times New Roman", serif;
+
+// font-size
+:root {
+  --invariants: 2.5; //初期値2.5
+
+  @for $var from 10 through 100 {
+    --fz#{$var}: min(calc(0.1rem * #{$var}), calc(0.1vw * #{$var} * var(--invariants)));
+  }
+}
+
+// ---------------------------------------------
+// ここまで
+// ---------------------------------------------
+
+// breakpoint
+$max-breakpoints: (
+  "tb": 767px,
+);
+$min-breakpoints: (
+  "pc": 768px
+);
+$tablet-breakpoints: (
+  "tb": 1024px
+);
+
+// responsive
+@mixin max-mq($breakpoint: tb) {
+  // 767px以下
+  @media (max-width: map.get($max-breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin min-mq($breakpoint: pc) {
+  // 768px以上
+  @media (min-width: map.get($min-breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin tb-mq($breakpoint: tb) {
+  // 1024px以下
+  @media (max-width: map.get($tablet-breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@include min-mq {
+  // 768px以上
+  .is-hidden_pc {
+    display: none;
+  }
+}
+
+@include tb-mq {
+  // 1024px以下の時のスタイル
+  .example {
+    display: block;
+  }
+}
+
+@include max-mq {
+  // 767px以下
+  .is-hidden_sp {
+    display: none;
+  }
+}

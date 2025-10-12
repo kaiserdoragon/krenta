@@ -1,0 +1,38 @@
+{
+  "version": "1.5.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "npm-run-all -p sass postcss",
+    "dev-sass": "sass ./scss/style.scss:./css/style.css ./scss/reset.scss:./css/reset.css --no-source-map --style expanded --watch",
+    "pro-sass": "sass ./scss/style.scss:./css/style.css ./scss/reset.scss:./css/reset.css --no-source-map --style compressed --watch",
+    "postcss": "postcss --use autoprefixer --no-map  ./css/style.min.css -o ./css/style.min.css --watch",
+    "howto": " コンパイル時にベンダープレフィクスを付与できます「npm run watch」 | sassのコンパイルのみを行います「npm run sass」| ベンダープレフィックスを付与します「npm run postcss」",
+    "test": "stylelint --fix **/*.{css,scss,sass} --custom-syntax postcss-scss",
+    "imagesize": "node imagesize.mjs",
+    "imagemin": "node imagemin.mjs"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "glob": "^11.0.3",
+    "image-size": "^1.0.2",
+    "imagemin": "^9.0.1",
+    "imagemin-keep-folder": "^5.3.2",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-svgo": "^11.0.1",
+    "jsdom": "^20.0.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^10.1.0",
+    "prettier": "^2.5.1",
+    "sass": "^1.53.0",
+    "stylelint": "^14.9.1",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-standard-scss": "^4.0.0"
+  }
+}

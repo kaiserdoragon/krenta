@@ -1,0 +1,12 @@
+.vscode/
+**/css/style.css
+**/css/reset.css
+**/css/style.min.css
+**/css/reset.min.css
+**/js/scripts.min.js
+node_modules
+package-lock.json
+.prettierrc.json
+.stylelintrc.js
+imagemin.mjs
+imagesize.mjs

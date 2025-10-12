@@ -1,0 +1,28 @@
+@charset "UTF-8";
+@use "../variables" as *;
+
+// ---------------------------------------------
+//  contact tooltip
+// ---------------------------------------------
+
+.frm.danger {
+  position: relative;
+  display: block;
+  padding: 5px 10px;
+  margin-top: 12px;
+  clear: both;
+  font-size: var(--fz12);
+  color: #fff !important;
+  background: #c90000;
+
+  &::before {
+    position: absolute;
+    top: -20px;
+    width: 0;
+    height: 0;
+    content: "";
+    border: 10px solid #c90000;
+    border-color: transparent;
+    border-bottom-color: #c90000;
+  }
+}

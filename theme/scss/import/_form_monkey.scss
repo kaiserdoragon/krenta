@@ -1,0 +1,229 @@
+@charset "UTF-8";
+@use "../variables"as *;
+
+// ---------------------------------------------
+//  contact form
+// ---------------------------------------------
+
+//------------------------
+// SNOW MONKEY フォーム
+
+.snow-monkey-form {
+  margin-bottom: 100px;
+
+  @include max-mq {
+    margin-bottom: 60px;
+  }
+}
+
+.smf-form {
+  margin-bottom: 80px;
+
+  @include max-mq {
+    margin-bottom: 35px;
+  }
+
+  textarea {
+    height: 200px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="date"],
+  input[type="password"],
+  textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 4px !important;
+    font-family: inherit;
+    font-size: var(--fz16);
+    font-weight: normal;
+    color: #000;
+    background: #eff1f4 !important;
+    border: none !important;
+    border-radius: 5px;
+    box-shadow: none;
+
+    &:focus {
+      background: #fff;
+      border: solid 1px #e6edf2;
+      outline: none;
+    }
+  }
+
+  input[type="checkbox"]:checked,
+  input[type="radio"]:checked {
+    +span {
+      font-weight: bold;
+    }
+  }
+
+  select {
+    padding: 2px 0 4px 4px;
+    margin-right: 2px;
+    border: solid 1px #345372;
+    border-radius: 3px;
+
+    option {
+      padding: 0;
+    }
+  }
+}
+
+.smf-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 30px;
+
+  @include max-mq {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  &.is-required {
+    .smf-item__col--label {
+      span::after {
+        color: #fff;
+        content: "必須";
+        background: $color-secondary;
+      }
+    }
+  }
+
+
+  &.is-option {
+    .smf-item__col--label {
+      span::after {
+        color: #fff;
+        content: "任意";
+        background: #999;
+      }
+    }
+  }
+}
+
+.smf-item__col {
+  &.smf-item__col--label {
+    position: relative;
+    width: 100%;
+    max-width: 230px;
+    font-size: var(--fz20);
+    font-weight: bold;
+    text-align: left;
+    vertical-align: middle;
+
+    span {
+      &::after {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        padding: 4px 5px 5px;
+        font-size: var(--fz15);
+        font-weight: 400;
+        line-height: 1;
+        border-radius: 5px;
+        transform: translate(0, -50%);
+      }
+    }
+
+    @include max-mq {
+      max-width: 100%;
+      font-size: var(--fz18);
+
+      span {
+        &::after {
+          padding: 4px 5px 5px;
+          font-size: var(--fz12);
+        }
+      }
+    }
+  }
+
+  &.smf-item__col--controls {
+    width: 100%;
+  }
+}
+
+
+
+//------------------------
+// SNOW MONKEY ボタン
+
+// // contact_form--btn
+.smf-action {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+
+  @include max-mq {
+    flex-direction: column;
+  }
+
+  input[type="submit"],
+  input[type="button"],
+  input[type="hidden"],
+  button[type="submit"] {
+    display: inline-block;
+    width: 250px;
+    height: 70px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    font-size: var(--fz21);
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    background: $color-secondary;
+    border: none;
+    border-radius: 45px;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: $color-primary;
+      opacity: 0.8;
+    }
+
+    @include max-mq {
+      // width: 100%;
+      // max-width: 80%;
+      // height: 50px;
+    }
+  }
+
+  .smf-button-control {
+    margin-left: 0 !important;
+  }
+
+  @include max-mq {
+    // width: min(240px, 100%);
+  }
+
+  &--wrap {
+    margin-top: 80px;
+    text-align: center;
+  }
+}
+
+// .entry_policy {
+//   box-sizing: border-box;
+//   height: 300px;
+//   padding: 30px;
+//   margin-bottom: 30px;
+//   overflow-y: scroll;
+//   font-size: var(--fz15);
+//   background-color: #eee;
+
+//   p,
+//   ul {
+//     &:not(:last-child) {
+//       margin-bottom: 20px;
+//     }
+//   }
+// }

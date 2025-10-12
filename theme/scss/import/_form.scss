@@ -1,0 +1,152 @@
+@charset "UTF-8";
+@use "../variables" as *;
+
+// ---------------------------------------------
+//  contact form
+// ---------------------------------------------
+
+.contact_form {
+  textarea {
+    height: 130px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="date"],
+  input[type="password"],
+  textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 4px;
+    font-family: inherit;
+    font-size: var(--fz16);
+    font-weight: normal;
+    color: #000;
+    background: #e6edf2;
+    border: solid 1px #e6edf2;
+    border-radius: 3px;
+    box-shadow: none;
+
+    &:focus {
+      background: #fff;
+      border: solid 1px #e6edf2;
+      outline: none;
+    }
+  }
+
+  input[type="checkbox"]:checked,
+  input[type="radio"]:checked {
+    + span {
+      font-weight: bold;
+    }
+  }
+
+  select {
+    padding: 2px 0 4px 4px;
+    margin-right: 2px;
+    border: solid 1px #345372;
+    border-radius: 3px;
+
+    option {
+      padding: 0;
+    }
+  }
+
+  // MW WP form向け
+  .mwform-tel-field input[type="text"],
+  .mwform-zip-field input[type="text"] {
+    width: 5em;
+  }
+
+  // contact_form--table
+  &--table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+    background: #fff;
+
+    td {
+      padding: 10px;
+      vertical-align: middle;
+    }
+
+    th {
+      position: relative;
+      width: 225px;
+      font-weight: bold;
+      text-align: left;
+      vertical-align: top;
+      background-clip: padding-box !important;
+
+      &::after {
+        position: absolute;
+        top: 17px;
+        right: 15px;
+        padding: 4px 5px;
+        font-size: var(--fz12);
+        font-weight: normal;
+        line-height: 1;
+      }
+    }
+
+    .is-required::after {
+      color: #fff;
+      content: "必須";
+      background: #c90000;
+    }
+
+    .is-option::after {
+      color: #fff;
+      content: "任意";
+      background: #999;
+    }
+
+    @include max-mq {
+      td {
+        padding: 10px 5px;
+      }
+
+      th {
+        padding: 5px;
+
+        &::after {
+          top: 5px;
+          right: 10px;
+        }
+      }
+    }
+  }
+
+  // contact_form--btn
+  &--btn {
+    margin-top: 30px;
+    overflow: hidden;
+    text-align: center;
+
+    input[type="submit"],
+    input[type="button"],
+    button[type="submit"] {
+      display: inline-block;
+      width: 220px;
+      height: 60px;
+      margin: 10px;
+      overflow: hidden;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      background: #000;
+      border: none;
+      transition: 0.3s;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      @include max-mq {
+        max-width: 80%;
+      }
+    }
+  }
+}

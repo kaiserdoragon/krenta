@@ -1,0 +1,29 @@
+@charset "UTF-8";
+@use "../variables"as *;
+
+// ---------------------------------------------
+//  contact_importフォルダを読み込む
+// ---------------------------------------------
+
+// contact form
+
+                                                                                            
+@forward "../import/form_monkey";
+
+// エラーメッセージ用ツールチップ
+
+@forward "../import/form-tooltip";
+
+// ---------------------------------------------
+//  contact用の追加クラス
+// ---------------------------------------------
+
+#loading {
+  display: none;
+}
+
+.thanks {
+  padding: 20px;
+  font-size: var(--fz18);
+  text-align: center;
+}

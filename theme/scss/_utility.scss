@@ -1,0 +1,46 @@
+@charset "UTF-8";
+@use "variables" as *;
+
+// ---------------------------------------------
+//  utility_importフォルダを読み込む
+// ---------------------------------------------
+
+// text-align .u-txt_right系
+
+@forward "import/align";
+
+// margin .u-mb00系
+
+@forward "import/margin";
+
+// ---------------------------------------------
+// u-〇〇　ユーティリティクラス
+// ---------------------------------------------
+
+.u-color-body {
+  color: $color-body;
+}
+
+.u-color-primary {
+  color: $color-primary;
+}
+
+.u-color-secondary {
+  color: $color-secondary;
+}
+
+.u-color-accent {
+  color: $color-accent;
+}
+
+.u-bg-primary {
+  background: $color-primary;
+}
+
+.u-bg-secondary {
+  background: $color-secondary;
+}
+
+.u-bg-accent {
+  background: $color-accent;
+}
