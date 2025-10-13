@@ -15,7 +15,7 @@
               </div>
 
               <h2 class="top_mv_01--weekprice">
-                <span class="top_mv_01--one">1</span>週間<strong><b>7<span>,</span>500</b><span class="top_mv_01--yen">円～</strong></span><span class="top_mv_01--taxin">（税込）</span>
+                <span class="top_mv_01--one">1</span>週間<strong><b><span class="top_mv_01--dots">7</span>,<span class="top_mv_01--dots">5</span><span class="top_mv_01--dots">0</span><span class="top_mv_01--dots">0</span></b><span class="top_mv_01--yen">円～</strong></span><span class="top_mv_01--taxin">（税込）</span>
               </h2>
 
               <ul>
@@ -26,37 +26,6 @@
                 <li>業界トップクラスの低価格</li>
               </ul>
             </div>
-            <picture class="top_mv_01--catch">
-              <!-- SP: まずWebP（500px以下の時） -->
-              <source
-                srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.webp"
-                media="(max-width: 500px)"
-                type="image/webp"
-                width="750"
-                height="1000" />
-
-              <!-- SP: WebP非対応時のJPEG -->
-              <source
-                srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.jpg"
-                media="(max-width: 500px)"
-                width="750"
-                height="1000" />
-
-              <!-- PC: まずWebP（メディア条件なし＝SP条件に当たらなければPC用が選ばれる） -->
-              <source
-                srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_catch1.webp"
-                type="image/webp"
-                width="647"
-                height="686" />
-
-              <!-- フォールバック（最終手段） -->
-              <img
-                src="<?php echo get_template_directory_uri(); ?>/img/top/img_catch1.png"
-                alt=""
-                width="647"
-                height="686"
-                fetchpriority="high" />
-            </picture>
             <picture class="top_mv_01--bg">
               <!-- SP: まずWebP（500px以下の時） -->
               <source
