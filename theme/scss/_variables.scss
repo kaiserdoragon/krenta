@@ -4,24 +4,22 @@
 // ---------------------------------------------
 // ここから変数
 // ---------------------------------------------
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@100;300;400;500;700;800;900&display=swap");
 
 // color
-$color-body: #000; // 本文のテキスト用
-$color-primary: #008080; // サイト内で１番よく使う色、ベースカラー
+$color-body: #333; // 本文のテキスト用
+$color-blue: #002978; // サイト内で１番よく使う色、ベースカラー
 $color-secondary: #fafad2; // サイト内で２番目に使う色、サブカラー
 $color-accent: #ff6347; // サイト内で３番目に使う色、アクセントカラー
 
 // font
-$font-sans: "Noto Sans JP", sans-serif;
-$font-yugo: "游ゴシック体", "YuGothic", "游ゴシック", "Yu Gothic", sans-serif;
-$font-yumin: "YuMincho", "Yu Mincho", "游明朝体", "Hiragino Mincho Pro", "ヒラギノ明朝 Pro", "MS P明朝", "MS PMincho", "Times New Roman", serif;
+$font-mplus: "M PLUS 1p", sans-serif;
 
 // font-size
 :root {
   --invariants: 2.5; //初期値2.5
 
-  @for $var from 10 through 100 {
+  @for $var from 10 through 200 {
     --fz#{$var}: min(calc(0.1rem * #{$var}), calc(0.1vw * #{$var} * var(--invariants)));
   }
 }

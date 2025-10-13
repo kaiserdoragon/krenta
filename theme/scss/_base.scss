@@ -11,7 +11,7 @@ html {
 
 body {
   position: relative;
-  font-family: $font-sans;
+  font-family: $font-mplus;
   font-size: var(--fz16);
   font-weight: 400; // ※游ゴシックのときは500
   line-height: 1.6;
@@ -33,7 +33,7 @@ body {
 
 .container {
   box-sizing: border-box;
-  width: min(1050px, 100%); // デザインの幅 + padding
+  width: min(1550px, 100%); // デザインの幅 + padding
   padding: 0 min(4vw, 25px);
   margin: auto;
 }
@@ -90,6 +90,51 @@ main {
 //  ヘッダー関連 header
 // ---------------------------------------------
 
+.header {
+  small {
+    display: block;
+    font-size: var(--fz14);
+    font-weight: bold;
+    color: #fff;
+    background: $color-blue;
+  }
+
+  h1 {
+    span {
+      display: block;
+      font-size: var(--fz10);
+      font-weight: bold;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--btn {
+    a {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 13px 75px;
+      font-size: var(--fz23);
+      color: #fff;
+      background: url(../img/common/icon_mail.svg) no-repeat left center / 24px 16px, #fa9315;
+      border-radius: 1000px;
+    }
+
+    span {
+      font-size: var(--fz16);
+      font-weight: 500;
+    }
+  }
+}
+
+
 // ---------------------------------------------
 //  グローバルナビゲーション関連 gnav
 // ---------------------------------------------
@@ -103,7 +148,7 @@ main {
   width: 44px;
   height: 44px;
   cursor: pointer;
-  background: $color-primary;
+  background: $color-blue;
   border: solid 2px #fff;
 
   span {

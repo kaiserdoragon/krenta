@@ -1,13 +1,78 @@
 <?php get_header(); ?>
 <main>
   <div class="top_mv">
-    メインビジュアルなど
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <section>
+            <div>
+              <div>
+                <strong>名古屋の格安レンタカー</strong>
+                <span>最安値挑戦中</span>
+
+                <p>
+                  1日当たり
+                  <span>816</span><span>円～</span>
+                  <span>（税込）</span>
+                </p>
+
+                <h2>
+                  1<span>週間</span><span>7,500</span><span>円～</span><span>（税込）</span>
+                </h2>
+
+                <ul>
+                  <li>用途に合わせて使い方自由自在</li>
+                  <li>リーズナブルなレンタカー充実</li>
+                  <li>ファミリーや営業車としても</li>
+                  <li>ビジネスにプライベートに！</li>
+                  <li>業界トップクラスの低価格</li>
+                </ul>
+              </div>
+              <picture class="top_mv--bg">
+                <!-- SP: まずWebP（500px以下の時） -->
+                <source
+                  srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.webp"
+                  media="(max-width: 500px)"
+                  type="image/webp"
+                  width="750"
+                  height="1000" />
+
+                <!-- SP: WebP非対応時のJPEG -->
+                <source
+                  srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.jpg"
+                  media="(max-width: 500px)"
+                  width="750"
+                  height="1000" />
+
+                <!-- PC: まずWebP（メディア条件なし＝SP条件に当たらなければPC用が選ばれる） -->
+                <source
+                  srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.webp"
+                  type="image/webp"
+                  width="1920"
+                  height="700" />
+
+                <!-- フォールバック（最終手段） -->
+                <img
+                  src="<?php echo get_template_directory_uri(); ?>/img/top/mv.jpg"
+                  alt=""
+                  width="1920"
+                  height="700"
+                  fetchpriority="high" />
+              </picture>
+            </div>
+          </section>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://jito-site.com/wp-content/uploads/2023/01/2.png" alt="" />
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
   </div>
 
-  <section>
-    <h2>見出し</h2>
-    <p>トップページに設置したい静的コンテンツはここに書きましょう </p>
-  </section>
+
 
   <section class="top_info">
     <h2 class="top_info--ttl">お知らせ</h2>
@@ -32,32 +97,7 @@
     <?php wp_reset_postdata(); ?>
   </section>
 
-  <section class="top_about">
-    <h2 class="top_about--ttl">使い方</h2>
-    <p class="top_about--paragraph">テンプレートファイルの中のHTMLやCSSを変更して、オリジナルのデザインを作りましょう。<br> テンプレートは国際化しておらず、ほとんど日本語で書かれています。<br></p>
-    <h3 class="top_about--ttl">テンプレート</h3>
-    <p class="top_about--paragraph">小規模なコーポレートサイト用の構成です。足したり引いたりして自由に改造しましょう。</p>
-    <h3 class="top_about--ttl">CSSやJavaScript</h3>
-    <h4 class="top_about--ttl">CSS</h4>
-    <p class="top_about--paragraph">/css/style.css 、/css/reset.css を読み込むようにしています<br> 追加のCSSファイルを読み込むときは、functions.phpを確認してください。 </p>
-    <h4 class="top_about--ttl">JavaScript</h4>
-    <p class="top_about--paragraph">/js/scripts.js を読み込むようにしています<br> 追加のJavaScriptファイルを読み込むときは、functions.phpを確認してください。 </p>
-    <h4 class="top_about--ttl">Favicon</h4>
-    <p class="top_about--paragraph">img/icon/favicon.ico　と　img/icon/apple-touch-icon.png　は変更して使ってください。 </p>
-    <h3 class="top_about--ttl">プラグイン</h3>
-    <p class="top_about--paragraph">テーマを適用すると、管理画面に推奨プラグインのインストールメッセージが表示されます。<br>使いたい機能があればそこから入れると簡単です。 </p>
-  </section>
 
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">Slide 1</div>
-      <div class="swiper-slide">Slide 2</div>
-      <div class="swiper-slide">Slide 3</div>
-    </div>
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-scrollbar"></div>
-  </div>
+
 </main>
 <?php get_footer(); ?>
