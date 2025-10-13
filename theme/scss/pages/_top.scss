@@ -21,8 +21,9 @@
 
   li {
     box-sizing: border-box;
-    width: 15.104166666666666vw;
-    padding: 10px 20px 10px 40px;
+    width: 290px;
+    padding: 10px 0;
+    font-size: 16px;
     font-weight: bold;
     color: #fff;
     text-align: center;
@@ -34,10 +35,11 @@
   &--contents {
     position: absolute;
     top: 50%;
-    left: 32%;
+    left: 34%;
     z-index: 1;
     width: 100%;
     max-width: 1200px;
+    padding: 0 min(4vw, 25px);
     margin: auto;
     transform: translate(-50%, -50%);
   }
@@ -116,7 +118,7 @@
       font-weight: 900;
       line-height: 1;
       color: #ff0041;
-      -webkit-text-stroke-width: 3px;
+      -webkit-text-stroke-width: 0.15vw;
       -webkit-text-stroke-color: #fff;
     }
   }
@@ -189,7 +191,7 @@
       padding-top: 25px;
       margin: auto;
       content: "";
-      background: radial-gradient(circle 20px, #fa9315 50%, transparent 50%);
+      background: radial-gradient(circle 0.8vw, #fa9315 50%, transparent 50%);
     }
   }
 
