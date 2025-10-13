@@ -46,14 +46,14 @@
 
                 <!-- PC: まずWebP（メディア条件なし＝SP条件に当たらなければPC用が選ばれる） -->
                 <source
-                  srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.webp"
+                  srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv1.webp"
                   type="image/webp"
                   width="1920"
                   height="700" />
 
                 <!-- フォールバック（最終手段） -->
                 <img
-                  src="<?php echo get_template_directory_uri(); ?>/img/top/mv.jpg"
+                  src="<?php echo get_template_directory_uri(); ?>/img/top/img_mv1.jpg"
                   alt=""
                   width="1920"
                   height="700"
@@ -63,7 +63,37 @@
           </section>
         </div>
         <div class="swiper-slide">
-          <img src="https://jito-site.com/wp-content/uploads/2023/01/2.png" alt="" />
+          <picture class="top_mv--bg">
+            <!-- SP: まずWebP（500px以下の時） -->
+            <source
+              srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.webp"
+              media="(max-width: 500px)"
+              type="image/webp"
+              width="750"
+              height="1000" />
+
+            <!-- SP: WebP非対応時のJPEG -->
+            <source
+              srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.jpg"
+              media="(max-width: 500px)"
+              width="750"
+              height="1000" />
+
+            <!-- PC: まずWebP（メディア条件なし＝SP条件に当たらなければPC用が選ばれる） -->
+            <source
+              srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv2.webp"
+              type="image/webp"
+              width="1920"
+              height="700" />
+
+            <!-- フォールバック（最終手段） -->
+            <img
+              src="<?php echo get_template_directory_uri(); ?>/img/top/img_mv2.jpg"
+              alt=""
+              width="1920"
+              height="700"
+              fetchpriority="high" />
+          </picture>
         </div>
       </div>
       <div class="swiper-pagination"></div>

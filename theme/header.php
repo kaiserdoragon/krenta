@@ -19,20 +19,32 @@
 					【1日当たり最安の816円！】名古屋で軽自動車専門の格安・激安レンタカーならKレンタ！～マンスリーとウィークリーのプランをご用意しています～
 				</div>
 			</small>
-			<div class="container">
+			<div class="header--inner">
 				<h1>
 					<span>名古屋の格安・激安ウィークリー・マンスリーレンタカー店</span>
 					<img src="<?php echo get_template_directory_uri(); ?>/img/common/logo.png" alt="名古屋の格安レンタカー店「Kレンタ」" width="300" height="82">
 				</h1>
 				<div class="header--btn">
-					<a href="#">
-						レンタカーご予約はコチラ
+					<a href="<?php echo home_url('/reservation'); ?>">
+						レンタカーのご予約はコチラ
 						<span>24時間いつでも受付中</span>
 					</a>
-					<a href="#">
+					<a href="tel:0120-995-758">
 						0120-995-758
 						<span>年中無休 10：00～19：00</span>
 					</a>
 				</div>
 			</div>
+			<div class="header--menu">
+				<div class="container">
+					<ul>
+						<li><a href="<?php echo home_url(); ?>">ホーム</a></li>
+						<li><a href="<?php echo home_url('/price'); ?>">車種・料金</a></li>
+						<li><a href="<?php echo home_url('/flow'); ?>">ご利用の流れ</a></li>
+						<li><a href="<?php echo home_url('/store'); ?>">店舗紹介</a></li>
+						<li><a href="<?php echo home_url('/contact'); ?>">お問い合わせ</a></li>
+					</ul>
+				</div>
+			</div>
+
 		</header>
