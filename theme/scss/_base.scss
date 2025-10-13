@@ -114,7 +114,7 @@ main {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
+    width: min(1550px, 100%);
     padding: 20px min(4vw, 25px);
     margin: auto;
   }

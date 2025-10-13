@@ -29,7 +29,7 @@
             <picture class="top_mv_01--bg">
               <!-- SP: まずWebP（500px以下の時） -->
               <source
-                srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.webp"
+                srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv1_sp.webp"
                 media="(max-width: 500px)"
                 type="image/webp"
                 width="750"
@@ -37,10 +37,10 @@
 
               <!-- SP: WebP非対応時のJPEG -->
               <source
-                srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.jpg"
-                media="(max-width: 500px)"
-                width="750"
-                height="1000" />
+                srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv1_sp.jpg"
+                media="(max-width: 768px)"
+                width="375"
+                height="426" />
 
               <!-- PC: まずWebP（メディア条件なし＝SP条件に当たらなければPC用が選ばれる） -->
               <source
