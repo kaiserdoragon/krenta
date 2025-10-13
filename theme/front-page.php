@@ -1,99 +1,150 @@
 <?php get_header(); ?>
 <main>
-  <div class="top_mv">
+  <div>
     <div class="swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <section>
-            <div>
-              <div>
-                <strong>名古屋の格安レンタカー</strong>
-                <span>最安値挑戦中</span>
-
+          <article class="top_mv_01">
+            <div class="top_mv_01--contents">
+              <strong class="top_mv_01--lead">名古屋<span>の</span>格安レンタカー</strong>
+              <div class="top_mv_01--dayprice">
+                <span class="top_mv_01--mark">最安値<br>挑戦中</span>
                 <p>
-                  1日当たり
-                  <span>816</span><span>円～</span>
-                  <span>（税込）</span>
+                  <span class="top_mv_01--one">1</span>日当たり<b>816</b><span class="top_mv_01--yen">円～</span><span class="top_mv_01--taxin">（税込）</span>
                 </p>
-
-                <h2>
-                  1<span>週間</span><span>7,500</span><span>円～</span><span>（税込）</span>
-                </h2>
-
-                <ul>
-                  <li>用途に合わせて使い方自由自在</li>
-                  <li>リーズナブルなレンタカー充実</li>
-                  <li>ファミリーや営業車としても</li>
-                  <li>ビジネスにプライベートに！</li>
-                  <li>業界トップクラスの低価格</li>
-                </ul>
               </div>
-              <picture class="top_mv--bg">
-                <!-- SP: まずWebP（500px以下の時） -->
-                <source
-                  srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.webp"
-                  media="(max-width: 500px)"
-                  type="image/webp"
-                  width="750"
-                  height="1000" />
 
-                <!-- SP: WebP非対応時のJPEG -->
-                <source
-                  srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.jpg"
-                  media="(max-width: 500px)"
-                  width="750"
-                  height="1000" />
+              <h2 class="top_mv_01--weekprice">
+                <span class="top_mv_01--one">1</span>週間<strong><b>7<span>,</span>500</b><span class="top_mv_01--yen">円～</strong></span><span class="top_mv_01--taxin">（税込）</span>
+              </h2>
 
-                <!-- PC: まずWebP（メディア条件なし＝SP条件に当たらなければPC用が選ばれる） -->
-                <source
-                  srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv1.webp"
-                  type="image/webp"
-                  width="1920"
-                  height="700" />
-
-                <!-- フォールバック（最終手段） -->
-                <img
-                  src="<?php echo get_template_directory_uri(); ?>/img/top/img_mv1.jpg"
-                  alt=""
-                  width="1920"
-                  height="700"
-                  fetchpriority="high" />
-              </picture>
+              <ul>
+                <li>用途に合わせて使い方自由自在</li>
+                <li>リーズナブルなレンタカー充実</li>
+                <li>ファミリーや営業車としても</li>
+                <li>ビジネスにプライベートに！</li>
+                <li>業界トップクラスの低価格</li>
+              </ul>
             </div>
-          </section>
+            <picture class="top_mv_01--catch">
+              <!-- SP: まずWebP（500px以下の時） -->
+              <source
+                srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.webp"
+                media="(max-width: 500px)"
+                type="image/webp"
+                width="750"
+                height="1000" />
+
+              <!-- SP: WebP非対応時のJPEG -->
+              <source
+                srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.jpg"
+                media="(max-width: 500px)"
+                width="750"
+                height="1000" />
+
+              <!-- PC: まずWebP（メディア条件なし＝SP条件に当たらなければPC用が選ばれる） -->
+              <source
+                srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_catch1.webp"
+                type="image/webp"
+                width="647"
+                height="686" />
+
+              <!-- フォールバック（最終手段） -->
+              <img
+                src="<?php echo get_template_directory_uri(); ?>/img/top/img_catch1.png"
+                alt=""
+                width="647"
+                height="686"
+                fetchpriority="high" />
+            </picture>
+            <picture class="top_mv_01--bg">
+              <!-- SP: まずWebP（500px以下の時） -->
+              <source
+                srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.webp"
+                media="(max-width: 500px)"
+                type="image/webp"
+                width="750"
+                height="1000" />
+
+              <!-- SP: WebP非対応時のJPEG -->
+              <source
+                srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.jpg"
+                media="(max-width: 500px)"
+                width="750"
+                height="1000" />
+
+              <!-- PC: まずWebP（メディア条件なし＝SP条件に当たらなければPC用が選ばれる） -->
+              <source
+                srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv1.webp"
+                type="image/webp"
+                width="1920"
+                height="700" />
+
+              <!-- フォールバック（最終手段） -->
+              <img
+                src="<?php echo get_template_directory_uri(); ?>/img/top/img_mv1.jpg"
+                alt=""
+                width="1920"
+                height="700"
+                fetchpriority="high" />
+            </picture>
+          </article>
         </div>
         <div class="swiper-slide">
-          <picture class="top_mv--bg">
-            <!-- SP: まずWebP（500px以下の時） -->
-            <source
-              srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.webp"
-              media="(max-width: 500px)"
-              type="image/webp"
-              width="750"
-              height="1000" />
+          <article class="top_mv_02">
+            <div class="top_mv--contents">
+              <strong class="top_mv--lead">名古屋<span>の</span>格安レンタカー</strong>
+              <div class="top_mv--dayprice">
+                <span class="top_mv--mark">最安値<br>挑戦中</span>
+                <p>
+                  <span class="top_mv--one">1</span>日当たり<b>816</b><span class="top_mv--yen">円～</span><span class="top_mv--taxin">（税込）</span>
+                </p>
+              </div>
 
-            <!-- SP: WebP非対応時のJPEG -->
-            <source
-              srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.jpg"
-              media="(max-width: 500px)"
-              width="750"
-              height="1000" />
+              <h2 class="top_mv--weekprice">
+                1<span>週間</span><span>7,500</span><span>円～</span><span>（税込）</span>
+              </h2>
 
-            <!-- PC: まずWebP（メディア条件なし＝SP条件に当たらなければPC用が選ばれる） -->
-            <source
-              srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv2.webp"
-              type="image/webp"
-              width="1920"
-              height="700" />
+              <ul>
+                <li>用途に合わせて使い方自由自在</li>
+                <li>リーズナブルなレンタカー充実</li>
+                <li>ファミリーや営業車としても</li>
+                <li>ビジネスにプライベートに！</li>
+                <li>業界トップクラスの低価格</li>
+              </ul>
+            </div>
+            <picture class="top_mv--bg">
+              <!-- SP: まずWebP（500px以下の時） -->
+              <source
+                srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.webp"
+                media="(max-width: 500px)"
+                type="image/webp"
+                width="750"
+                height="1000" />
 
-            <!-- フォールバック（最終手段） -->
-            <img
-              src="<?php echo get_template_directory_uri(); ?>/img/top/img_mv2.jpg"
-              alt=""
-              width="1920"
-              height="700"
-              fetchpriority="high" />
-          </picture>
+              <!-- SP: WebP非対応時のJPEG -->
+              <source
+                srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.jpg"
+                media="(max-width: 500px)"
+                width="750"
+                height="1000" />
+
+              <!-- PC: まずWebP（メディア条件なし＝SP条件に当たらなければPC用が選ばれる） -->
+              <source
+                srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv2.webp"
+                type="image/webp"
+                width="1920"
+                height="700" />
+
+              <!-- フォールバック（最終手段） -->
+              <img
+                src="<?php echo get_template_directory_uri(); ?>/img/top/img_mv2.jpg"
+                alt=""
+                width="1920"
+                height="700"
+                fetchpriority="high" />
+            </picture>
+          </article>
         </div>
       </div>
       <div class="swiper-pagination"></div>
