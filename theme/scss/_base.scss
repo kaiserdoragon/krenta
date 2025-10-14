@@ -97,6 +97,10 @@ main {
     font-weight: bold;
     color: #fff;
     background: $color-blue;
+
+    .container {
+      padding: 10px min(4vw, 25px);
+    }
   }
 
   h1 {
@@ -147,7 +151,7 @@ main {
         padding: 10px 0;
         font-size: var(--fz30);
         color: #f8ff36;
-        background: url(../img/common/icon_tel.svg) no-repeat left 10% top 32% / 29px 29px, #ff0041;
+        background: url(../img/common/icon_tel.svg) no-repeat left 8% top 28% / 35px, #ff0041;
       }
     }
 
