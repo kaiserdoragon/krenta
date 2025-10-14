@@ -121,6 +121,11 @@ main {
     width: min(1550px, 100%);
     padding: 20px min(4vw, 25px);
     margin: auto;
+
+    @include tb-mq {
+      gap: 15px;
+      justify-content: center;
+    }
   }
 
 
@@ -189,103 +194,78 @@ main {
 //  グローバルナビゲーション関連 gnav
 // ---------------------------------------------
 
-.gnav_btn {
+.gnav {
   position: fixed;
-  top: 10px;
-  right: 10px;
-  z-index: 100;
+  top: 0;
+  right: -110%;
+  z-index: 99;
   display: block;
-  width: 44px;
-  height: 44px;
-  cursor: pointer;
-  background: $color-blue;
-  border: solid 2px #fff;
-
-  span {
-    position: absolute;
-    left: 15%;
-    display: block;
-    width: 70%;
-    height: 3px;
-    background: #fff;
-    transition: 0.3s;
-
-    &:first-child {
-      top: 23%;
-    }
-
-    &:nth-child(2) {
-      top: 48%;
-      opacity: 1;
-    }
-
-    &:last-child {
-      top: 72%;
-    }
-  }
-
-  &.is-open {
-    span {
-      transition: 0.2s;
-
-      &:first-child {
-        top: 48%;
-        transform: rotate(45deg);
-      }
-
-      &:nth-child(2) {
-        display: none;
-        opacity: 0;
-      }
-
-      &:last-child {
-        top: 48%;
-        transform: rotate(-45deg);
-      }
-    }
-  }
-
-  @include min-mq {
-    display: none; // PC時非表示
-  }
+  width: 100%;
+  height: 100%;
+  background: #d8dcb2;
+  transition: 0.5s;
 }
 
-.gnav {
-  display: block;
+.gnav.js-open {
+  right: 0%;
+}
 
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  a {
-    display: block;
-    padding: 15px 0;
-  }
+/* メニューボタン */
+.gnav_btn {
+  display: none;
 
   @include max-mq {
     position: fixed;
-    top: 0;
-    right: -110%;
-    z-index: 99;
-    width: 100%;
-    height: 100%;
-    transition: 0.5s;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    display: block;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    background: #ada59c;
+    border: none;
+    border-radius: 50%;
+  }
 
-    &.is-open {
-      right: 0;
+  // .gnav_btn--line
+  &--line {
+    position: absolute;
+    right: 15px;
+    display: block;
+    width: 30px;
+    height: 1px;
+    background: #fff;
+    transition: 0.3s ease-in-out;
+
+    &:nth-child(1) {
+      top: 20px;
+
+      .js-open & {
+        top: 28px;
+        transform: rotate(-45deg);
+      }
     }
 
-    ul {
-      display: block;
+    &:nth-child(2) {
+      top: 28px;
+
+      .js-open & {
+        opacity: 0;
+      }
     }
 
-    a {
-      display: block;
+    &:nth-child(3) {
+      top: 36px;
+
+      .js-open & {
+        top: 28px;
+        transform: rotate(45deg);
+      }
     }
   }
 }
+
 
 // ---------------------------------------------
 //  フッター関連 footer

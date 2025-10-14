@@ -46,5 +46,19 @@
 					</ul>
 				</div>
 			</div>
-
+			<nav class="gnav">
+				<ul>
+					<li><a href="<?php echo home_url(); ?>">ホーム</a></li>
+					<li><a href="<?php echo home_url('/price'); ?>">車種・料金</a></li>
+					<li><a href="<?php echo home_url('/flow'); ?>">ご利用の流れ</a></li>
+					<li><a href="<?php echo home_url('/store'); ?>">店舗紹介</a></li>
+					<li><a href="<?php echo home_url('/contact'); ?>">お問い合わせ</a></li>
+				</ul>
+			</nav>
+			<!-- メニューボタン -->
+			<button class="gnav_btn">
+				<span class="gnav_btn--line"></span>
+				<span class="gnav_btn--line"></span>
+				<span class="gnav_btn--line"></span>
+			</button>
 		</header>
