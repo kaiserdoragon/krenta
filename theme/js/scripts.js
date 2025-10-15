@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   gnavBtns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       const self = e.currentTarget; // クリックされたボタン
-      const isOpen = self.classList.toggle("js-open"); // クラスのON/OFF（結果の真偽を返す）
+      const isOpen = self.classList.toggle("js-open"); // クラスON/OFF（結果の真偽を返す）
 
       // ボタンが開状態のときだけナビにも "js-open" を付与
       navs.forEach((nav) => nav.classList.toggle("js-open", isOpen));
@@ -22,7 +22,16 @@ document.addEventListener("DOMContentLoaded", () => {
       gnavBtns.forEach((btn) => btn.classList.remove("js-open"));
     });
   });
+
+  // メニューのどこかが押されたら閉じる
+  navs.forEach((nav) => {
+    nav.addEventListener("click", () => {
+      navs.forEach((n) => n.classList.remove("js-open"));
+      gnavBtns.forEach((btn) => btn.classList.remove("js-open"));
+    });
+  });
 });
+
 
 // ヘッダーのスクロール位置を取得 /////////////////////////////////////////////
 // headerの高さ分スクロールしたら、-fixedクラスをつける。
@@ -83,24 +92,6 @@ window.addEventListener("load", () => {
   }
 });
 
-// (function ($, root, undefined) {
-//   $(function () {
-//     $(".gnav_btn").click(function () {
-//       $(this).toggleClass("js-open");
-
-//       if ($(this).hasClass("js-open")) {
-//         $(".header__navi_01").addClass("js-open");
-//       } else {
-//         $(".header__navi_01").removeClass("js-open");
-//       }
-//     });
-//   });
-
-//   //メニュー内を閉じておく
-//   $(function () {
-//     $(".header__navi_01 a[href]").click(function () {
-//       $(".header__navi_01").removeClass("js-open");
-//       $(".gnav_btn").removeClass("js-open");
-//     });
-//   });
-// })(jQuery, this);
+(function ($, root, undefined) {
+  console.log('jqueryのコードはここ');
+})(jQuery, this);

@@ -126,6 +126,15 @@ main {
       gap: 15px;
       justify-content: center;
     }
+
+    @include max-mq {
+      justify-content: flex-start;
+      padding: 10px min(4vw, 25px);
+
+      h1 {
+        width: 75%;
+      }
+    }
   }
 
 
@@ -169,6 +178,12 @@ main {
         margin-right: 15px;
       }
     }
+
+    @include max-mq {
+      .header--inner & {
+        display: none;
+      }
+    }
   }
 
   // .header--menu
@@ -186,6 +201,22 @@ main {
       font-weight: 500;
       color: #fff;
     }
+
+    @include max-mq {
+      display: none;
+    }
+  }
+
+  @include max-mq {
+    small {
+      font-size: var(--fz12);
+
+      .container {
+        width: 82%;
+        padding: 15px min(4vw, 25px);
+        margin: 0;
+      }
+    }
   }
 }
 
@@ -201,11 +232,38 @@ main {
   z-index: 99;
   display: block;
   width: 100%;
-  height: 100%;
-  background: #d8dcb2;
+  height: 100vh;
+  overflow: auto;
+  background: #002978;
   transition: 0.5s;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    padding: 30% 0 0;
+    margin-bottom: 20%;
+  }
+
+  a {
+    color: #fff;
+  }
+
+  @include max-mq {
+    ul {
+      padding: 0;
+      margin-bottom: 15%;
+      font-size: var(--fz18);
+    }
+
+    .container {
+      padding: 30% min(4vw, 25px);
+    }
+  }
 }
 
+/* メニューが開いた時 */
 .gnav.js-open {
   right: 0%;
 }
@@ -216,14 +274,14 @@ main {
 
   @include max-mq {
     position: fixed;
-    top: 10px;
+    top: 13px;
     right: 10px;
     z-index: 1000;
     display: block;
     width: 60px;
     height: 60px;
     cursor: pointer;
-    background: #ada59c;
+    background: #0071ff;
     border: none;
     border-radius: 50%;
   }

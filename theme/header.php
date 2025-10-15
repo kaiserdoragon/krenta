@@ -47,13 +47,25 @@
 				</div>
 			</div>
 			<nav class="gnav">
-				<ul>
-					<li><a href="<?php echo home_url(); ?>">ホーム</a></li>
-					<li><a href="<?php echo home_url('/price'); ?>">車種・料金</a></li>
-					<li><a href="<?php echo home_url('/flow'); ?>">ご利用の流れ</a></li>
-					<li><a href="<?php echo home_url('/store'); ?>">店舗紹介</a></li>
-					<li><a href="<?php echo home_url('/contact'); ?>">お問い合わせ</a></li>
-				</ul>
+				<div class="container">
+					<ul>
+						<li><a href="<?php echo home_url(); ?>">ホーム</a></li>
+						<li><a href="<?php echo home_url('/price'); ?>">車種・料金</a></li>
+						<li><a href="<?php echo home_url('/flow'); ?>">ご利用の流れ</a></li>
+						<li><a href="<?php echo home_url('/store'); ?>">店舗紹介</a></li>
+						<li><a href="<?php echo home_url('/contact'); ?>">お問い合わせ</a></li>
+					</ul>
+					<div class="header--btn">
+						<a href="<?php echo home_url('/reservation'); ?>">
+							レンタカーのご予約はコチラ
+							<span>24時間いつでも受付中</span>
+						</a>
+						<a href="tel:0120-995-758">
+							0120-995-758
+							<span>年中無休 10：00～19：00</span>
+						</a>
+					</div>
+				</div>
 			</nav>
 			<!-- メニューボタン -->
 			<button class="gnav_btn">
