@@ -71,8 +71,11 @@
 			</nav>
 			<!-- メニューボタン -->
 			<button class="gnav_btn">
-				<span class="gnav_btn--line"></span>
-				<span class="gnav_btn--line"></span>
-				<span class="gnav_btn--line"></span>
+				<div>
+					<span class="gnav_btn--line"></span>
+					<span class="gnav_btn--line"></span>
+					<span class="gnav_btn--line"></span>
+				</div>
+				<span class="gnav_btn--txt">メニュー</span>
 			</button>
 		</header>
