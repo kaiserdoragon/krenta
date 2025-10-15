@@ -346,10 +346,30 @@ main {
 // ---------------------------------------------
 
 .footer {
+  .container {
+    padding: 60px min(4vw, 25px);
+  }
+
+  // .footer--inner
+  &--inner {
+    background: #f4fafe;
+  }
+
+  // .footer--logo
+  &--logo {
+    small {
+      display: block;
+      font-size: var(--fz10);
+      font-weight: bold;
+    }
+  }
+
   // .footer--copy
   &--copy {
     padding: 10px;
     line-height: 1;
+    color: #fff;
     text-align: center;
+    background: #0b71a8;
   }
 }
