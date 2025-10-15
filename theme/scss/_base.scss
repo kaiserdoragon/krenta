@@ -109,6 +109,10 @@ main {
       font-size: var(--fz10);
       font-weight: bold;
     }
+
+    a {
+      display: block;
+    }
   }
 
   // .header--inner
