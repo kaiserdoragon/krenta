@@ -427,3 +427,91 @@ add_action(
   },
   11 // 優先度を少し高く設定 (デフォルトは10)
 );
+
+
+
+// ログインURLを変更する
+if (!class_exists('Login_Security')) :
+
+  class Login_Security
+  {
+    // デフォルトのログインページ名を設定
+    const DEFAULT_LOGIN_NAME = 'wp-default-login';
+
+    public function __construct()
+    {
+      // フックを登録
+      $this->initialize_hooks();
+    }
+
+    private function initialize_hooks()
+    {
+      // ユーザーがログインページへアクセスしようとしたときのリダイレクト処理
+      add_action('template_redirect', [$this, 'redirect_login']);
+      // 直接 wp-login.php へアクセスした場合のブロック処理
+      add_action('login_init', [$this, 'block_default_login_url']);
+      // サイト内のログインURLを変更
+      add_filter('site_url', [$this, 'modify_login_url'], 10, 2);
+      // リダイレクト時のURLを変更
+      add_filter('wp_redirect', [$this, 'modify_login_redirect']);
+    }
+
+    // 直接 wp-login.php へアクセスした場合は404エラーを返す
+    public static function block_default_login_url()
+    {
+      if (!defined('LOGIN_CHANGE') || sha1('page_changed') !== LOGIN_CHANGE) {
+        global $wp_query;
+        $wp_query->set_404();
+        status_header(404);
+        get_template_part(404);
+        exit;
+      }
+    }
+
+    // ログインURLをカスタムURLに変更
+    public static function modify_login_url($url, $path)
+    {
+      $login_name = apply_filters('login_endpoint_name', self::DEFAULT_LOGIN_NAME);
+
+      // wp-login.php へのリンクをカスタムURLに置き換える
+      if (strpos($path, 'wp-login.php') !== false && (is_user_logged_in() || strpos($_SERVER['REQUEST_URI'], $login_name) !== false)) {
+        return str_replace('wp-login.php', $login_name, $url);
+      }
+      return $url;
+    }
+
+    // ログインリダイレクト時のURLを変更
+    public static function modify_login_redirect($location)
+    {
+      $login_name = apply_filters('login_endpoint_name', self::DEFAULT_LOGIN_NAME);
+
+      // リダイレクトURLの wp-login.php をカスタムURLに変更
+      if (strpos($_SERVER['REQUEST_URI'], $login_name) !== false) {
+        return str_replace('wp-login.php', $login_name, $location);
+      }
+      return $location;
+    }
+
+    // ユーザーがカスタムログインページへアクセスした場合、ログインページを表示
+    public static function redirect_login()
+    {
+      $current_url = (is_ssl() ? 'https' : 'http') . '://' . $_SERVER["HTTP_HOST"] . strtok($_SERVER["REQUEST_URI"], '?');
+      $login_name = apply_filters('login_endpoint_name', self::DEFAULT_LOGIN_NAME);
+
+      // 指定されたカスタムログインURLの場合、WordPressのログイン画面を表示
+      if ($current_url === home_url('/') . $login_name) {
+        header("HTTP/1.1 200 LOGIN PAGE");
+        define('LOGIN_CHANGE', sha1('page_changed'));
+        require_once(ABSPATH . '/wp-login.php');
+        exit;
+      }
+    }
+  }
+
+  // クラスのインスタンスを作成して適用
+  new Login_Security;
+
+endif;
+
+// ログインURLのカスタマイズ（デフォルトは 'wp-custom-login'）
+add_filter('login_endpoint_name', fn() => 'wp-custom-login');

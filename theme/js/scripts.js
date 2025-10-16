@@ -92,6 +92,41 @@ window.addEventListener("load", () => {
   }
 });
 
+
+
+//上から出てくるヘッダー
+document.addEventListener('DOMContentLoaded', function () {
+  var fixedHeader = document.getElementById('js-fixed-header');
+  if (!fixedHeader) return;
+
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        var scroll = window.scrollY || window.pageYOffset;
+        fixedHeader.classList.toggle('is-show', scroll > 200);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+});
+
+
+
+
 (function ($, root, undefined) {
-  console.log('jqueryのコードはここ');
+  // console.log('jqueryのコードはここ');
+  //   $(window).scroll(function () {
+  //     // 画面スクロールの値を取得
+  //     var scroll = $(window).scrollTop();
+
+  //     // スクロールの値が200pxを超えると追従ヘッダーを表示
+  //     if (scroll > 200) {
+  //       $("#js-fixed-header").addClass("is-show");
+  //     } else {
+  //       $("#js-fixed-header").removeClass("is-show");
+  //     }
+  //   });
+  // });
 })(jQuery, this);

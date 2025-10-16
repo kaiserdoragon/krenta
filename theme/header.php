@@ -79,3 +79,17 @@
 				<span class="gnav_btn--txt">メニュー</span>
 			</button>
 		</header>
+
+		<div id="js-fixed-header" class="fixed-header">
+			<div class="header-inner">
+				<div class="header-title">タイトル</div>
+				<nav class="header-nav">
+					<ul class="header-list">
+						<li class="header-list__item"><a href="">メニュー１</a></li>
+						<li class="header-list__item"><a href="">メニュー２</a></li>
+						<li class="header-list__item"><a href="">メニュー３</a></li>
+					</ul>
+				</nav>
+			</div>
+			<!-- /.header-inner -->
+		</div>

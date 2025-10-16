@@ -144,14 +144,20 @@ main {
       font-weight: 800;
       line-height: 1.5;
       color: #fff;
+      cursor: pointer;
       background: url(../img/common/icon_mail.svg) no-repeat left 18% bottom 25%/24px 16px, #fa9315;
       border-radius: 1000px;
+      transition: all 0.3s;
 
       &:last-child {
         padding: 10px 0;
         font-size: var(--fz30);
         color: #f8ff36;
         background: url(../img/common/icon_tel.svg) no-repeat left 8% top 28% / 35px, #ff0041;
+      }
+
+      &:hover {
+        opacity: 0.7;
       }
     }
 
@@ -219,6 +225,26 @@ main {
         margin: 0;
       }
     }
+  }
+}
+
+
+
+
+.fixed-header {
+  position: fixed;
+  top: -80px;
+  left: 0;
+  z-index: 111111;
+  visibility: hidden;
+  background: red;
+  transition:
+    all 0.5s
+    ease-in-out;
+
+  &.is-show {
+    top: 0;
+    visibility: visible;
   }
 }
 
@@ -346,7 +372,17 @@ main {
 // ---------------------------------------------
 
 .footer {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
   .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
     padding: 60px min(4vw, 25px);
   }
 
