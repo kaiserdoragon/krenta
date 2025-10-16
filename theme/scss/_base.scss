@@ -375,7 +375,13 @@ main {
   ul {
     display: flex;
     flex-wrap: wrap;
+    gap: 40px;
     align-items: center;
+    justify-content: flex-end;
+    width: 60%;
+    margin-top: 40px;
+    font-size: 18px;
+    font-weight: 500;
   }
 
   .container {
@@ -383,7 +389,12 @@ main {
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
+    width: min(1050px, 100%);
     padding: 60px min(4vw, 25px);
+
+    > div {
+      width: 40%;
+    }
   }
 
   // .footer--inner
@@ -393,6 +404,8 @@ main {
 
   // .footer--logo
   &--logo {
+    margin-bottom: 40px;
+
     small {
       display: block;
       font-size: var(--fz10);
@@ -406,6 +419,6 @@ main {
     line-height: 1;
     color: #fff;
     text-align: center;
-    background: #0b71a8;
+    background: #00a2f0;
   }
 }

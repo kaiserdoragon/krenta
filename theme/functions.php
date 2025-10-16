@@ -430,7 +430,10 @@ add_action(
 
 
 
+// -------------------------------------
 // ログインURLを変更する
+// -------------------------------------
+
 if (!class_exists('Login_Security')) :
 
   class Login_Security
