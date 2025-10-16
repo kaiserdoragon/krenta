@@ -50,6 +50,12 @@
     @media (width <= 1200px) {
       max-width: 700px;
     }
+
+    @include max-mq {
+      left: 50%;
+      max-width: none;
+      padding: 0 5px;
+    }
   }
 
   //.top_mv_01--lead
@@ -86,6 +92,11 @@
     span {
       font-size: min(var(--fz48), 2.5vw);
     }
+
+    @include max-mq {
+      padding: 0 15px;
+      font-size: 7vw;
+    }
   }
 
   //.top_mv_01--mark
@@ -102,6 +113,12 @@
     background: #ff0041;
     border: 3px solid #fff;
     border-radius: 50%;
+
+    @include max-mq {
+      width: 17vw;
+      height: 17vw;
+      font-size: 3.5vw;
+    }
   }
 
   //.top_mv_01--dayprice
@@ -129,6 +146,20 @@
       -webkit-text-stroke-width: 0.15vw;
       -webkit-text-stroke-color: #fff;
     }
+
+    @include max-mq {
+      gap: 5px;
+      padding: 0 5px;
+
+      p {
+        font-size: 4vw;
+      }
+
+      b {
+        font-size: 14vw;
+        -webkit-text-stroke-width: 0.5vw;
+      }
+    }
   }
 
   //.top_mv_01--one
@@ -137,6 +168,14 @@
 
     .top_mv_01--weekprice & {
       font-size: 4vw;
+    }
+
+    @include max-mq {
+      font-size: 6vw;
+
+      .top_mv_01--weekprice & {
+        font-size: 9vw;
+      }
     }
   }
 
@@ -154,6 +193,15 @@
       -webkit-text-stroke-width: 0;
       -webkit-text-stroke-color: unset;
     }
+
+    @include max-mq {
+      font-size: 7.5vw;
+      -webkit-text-stroke-width: 0.5vw;
+
+      .top_mv_01--weekprice & {
+        font-size: 8vw;
+      }
+    }
   }
 
   //.top_mv_01--taxin
@@ -163,6 +211,14 @@
     .top_mv_01--weekprice & {
       font-size: 2.3vw;
       color: #fff;
+    }
+
+    @include max-mq {
+      font-size: 3vw;
+
+      .top_mv_01--weekprice & {
+        font-size: 4vw;
+      }
     }
   }
 
@@ -185,6 +241,14 @@
       font-weight: 900;
       color: #f8ff36;
     }
+
+    @include max-mq {
+      font-size: 6vw;
+
+      b {
+        font-size: 15.5vw;
+      }
+    }
   }
 
   //.top_mv_01--dots
@@ -205,6 +269,12 @@
     @media (width <= 1200px) {
       &::before {
         top: -5px;
+      }
+    }
+
+    @include max-mq {
+      &::before {
+        background: radial-gradient(circle 2vw, #fa9315 50%, transparent 50%);
       }
     }
   }
@@ -229,6 +299,13 @@
         height: auto;
       }
     }
+
+    @media (width <= 500px) {
+      img {
+        height: 125vw;
+        object-position: -15px;
+      }
+    }
   }
 
   @media (width <= 1400px) {
@@ -247,6 +324,20 @@
     li {
       width: 34%;
       font-size: 12px;
+    }
+  }
+
+  @include max-mq {
+    ul {
+      justify-content: flex-start;
+    }
+
+    li {
+      width: 60%;
+      padding: 5px 0;
+      margin: 0 0 0 15px;
+      font-size: 12px;
+      background: url(../img/top/icon_check.svg) no-repeat left 6px center / 10px;
     }
   }
 }

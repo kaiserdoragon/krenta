@@ -27,13 +27,13 @@
               </ul>
             </div>
             <picture class="top_mv_01--bg">
-              <!-- SP: まずWebP（500px以下の時） -->
+              <!-- SP: まずWebP（768px以下の時） -->
               <source
                 srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv1_sp.webp"
-                media="(max-width: 500px)"
+                media="(max-width: 768px)"
                 type="image/webp"
-                width="750"
-                height="1000" />
+                width="375"
+                height="426" />
 
               <!-- SP: WebP非対応時のJPEG -->
               <source

@@ -96,7 +96,7 @@ window.addEventListener("load", () => {
 
 //上から出てくるヘッダー
 document.addEventListener('DOMContentLoaded', function () {
-  var fixedHeader = document.getElementById('js-fixed-header');
+  var fixedHeader = document.getElementById('js-add_header');
   if (!fixedHeader) return;
 
   var ticking = false;
