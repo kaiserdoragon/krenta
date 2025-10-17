@@ -8,6 +8,8 @@
 	<meta name="description" content="<?php if (wp_title('', false)): ?><?php bloginfo('name'); ?>の<?php echo trim(wp_title('', false)); ?>のページです。<?php endif; ?><?php bloginfo('description'); ?>">
 	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico">
 	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon.png">
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/reset.css">
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css<?php echo '?' . date('YmdHis'); ?>">
 	<?php wp_head(); ?>
 </head>
 

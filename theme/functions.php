@@ -69,8 +69,8 @@ function allsite_style_script()
   wp_enqueue_style('theme');
 
   //リセットcss
-  wp_register_style('reset', get_template_directory_uri() . '/css/reset.css', array());
-  wp_enqueue_style('reset');
+  // wp_register_style('reset', get_template_directory_uri() . '/css/reset.css', array());
+  // wp_enqueue_style('reset');
 
   wp_register_style('swipercss', get_template_directory_uri() . '/css/swiper-bundle.min.css', array());
   wp_enqueue_style('swipercss');
@@ -78,8 +78,8 @@ function allsite_style_script()
   //プラグインやwebフォントなど追加のCSSはこの辺に書きます。
 
   //カスタムcss
-  wp_register_style('custom', get_template_directory_uri() . '/css/style.css', array());
-  wp_enqueue_style('custom');
+  // wp_register_style('custom', get_template_directory_uri() . '/css/style.css', array());
+  // wp_enqueue_style('custom');
 }
 
 add_action('wp_enqueue_scripts', 'allsite_style_script');
@@ -363,7 +363,7 @@ add_shortcode('myphp', 'Include_my_php');
 
 
 // -------------------------------------
-// Snow Monkey Form 送信完了後にサンクスページへリダイレクト
+// Snow Monkey Forms 送信完了後にサンクスページへリダイレクト
 // -------------------------------------
 add_action(
   'wp_enqueue_scripts',
@@ -518,3 +518,324 @@ endif;
 
 // ログインURLのカスタマイズ（デフォルトは 'wp-custom-login'）
 add_filter('login_endpoint_name', fn() => 'wp-custom-login');
+
+
+
+
+/* -------------------------
+   ユーティリティ関数
+   ------------------------- */
+
+/**
+ * 現在の投稿オブジェクトを安全に取得する（返り値: WP_Post|null）
+ */
+if (! function_exists('kdr_get_current_post')) {
+  function kdr_get_current_post()
+  {
+    global $post;
+    if (isset($post) && $post instanceof WP_Post) {
+      return $post;
+    }
+    $queried = get_queried_object();
+    if (isset($queried) && $queried instanceof WP_Post) {
+      return $queried;
+    }
+    return null;
+  }
+}
+
+/* プラグイン検出ユーティリティ */
+if (! function_exists('kdr_has_aioseo')) {
+  function kdr_has_aioseo()
+  {
+    return (defined('AIOSEO_VERSION') || function_exists('aioseo') || class_exists('AIOSEO') || class_exists('All_in_One_SEO_Pack'));
+  }
+}
+if (! function_exists('kdr_has_yoast')) {
+  function kdr_has_yoast()
+  {
+    return (defined('WPSEO_VERSION') || function_exists('wpseo_get_value') || class_exists('WPSEO_Frontend'));
+  }
+}
+if (! function_exists('kdr_has_any_seo_plugin')) {
+  function kdr_has_any_seo_plugin()
+  {
+    return kdr_has_aioseo() || kdr_has_yoast();
+  }
+}
+if (! function_exists('kdr_has_breadcrumb_navxt')) {
+  function kdr_has_breadcrumb_navxt()
+  {
+    return (bool) (function_exists('bcn_display') || class_exists('bcnBreadcrumbTrail') || defined('BREADCRUMB_NAVXT_VERSION'));
+  }
+}
+if (! function_exists('kdr_has_contact_form_7')) {
+  function kdr_has_contact_form_7()
+  {
+    return (bool) (function_exists('wpcf7') || class_exists('WPCF7'));
+  }
+}
+if (! function_exists('kdr_has_snow_monkey_forms')) {
+  function kdr_has_snow_monkey_forms()
+  {
+    return (bool) (class_exists('Snow_Monkey_Forms') || function_exists('snow_monkey_forms'));
+  }
+}
+
+/**
+ * 投稿本文や抜粋から安全な説明文（meta description / JSON-LD の description 用）を生成する
+ * $max_length: 切り詰め長（デフォルト 160）
+ */
+if (! function_exists('kdr_generate_description_from_post')) {
+  function kdr_generate_description_from_post($post, $max_length = 160)
+  {
+    if (! $post || ! ($post instanceof WP_Post)) return '';
+    // 優先: カスタムフィールド meta_description -> 抜粋 -> 本文
+    $desc = trim(get_post_meta($post->ID, 'meta_description', true));
+    if (empty($desc) && has_excerpt($post->ID)) {
+      $desc = get_the_excerpt($post->ID);
+    }
+    if (empty($desc)) {
+      $desc = wp_strip_all_tags($post->post_content);
+      $desc = preg_replace('/\s+/', ' ', $desc);
+      $desc = mb_substr(trim($desc), 0, $max_length);
+    }
+    return mb_substr(strip_tags($desc), 0, $max_length);
+  }
+}
+
+/* -------------------------
+   フィルタ: kdr_allow_theme_meta_description
+   - デフォルト: false (All in One SEO / Yoast があればプラグイン側で meta description を管理する)
+   - true にすると、テーマ側が常に meta description を出力（重複の可能性あり）
+   ------------------------- */
+if (! function_exists('kdr_allow_theme_meta_description')) {
+  function kdr_allow_theme_meta_description()
+  {
+    return false;
+  }
+}
+
+/* -------------------------
+   基本サポート
+   ------------------------- */
+add_theme_support('title-tag');
+
+/* -------------------------
+   meta / canonical / robots / JSON-LD（OG/Twitter は出力しない）
+   ------------------------- */
+add_action('wp_head', 'kdr_seo_meta_and_structured', 1);
+if (! function_exists('kdr_seo_meta_and_structured')) {
+  function kdr_seo_meta_and_structured()
+  {
+    if (is_admin() || is_feed()) return;
+
+    $post = kdr_get_current_post();
+
+    // --- canonical ---
+    if (is_singular() && $post) {
+      $canonical = get_permalink($post);
+    } elseif (is_home() || is_front_page()) {
+      $canonical = home_url('/');
+    } else {
+      $request = isset($GLOBALS['wp']->request) ? $GLOBALS['wp']->request : '';
+      $canonical = home_url($request ? '/' . $request : '/');
+    }
+    if (! empty($canonical)) {
+      echo '<link rel="canonical" href="' . esc_url($canonical) . '">' . "\n";
+    }
+
+    // --- meta description の制御（出力はフィルタ/プラグイン検出による）
+    $allow_theme_desc   = apply_filters('kdr_allow_theme_meta_description', kdr_allow_theme_meta_description());
+    $seo_plugin_present = kdr_has_any_seo_plugin();
+
+    $meta_description = '';
+    if (is_singular() && $post) {
+      $meta_description = kdr_generate_description_from_post($post, 160);
+    } elseif (is_home() || is_front_page()) {
+      $meta_description = get_bloginfo('description');
+    }
+
+    $should_output_description = (! $seo_plugin_present) || ($seo_plugin_present && $allow_theme_desc);
+
+    if ($should_output_description && ! empty($meta_description)) {
+      echo '<meta name="description" content="' . esc_attr($meta_description) . '">' . "\n";
+    } else {
+      if ($seo_plugin_present && ! $allow_theme_desc && current_user_can('manage_options')) {
+        echo "<!-- kdr: description skipped (All in One SEO / Yoast detected; theme defers to plugin by default). To force theme output, add: add_filter('kdr_allow_theme_meta_description', '__return_true'); -->\n";
+      }
+    }
+
+    // --- robots ---
+    $robots = array('index', 'follow');
+    if (is_search() || is_404() || is_attachment()) {
+      $robots = array('noindex', 'nofollow');
+    }
+    if (is_singular() && $post) {
+      $seo_noindex = get_post_meta($post->ID, 'seo_noindex', true);
+      if ($seo_noindex === '1' || strtolower($seo_noindex) === 'true' || $seo_noindex === 'on') {
+        $robots = array('noindex', 'nofollow');
+      }
+    }
+    echo '<meta name="robots" content="' . esc_attr(implode(',', $robots)) . '">' . "\n";
+
+    // --- NOTE ---
+    // ユーザー指定により OG/Twitter の出力はテーマ側では行わない（外部で別途出力する前提）。
+    // 以降は構造化データ（JSON-LD）を出力します。
+
+    // Organization (企業サイト向け)
+    $site_name = get_bloginfo('name');
+    $site_url  = home_url('/');
+    $site_logo = (function_exists('get_site_icon_url')) ? get_site_icon_url() : '';
+
+    $org = array(
+      '@context' => 'https://schema.org',
+      '@type'    => 'Organization',
+      'name'     => $site_name,
+      'url'      => $site_url,
+    );
+    if (! empty($site_logo)) {
+      $org['logo'] = array('@type' => 'ImageObject', 'url' => $site_logo);
+    }
+
+    echo "<script type=\"application/ld+json\">\n" . wp_json_encode($org, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . "\n</script>\n";
+
+    // Article（投稿ページ）
+    if (is_singular('post') && $post) {
+      setup_postdata($post);
+
+      $author_name = get_the_author_meta('display_name', $post->post_author);
+      $published   = get_the_date('c', $post);
+      $modified    = get_the_modified_date('c', $post);
+      $headline    = get_the_title($post);
+      $description = has_excerpt($post->ID) ? get_the_excerpt($post->ID) : kdr_generate_description_from_post($post, 160);
+
+      $image = '';
+      if (has_post_thumbnail($post->ID)) {
+        $img = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
+        if ($img) $image = $img[0];
+      }
+
+      $article = array(
+        '@context' => 'https://schema.org',
+        '@type'    => 'Article',
+        'mainEntityOfPage' => array('@type' => 'WebPage', '@id' => get_permalink($post)),
+        'headline' => wp_strip_all_tags($headline),
+        'description' => wp_strip_all_tags($description),
+        'author' => array('@type' => 'Person', 'name' => $author_name),
+        'publisher' => array('@type' => 'Organization', 'name' => $site_name),
+        'datePublished' => $published,
+        'dateModified'  => $modified,
+      );
+      if (! empty($image)) {
+        $article['image'] = array('@type' => 'ImageObject', 'url' => $image);
+        if (! empty($site_logo)) {
+          $article['publisher']['logo'] = array('@type' => 'ImageObject', 'url' => $site_logo);
+        }
+      }
+
+      echo "<script type=\"application/ld+json\">\n" . wp_json_encode($article, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . "\n</script>\n";
+
+      wp_reset_postdata();
+    }
+
+    // BreadcrumbList: Breadcrumb NavXT が有効ならプラグインに任せる
+    if (! kdr_has_breadcrumb_navxt() && is_singular() && $post) {
+      setup_postdata($post);
+
+      $breadcrumbs = array();
+      $position = 1;
+      $breadcrumbs[] = array('@type' => 'ListItem', 'position' => $position++, 'name' => get_bloginfo('name'), 'item' => home_url('/'));
+
+      if (is_singular('post')) {
+        $cats = get_the_category($post->ID);
+        if (! empty($cats)) {
+          $cat = $cats[0];
+          $breadcrumbs[] = array('@type' => 'ListItem', 'position' => $position++, 'name' => $cat->name, 'item' => get_category_link($cat->term_id));
+        }
+      }
+
+      $breadcrumbs[] = array('@type' => 'ListItem', 'position' => $position++, 'name' => get_the_title($post), 'item' => get_permalink($post));
+
+      $breadcrumb_ld = array('@context' => 'https://schema.org', '@type' => 'BreadcrumbList', 'itemListElement' => $breadcrumbs);
+      echo "<script type=\"application/ld+json\">\n" . wp_json_encode($breadcrumb_ld, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) . "\n</script>\n";
+
+      wp_reset_postdata();
+    } else {
+      if (kdr_has_breadcrumb_navxt() && current_user_can('manage_options')) {
+        echo "<!-- kdr: BreadcrumbList skipped because Breadcrumb NavXT is active. -->\n";
+      }
+    }
+  }
+}
+
+/* -------------------------
+   hreflang（日本語単一サイトのため基本は ja を指定）
+   ------------------------- */
+add_action('wp_head', 'kdr_hreflang_links', 2);
+if (! function_exists('kdr_hreflang_links')) {
+  function kdr_hreflang_links()
+  {
+    if (is_admin()) return;
+    echo '<link rel="alternate" href="' . esc_url(home_url('/')) . '" hreflang="ja">' . "\n";
+
+    if (function_exists('icl_get_languages')) {
+      $langs = icl_get_languages('skip_missing=0&orderby=code');
+      if (! empty($langs)) {
+        foreach ($langs as $l) {
+          if (! empty($l['url']) && ! empty($l['language_code'])) {
+            echo '<link rel="alternate" href="' . esc_url($l['url']) . '" hreflang="' . esc_attr($l['language_code']) . '">' . "\n";
+          }
+        }
+      }
+    } elseif (function_exists('pll_the_languages')) {
+      $locales = function_exists('pll_languages_list') ? pll_languages_list(array('fields' => 'locale')) : array();
+      foreach ($locales as $locale) {
+        $lang_code = substr($locale, 0, 2);
+        echo '<link rel="alternate" href="' . esc_url(home_url('/')) . '" hreflang="' . esc_attr($lang_code) . '">' . "\n";
+      }
+    }
+  }
+}
+
+/* -------------------------
+   投稿公開時に sitemap を search engines (Google/Bing) に ping
+   ------------------------- */
+add_action('publish_post', 'kdr_ping_search_engines_on_publish', 10, 2);
+if (! function_exists('kdr_ping_search_engines_on_publish')) {
+  function kdr_ping_search_engines_on_publish($ID, $post)
+  {
+    $sitemap_urls = array(
+      home_url('/sitemap.xml'),
+      home_url('/sitemap_index.xml'),
+      home_url('/sitemap.xml.gz'),
+    );
+
+    foreach ($sitemap_urls as $sitemap) {
+      $sitemap = esc_url_raw($sitemap);
+      wp_remote_get('https://www.google.com/ping?sitemap=' . urlencode($sitemap), array('timeout' => 5, 'sslverify' => true));
+      wp_remote_get('https://www.bing.com/ping?sitemap=' . urlencode($sitemap), array('timeout' => 5, 'sslverify' => true));
+    }
+  }
+}
+
+
+
+/* -------------------------
+   管理画面通知（任意）
+   ------------------------- */
+add_action('admin_notices', 'kdr_seo_plugin_compat_admin_notice');
+if (! function_exists('kdr_seo_plugin_compat_admin_notice')) {
+  function kdr_seo_plugin_compat_admin_notice()
+  {
+    if (! current_user_can('manage_options')) return;
+    $msgs = array();
+    if (kdr_has_aioseo()) $msgs[] = 'All in One SEO が検出されました。テーマはデフォルトで meta description の出力をプラグインに委ねます（必要なら add_filter(\'kdr_allow_theme_meta_description\', \'__return_true\'); を追加してください）。';
+    if (kdr_has_contact_form_7()) $msgs[] = 'Contact Form 7 が検出されました（フォームページはデフォルトで index を維持します）。';
+    if (kdr_has_snow_monkey_forms()) $msgs[] = 'Snow Monkey Forms が検出されました（フォームページはデフォルトで index を維持します）。';
+    if (kdr_has_breadcrumb_navxt()) $msgs[] = 'Breadcrumb NavXT が検出されました（Breadcrumb JSON-LD はプラグインに任せます）。';
+    if (! empty($msgs)) {
+      echo '<div class="notice notice-info is-dismissible"><p>' . implode('<br>', array_map('esc_html', $msgs)) . '</p></div>';
+    }
+  }
+}
