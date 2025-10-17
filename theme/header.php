@@ -84,6 +84,17 @@
 
 		<div id="js-add_header" class="header_add">
 			<div class="header-inner">
-				あたらしく出現するヘッダー
+				<div class="container">
+					<div class="header--btn">
+						<a href="https://asts-test.com/krenta/reservation">
+							レンタカーのご予約はコチラ
+							<span>24時間いつでも受付中</span>
+						</a>
+						<a href="tel:0120-995-758">
+							0120-995-758
+							<span>年中無休 10：00～19：00</span>
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>

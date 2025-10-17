@@ -95,38 +95,62 @@ window.addEventListener("load", () => {
 
 
 //上から出てくるヘッダー
-document.addEventListener('DOMContentLoaded', function () {
-  var fixedHeader = document.getElementById('js-add_header');
+document.addEventListener('DOMContentLoaded', () => {
+  const fixedHeader = document.getElementById('js-add_header');
   if (!fixedHeader) return;
 
-  var ticking = false;
-  window.addEventListener('scroll', function () {
-    if (!ticking) {
-      window.requestAnimationFrame(function () {
-        var scroll = window.scrollY || window.pageYOffset;
-        fixedHeader.classList.toggle('is-show', scroll > 200);
-        ticking = false;
-      });
-      ticking = true;
+  const SHOW_AT = 250;   // 表示しはじめる位置
+  const HIDE_BELOW = 280; // 消しはじめる位置（少し下げてヒステリシス）
+  let shown = false;
+
+  const update = () => {
+    const y = window.scrollY || window.pageYOffset;
+
+    if (!shown && y > SHOW_AT) {
+      shown = true;
+      fixedHeader.classList.add('is-show');
+    } else if (shown && y < HIDE_BELOW) {
+      shown = false;
+      fixedHeader.classList.remove('is-show');
     }
+  };
+
+  // 必要なら軽いスロットル（任意）
+  let tid = null;
+  window.addEventListener('scroll', () => {
+    if (tid) return;
+    tid = setTimeout(() => { tid = null; update(); }, 50);
   }, { passive: true });
+
+  update(); // 初期表示を反映
+});
+
+
+//SPの時の追従ボタン
+window.addEventListener('scroll', function () {
+  const fixedbtn = document.getElementById("js_fixed-btn");
+  let offsetTop = fixedbtn.getBoundingClientRect().top + window.pageYOffset;
+  if (500 < offsetTop) {
+    fixedbtn.classList.add("is-active");
+  } else {
+    fixedbtn.classList.remove("is-active");
+  }
 });
 
 
 
+// (function ($, root, undefined) {
+//   console.log('jqueryのコードはここ');
+//   //   $(window).scroll(function () {
+//   //     // 画面スクロールの値を取得
+//   //     var scroll = $(window).scrollTop();
 
-(function ($, root, undefined) {
-  // console.log('jqueryのコードはここ');
-  //   $(window).scroll(function () {
-  //     // 画面スクロールの値を取得
-  //     var scroll = $(window).scrollTop();
-
-  //     // スクロールの値が200pxを超えると追従ヘッダーを表示
-  //     if (scroll > 200) {
-  //       $("#js-fixed-header").addClass("is-show");
-  //     } else {
-  //       $("#js-fixed-header").removeClass("is-show");
-  //     }
-  //   });
-  // });
-})(jQuery, this);
+//   //     // スクロールの値が200pxを超えると追従ヘッダーを表示
+//   //     if (scroll > 200) {
+//   //       $("#js-fixed-header").addClass("is-show");
+//   //     } else {
+//   //       $("#js-fixed-header").removeClass("is-show");
+//   //     }
+//   //   });
+//   // });
+// })(jQuery, this);

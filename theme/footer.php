@@ -1,3 +1,9 @@
+<div class="fixed-btn" id="js_fixed-btn">
+  <p class="fixed-btn-entry"><a href="#">メールで予約</a></p>
+  <p class="fixed-btn-line"><a href="#" target="_blank">0120-995-758</a></p>
+</div>
+
+
 <footer class="footer">
   <div class="footer--inner">
     <div class="container">
