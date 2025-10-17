@@ -1,6 +1,6 @@
-<div class="fixed-btn" id="js_fixed-btn">
-  <p class="fixed-btn-entry"><a href="#">メールで予約</a></p>
-  <p class="fixed-btn-line"><a href="#" target="_blank">0120-995-758</a></p>
+<div class="footer_btn_fixed" id="js_fixed-btn">
+  <p class="footer_btn_fixed--mail"><a href="<?php echo home_url('/contact'); ?>">メールで予約する</a></p>
+  <p class="footer_btn_fixed--tel"><a href="tel:0120-995-758">電話で予約する</a></p>
 </div>
 
 

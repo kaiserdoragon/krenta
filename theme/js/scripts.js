@@ -126,16 +126,31 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-//SPの時の追従ボタン
-window.addEventListener('scroll', function () {
-  const fixedbtn = document.getElementById("js_fixed-btn");
-  let offsetTop = fixedbtn.getBoundingClientRect().top + window.pageYOffset;
-  if (500 < offsetTop) {
-    fixedbtn.classList.add("is-active");
+//SPの時のフッター追従ボタン
+(() => {
+  const btn = document.getElementById('js_fixed-btn');
+  if (!btn) return; // 要素がなければ即終了
+
+  const THRESHOLD = 500;
+  const controller = new AbortController();
+
+  const update = () => {
+    // スクロール量が閾値を超えたら is-active を付与
+    btn.classList.toggle('is-active', window.scrollY >= THRESHOLD);
+  };
+
+  // 初期状態を反映
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', update, { once: true });
   } else {
-    fixedbtn.classList.remove("is-active");
+    update();
   }
-});
+
+  // スクロール/リサイズで状態更新
+  window.addEventListener('scroll', update, { passive: true, signal: controller.signal });
+  window.addEventListener('resize', update, { passive: true, signal: controller.signal });
+})();
+
 
 
 

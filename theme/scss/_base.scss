@@ -495,7 +495,7 @@ main {
 
 
 
-.fixed-btn {
+.footer_btn_fixed {
   display: none;
 
   @include max-mq {
@@ -509,7 +509,7 @@ main {
     opacity: 0;
     transition: opacity 0.3s, visibility 0.3s;
 
-    > p {
+    p {
       width: 100%;
       margin: 0;
     }
@@ -518,18 +518,27 @@ main {
       border-left: 1px solid #fff;
     }
 
-    > p a {
+    a {
       display: block;
       padding: 1.6rem;
       font-size: 1.6rem;
       color: #fff;
       text-align: center;
       text-decoration: none;
-      background: linear-gradient(45deg, #ffad31, #ff845e);
     }
 
-    > .fixed-btn-line a {
-      background: linear-gradient(45deg, #ff3131, #ff5e5e);
+    // .footer_btn_fixed--mail
+    &--mail {
+      a {
+        background: linear-gradient(45deg, #ffad31, #ff845e);
+      }
+    }
+
+    // .footer_btn_fixed--tel
+    &--tel {
+      a {
+        background: linear-gradient(45deg, #ff3131, #ff5e5e);
+      }
     }
 
     &.is-active {
