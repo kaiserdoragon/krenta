@@ -19,18 +19,18 @@
               </h2>
 
               <ul>
-                <li>用途に合わせて使い方自由自在</li>
-                <li>リーズナブルなレンタカー充実</li>
-                <li>ファミリーや営業車としても</li>
-                <li>ビジネスにプライベートに！</li>
-                <li>業界トップクラスの低価格</li>
+                <li><span>用途に合わせて使い方自由自在</span></li>
+                <li><span>リーズナブルなレンタカー充実</span></li>
+                <li><span>ファミリーや営業車としても</span></li>
+                <li><span>ビジネスにプライベートに！</span></li>
+                <li><span>業界トップクラスの低価格</span></li>
               </ul>
             </div>
             <picture class="top_mv_01--bg">
               <!-- SP: まずWebP（768px以下の時） -->
               <source
                 srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv1_sp.webp"
-                media="(max-width: 768px)"
+                media="(max-width: 1024px)"
                 type="image/webp"
                 width="375"
                 height="426" />
@@ -38,7 +38,7 @@
               <!-- SP: WebP非対応時のJPEG -->
               <source
                 srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv1_sp.jpg"
-                media="(max-width: 768px)"
+                media="(max-width: 1024px)"
                 width="375"
                 height="426" />
 
@@ -61,28 +61,16 @@
         </div>
         <div class="swiper-slide">
           <article class="top_mv_02">
-            <div class="top_mv--contents">
-              <strong class="top_mv--lead">名古屋<span>の</span>格安レンタカー</strong>
-              <div class="top_mv--dayprice">
-                <span class="top_mv--mark">最安値<br>挑戦中</span>
-                <p>
-                  <span class="top_mv--one">1</span>日当たり<b>816</b><span class="top_mv--yen">円～</span><span class="top_mv--taxin">（税込）</span>
-                </p>
-              </div>
-
-              <h2 class="top_mv--weekprice">
-                1<span>週間</span><span>7,500</span><span>円～</span><span>（税込）</span>
+            <div class="top_mv_02--contents">
+              <p class="top_mv_02--lead">軽自動車専門の格安レンタカー</p>
+              <strong>業界トップクラスの低価格を実現!!</strong>
+              <h2>
+                <span class="top_mv_01--one">1</span>日当たり<span class="top_mv_02--marker"><b>816</b><span class="top_mv_01--yen">円～</span></span><span class="top_mv_01--taxin">（税込）</span>
               </h2>
-
-              <ul>
-                <li>用途に合わせて使い方自由自在</li>
-                <li>リーズナブルなレンタカー充実</li>
-                <li>ファミリーや営業車としても</li>
-                <li>ビジネスにプライベートに！</li>
-                <li>業界トップクラスの低価格</li>
-              </ul>
+              <p class="top_mv_02--txt">Kレンタの格安レンタカーは<span>ウィークリー</span>と<span>マンスリー</span>の<br class="is-hidden_sp">2プランでご利用いただけます。</p>
+              <img src="<?php echo get_template_directory_uri(); ?>/img/top/img_mv2.png" alt="" width="718" height="177">
             </div>
-            <picture class="top_mv--bg">
+            <picture class="top_mv_02--bg">
               <!-- SP: まずWebP（500px以下の時） -->
               <source
                 srcset="<?php echo get_template_directory_uri(); ?>/img/top/mv.webp"

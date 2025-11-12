@@ -8,8 +8,8 @@
 	<meta name="description" content="<?php if (wp_title('', false)): ?><?php bloginfo('name'); ?>の<?php echo trim(wp_title('', false)); ?>のページです。<?php endif; ?><?php bloginfo('description'); ?>">
 	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico">
 	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon.png">
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/reset.css">
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css<?php echo '?' . date('YmdHis'); ?>">
+	<!-- <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/reset.css">
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css<?php echo '?' . date('YmdHis'); ?>"> -->
 	<?php wp_head(); ?>
 </head>
 
@@ -82,19 +82,15 @@
 			</button>
 		</header>
 
-		<div id="js-add_header" class="header_add">
-			<div class="header-inner">
-				<div class="container">
-					<div class="header--btn">
-						<a href="https://asts-test.com/krenta/reservation">
-							レンタカーのご予約はコチラ
-							<span>24時間いつでも受付中</span>
-						</a>
-						<a href="tel:0120-995-758">
-							0120-995-758
-							<span>年中無休 10：00～19：00</span>
-						</a>
-					</div>
-				</div>
+		<div id="js-fixed-header" class="fixed-header">
+			<div class="header--btn">
+				<a href="<?php echo home_url('/reservation'); ?>">
+					レンタカーのご予約はコチラ
+					<span>24時間いつでも受付中</span>
+				</a>
+				<a href="tel:0120-995-758">
+					0120-995-758
+					<span>年中無休 10：00～19：00</span>
+				</a>
 			</div>
 		</div>

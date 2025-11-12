@@ -6,16 +6,13 @@
 // ---------------------------------------------
 
 .top_mv_01 {
-  article {
-    position: relative;
-  }
-
   ul {
     display: flex;
     flex-wrap: wrap;
     gap: 25px;
     align-items: center;
     justify-content: center;
+    padding: 0 min(4vw, 25px);
   }
 
   li {
@@ -26,8 +23,23 @@
     font-weight: bold;
     color: #fff;
     text-align: center;
-    background: url(../img/top/icon_check.svg) no-repeat left 11px center / 5%;
     border: 1px solid #fff;
+
+    span {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: -35px;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        content: "";
+        background: url(../img/top/icon_check.svg) no-repeat left 11px center / 15px;
+        transform: translateY(-50%);
+      }
+    }
   }
 
   //.top_mv_01--contents
@@ -42,15 +54,16 @@
     margin: auto;
     transform: translate(-50%, -50%);
 
-    @media (width <= 1400px) {
+    @media (width <= 1480px) {
       max-width: 900px;
     }
 
-    @media (width <= 1200px) {
-      max-width: 700px;
+    @media (width <= 1280px) {
+      left: 40%;
     }
 
-    @include max-mq {
+    @include tb-mq {
+      top: 42%;
       left: 50%;
       max-width: none;
       padding: 0 5px;
@@ -92,7 +105,7 @@
       font-size: min(var(--fz48), 2.5vw);
     }
 
-    @include max-mq {
+    @include tb-mq {
       padding: 0 15px;
       font-size: 7vw;
     }
@@ -104,16 +117,28 @@
     align-items: center;
     align-self: self-end;
     justify-content: center;
-    width: 5.2083333333vw;
-    height: 5.2083333333vw;
-    font-size: 0.9vw;
+    width: 110px;
+    height: 110px;
+    font-size: var(--fz21);
     font-weight: 700;
     color: #fff;
     background: #ff0041;
     border: 3px solid #fff;
     border-radius: 50%;
 
-    @include max-mq {
+    @media (width <= 1480px) {
+      width: 100px;
+      height: 100px;
+      font-size: var(--fz22);
+    }
+
+    @media (width <= 1280px) {
+      width: 80px;
+      height: 80px;
+      font-size: var(--fz16);
+    }
+
+    @include tb-mq {
       width: 17vw;
       height: 17vw;
       font-size: 3.5vw;
@@ -132,13 +157,13 @@
     background: linear-gradient(to bottom, transparent 0%, transparent 25%, rgb(255 255 255 / 90%) 25%, rgb(255 255 255 / 90%) 90%, transparent 90%, transparent 100%);
 
     p {
-      font-size: 1.6666666666666667vw;
+      font-size: var(--fz35);
       font-weight: 900;
       color: $color-blue2;
     }
 
     b {
-      font-size: 4.3vw;
+      font-size: var(--fz92);
       font-weight: 900;
       line-height: 1;
       color: #ff0041;
@@ -146,7 +171,25 @@
       -webkit-text-stroke-color: #fff;
     }
 
-    @include max-mq {
+    @media (width <= 1480px) {
+      p {
+        font-size: var(--fz35);
+      }
+
+      b {
+        font-size: var(--fz85);
+      }
+    }
+
+    @media (width <= 1280px) {
+      padding: 0 20px;
+
+      p {
+        font-size: var(--fz25);
+      }
+    }
+
+    @include tb-mq {
       gap: 5px;
       padding: 0 5px;
 
@@ -163,10 +206,14 @@
 
   //.top_mv_01--one
   &--one {
-    font-size: 2.2395833333333335vw;
+    font-size: var(--fz45);
 
     .top_mv_01--weekprice & {
-      font-size: 4vw;
+      font-size: var(--fz85);
+    }
+
+    @include tb-mq {
+      font-size: var(--fz70);
     }
 
     @include max-mq {
@@ -193,6 +240,10 @@
       -webkit-text-stroke-color: unset;
     }
 
+    @media (width <= 1480px) {
+      font-size: var(--fz50);
+    }
+
     @include max-mq {
       font-size: 7.5vw;
       -webkit-text-stroke-width: 0.5vw;
@@ -208,7 +259,7 @@
     font-size: 1.4vw;
 
     .top_mv_01--weekprice & {
-      font-size: 2.3vw;
+      font-size: var(--fz45);
       color: #fff;
     }
 
@@ -226,7 +277,7 @@
     position: relative;
     width: fit-content;
     margin: auto;
-    font-size: 2.8vw;
+    font-size: var(--fz70);
     font-weight: 900;
     color: #fff;
 
@@ -236,12 +287,18 @@
     }
 
     b {
-      font-size: 6vw;
+      font-size: var(--fz145);
       font-weight: 900;
       color: #f8ff36;
     }
 
-    @include max-mq {
+    @media (width <= 1480px) {
+      b {
+        font-size: var(--fz120);
+      }
+    }
+
+    @include tb-mq {
       font-size: 6vw;
 
       b {
@@ -262,7 +319,7 @@
       padding-top: 25px;
       margin: auto;
       content: "";
-      background: radial-gradient(circle 0.8vw, #fa9315 50%, transparent 50%);
+      background: radial-gradient(circle 13px, #fa9315 50%, transparent 50%);
     }
 
     @media (width <= 1200px) {
@@ -274,6 +331,179 @@
     @include max-mq {
       &::before {
         background: radial-gradient(circle 2vw, #fa9315 50%, transparent 50%);
+      }
+    }
+  }
+
+  //.top_mv_01--bg
+  &--bg {
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    @media (width <= 1650px) {
+      img {
+        height: 50vw;
+        object-fit: cover;
+      }
+    }
+
+    @media (width <= 1480px) {
+      img {
+        height: 700px;
+        object-fit: cover;
+        object-position: 57%;
+      }
+    }
+
+    @media (width <= 1280px) {
+      img {
+        width: 100%;
+        height: 60vw;
+        object-position: 60%;
+      }
+    }
+
+    @include tb-mq {
+      img {
+        height: auto;
+        object-position: unset;
+      }
+    }
+  }
+
+  @media (width <= 1400px) {
+    ul {
+      gap: 10px;
+    }
+  }
+
+  @media (width <= 1280px) {
+    li {
+      width: 34%;
+    }
+  }
+
+  @include tb-mq {
+    ul {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    li {
+      width: 55%;
+      padding: 10px 0;
+      background: url(../img/top/icon_check.svg) no-repeat left 6vw center / 15px;
+
+      span {
+        &::after {
+          content: none;
+        }
+      }
+    }
+  }
+
+  @include max-mq {
+    li {
+      width: 100%;
+      font-size: var(--fz14);
+      background: url(../img/top/icon_check.svg) no-repeat left 6vw center / 15px;
+    }
+  }
+}
+
+
+.top_mv_02 {
+  strong {
+    display: block;
+    font-size: 2.34375vw;
+    font-weight: 800;
+    color: #ff0041;
+    text-align: center;
+  }
+
+  h2 {
+    width: max-content;
+    margin: auto;
+    margin-block: 0 10px;
+    font-size: var(--fz65);
+    font-weight: 900;
+    color: #00234f;
+  }
+
+  b {
+    font-size: var(--fz160);
+    font-weight: 900;
+    line-height: 1;
+    color: #ff0041;
+    -webkit-text-stroke-width: 5px;
+    -webkit-text-stroke-color: #fff;
+  }
+
+  img {
+    display: block;
+    margin: auto;
+  }
+
+  //.top_mv_02--contents
+  &--contents {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    width: 100%;
+    padding: 0 min(4vw, 25px);
+    transform: translate(-50%, -50%);
+
+    .top_mv_01--one {
+      font-size: var(--fz85);
+    }
+
+    .top_mv_01--yen {
+      font-size: var(--fz90);
+      -webkit-text-stroke-width: 5px;
+    }
+
+    .top_mv_01--taxin {
+      font-size: var(--fz50);
+    }
+  }
+
+  //.top_mv_02--lead
+  &--lead {
+    width: fit-content;
+    padding: 10px 30px 10px 90px;
+    margin: 0 auto 30px;
+    font-size: 1.8229166666666667vw;
+    font-weight: 800;
+    color: #008cfd;
+    background: url(../img/top/icon_car.svg) no-repeat left 4% center / 51px 32px, #fff;
+    border: 3px solid #008cfd;
+    border-radius: 1000px;
+  }
+
+  //.top_mv_02--marker
+  &--marker {
+    padding: 0 25px;
+    background: linear-gradient(to bottom, transparent 0%, transparent 50%, #fff100 50%, #fff100 90%, transparent 90%, transparent 100%);
+  }
+
+  //.top_mv_02--txt
+  &--txt {
+    margin-bottom: 40px;
+    font-size: var(--fz25);
+    font-weight: 700;
+    text-align: center;
+
+    span {
+      &:first-of-type {
+        color: #fa9315;
+      }
+
+      &:last-of-type {
+        color: #008cfd;
       }
     }
   }
@@ -299,39 +529,5 @@
       }
     }
   }
-
-  @media (width <= 1400px) {
-    ul {
-      gap: 10px;
-    }
-
-    li {
-      width: 28%;
-      font-size: 14px;
-      background: url(../img/top/icon_check.svg) no-repeat left 6px center / 5%;
-    }
-  }
-
-  @media (width <= 1200px) {
-    li {
-      width: 34%;
-      font-size: 12px;
-    }
-  }
-
-  @include max-mq {
-    ul {
-      justify-content: flex-start;
-    }
-
-    li {
-      width: 60%;
-      padding: 5px 0;
-      margin: 0 0 0 15px;
-      font-size: 12px;
-      background: url(../img/top/icon_check.svg) no-repeat left 6px center / 10px;
-    }
-  }
 }
-
 
