@@ -517,7 +517,7 @@ if (!class_exists('Login_Security')) :
 endif;
 
 // ログインURLのカスタマイズ（デフォルトは 'wp-custom-login'）
-add_filter('login_endpoint_name', fn() => 'wp-custom-login');
+add_filter('login_endpoint_name', fn() => 'krenta2469');
 
 
 

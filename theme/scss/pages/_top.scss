@@ -295,14 +295,7 @@
 
     @include max-mq {
       img {
-        height: auto;
-      }
-    }
-
-    @media (width <= 500px) {
-      img {
-        height: 125vw;
-        object-position: -15px;
+        height: 140vw;
       }
     }
   }
