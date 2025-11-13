@@ -118,6 +118,10 @@ main {
     @include tb-mq {
       flex-direction: column;
     }
+
+    @include max-mq {
+      padding: 20px 5px;
+    }
   }
 
   // .header--btn
@@ -167,16 +171,17 @@ main {
     @include max-mq {
       .header--inner & {
         gap: 5px;
+        width: 100%;
 
         a {
-          width: 100%;
-          padding: 15px 0;
-          font-size: var(--fz20);
+          width: 49%;
+          padding: 11px 0;
+          font-size: var(--fz13);
           background: #fa9315;
 
           &:last-child {
-            padding: 11px 0;
-            font-size: var(--fz30);
+            padding: 10px 0;
+            font-size: var(--fz18);
             line-height: 1.3;
             background: #ff0041;
           }
@@ -184,7 +189,7 @@ main {
 
         span {
           margin-right: 0;
-          font-size: var(--fz18);
+          font-size: var(--fz12);
         }
       }
     }
@@ -240,7 +245,7 @@ main {
 
   @include max-mq {
     small {
-      font-size: var(--fz12);
+      font-size: var(--fz10);
 
       .container {
         padding: 15px min(4vw, 25px);
@@ -319,7 +324,7 @@ main {
     }
 
     .container {
-      padding: 30% min(4vw, 25px);
+      padding: 15% min(4vw, 25px) 0;
     }
   }
 }
@@ -335,8 +340,8 @@ main {
 
   @include max-mq {
     position: fixed;
-    top: 13px;
-    right: 10px;
+    top: 8px;
+    right: 5px;
     z-index: 99999999;
     display: flex;
     flex-direction: column-reverse;

@@ -112,6 +112,41 @@
               </picture>
             </article>
           </div>
+          <div class="swiper-slide">
+            <article class="top_mv_03">
+              <picture class="top_mv_03--bg">
+                <!-- SP: まずWebP（1024px以下の時） -->
+                <source
+                  srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv3_sp.webp"
+                  media="(max-width: 1024px)"
+                  type="image/webp"
+                  width="375"
+                  height="750" />
+
+                <!-- SP: WebP非対応時のJPEG -->
+                <source
+                  srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv3_sp.jpg"
+                  media="(max-width: 1024px)"
+                  width="375"
+                  height="750" />
+
+                <!-- PC: まずWebP（メディア条件なし＝SP条件に当たらなければPC用が選ばれる） -->
+                <source
+                  srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv3.webp"
+                  type="image/webp"
+                  width="1920"
+                  height="700" />
+
+                <!-- フォールバック（最終手段） -->
+                <img
+                  src="<?php echo get_template_directory_uri(); ?>/img/top/img_mv3.jpg"
+                  alt=""
+                  width="1920"
+                  height="700"
+                  fetchpriority="high" />
+              </picture>
+            </article>
+          </div>
         </div>
       </div>
       <div class="swiper-pagination"></div>
