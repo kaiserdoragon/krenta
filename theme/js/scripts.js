@@ -153,10 +153,11 @@ window.addEventListener("load", () => {
     var threshold = 0;
     var ticking = false;
     var enabled = false;
+    var initialized = false;
 
     function recalcThreshold() {
       threshold = $main.length ? $main.offset().top : 0;
-      apply(); // リサイズ直後にも状態反映
+      apply();
     }
 
     function apply() {
@@ -165,6 +166,12 @@ window.addEventListener("load", () => {
         $header.addClass('is-visible');
       } else {
         $header.removeClass('is-visible');
+      }
+
+      // 初回 apply のあとでだけ is-ready を付ける
+      if (!initialized) {
+        $header.addClass('is-ready');
+        initialized = true;
       }
     }
 
@@ -181,7 +188,7 @@ window.addEventListener("load", () => {
     function enable() {
       if (enabled) return;
       enabled = true;
-      recalcThreshold(); // 初期状態を即反映（途中位置リロード対策）
+      recalcThreshold();
       $win.on('scroll.fixedHeader', onScroll);
       $win.on('resize.fixedHeader', recalcThreshold);
     }
@@ -189,8 +196,9 @@ window.addEventListener("load", () => {
     function disable() {
       if (!enabled) return;
       enabled = false;
-      $win.off('.fixedHeader');      // 名前空間付きで一括解除
-      $header.removeClass('is-visible');
+      $win.off('.fixedHeader');
+      $header.removeClass('is-visible is-ready');
+      initialized = false;
     }
 
     function check() {
@@ -198,16 +206,15 @@ window.addEventListener("load", () => {
       else disable();
     }
 
-    // 初期判定
     check();
 
-    // 768px をまたいだら有効/無効を切り替え
     if (mql.addEventListener) {
       mql.addEventListener('change', check);
-    } else if (mql.addListener) { // 古いブラウザ向けフォールバック（非推奨API）
+    } else if (mql.addListener) {
       mql.addListener(check);
     }
   });
+
 
 
 })(jQuery, this);

@@ -11,7 +11,10 @@
         <div class="footer--logo">
           <small>名古屋の格安・激安ウィークリー・マンスリーレンタカー店</small>
           <a href="<?php echo home_url('/'); ?>">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/common/logo.png" alt="名古屋の格安レンタカー店「Kレンタ」" width="300" height="62">
+            <picture>
+              <source srcset="<?php echo get_template_directory_uri(); ?>/img/common/logo.webp" type="image/webp">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/common/logo.png" alt="名古屋の格安レンタカー店「Kレンタ」" width="300" height="62">
+            </picture>
           </a>
         </div>
         <ul>

@@ -66,11 +66,17 @@
                 <p class="top_mv_02--lead">軽自動車専門の格安レンタカー</p>
                 <strong>業界トップクラスの低価格を実現!!</strong>
                 <h2>
-                  <span class="top_mv_01--one">1</span>日当たり<span class="top_mv_02--marker"><b>816</b><span class="top_mv_01--yen">円～</span></span><span class="top_mv_01--taxin">（税込）</span>
+                  <span><span class="top_mv_01--one">1</span>日当たり</span>
+                  <div>
+                    <span class="top_mv_02--marker"><b>816</b><span class="top_mv_01--yen">円～</span></span><span class="top_mv_01--taxin">（税込）</span>
+                  </div>
                 </h2>
-                <p class="top_mv_02--txt">Kレンタの格安レンタカーは<span>ウィークリー</span>と<span>マンスリー</span>の<br class="is-hidden_sp">2プランでご利用いただけます。</p>
+                <p class="top_mv_02--txt">Kレンタの格安レンタカーは<br class="is-hidden_pc"><span>ウィークリー</span>と<span>マンスリー</span>の<br class="is-hidden_sp">2プランでご利用いただけます。</p>
                 <picture>
-                  <img src="<?php echo get_template_directory_uri(); ?>/img/top/img_mv2.png" alt="" width="718" height="177">
+                  <source srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_cars_sp.webp" media="(max-width: 1024px)" width="343" height="265" />
+                  <source srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_cars_sp.png" media="(max-width: 1024px)" width="343" height="265" />
+                  <source srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_cars.webp" type="image/webp" width="718" height="177" fetchpriority="high">
+                  <img src="<?php echo get_template_directory_uri(); ?>/img/top/img_cars.png" alt="" width="718" height="177" fetchpriority="high">
                 </picture>
               </div>
               <picture class="top_mv_02--bg">

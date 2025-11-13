@@ -8,8 +8,6 @@
 	<meta name="description" content="<?php if (wp_title('', false)): ?><?php bloginfo('name'); ?>の<?php echo trim(wp_title('', false)); ?>のページです。<?php endif; ?><?php bloginfo('description'); ?>">
 	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico">
 	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon.png">
-	<!-- <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/reset.css">
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css<?php echo '?' . date('YmdHis'); ?>"> -->
 	<?php wp_head(); ?>
 </head>
 
@@ -25,7 +23,10 @@
 				<h1>
 					<span>名古屋の格安・激安ウィークリー・マンスリーレンタカー店</span>
 					<a href="<?php echo home_url('/'); ?>">
-						<img src="<?php echo get_template_directory_uri(); ?>/img/common/logo.png" alt="名古屋の格安レンタカー店「Kレンタ」" width="429" height="89">
+						<picture>
+							<source srcset="<?php echo get_template_directory_uri(); ?>/img/common/logo.webp" type="image/webp">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/common/logo.png" alt="名古屋の格安レンタカー店「Kレンタ」" width="429" height="89">
+						</picture>
 					</a>
 				</h1>
 				<div class="header--btn">
