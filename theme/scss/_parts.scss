@@ -16,6 +16,14 @@ img {
   vertical-align: bottom;
 }
 
+.sec {
+  padding: 120px 0;
+}
+
+.bg_blue {
+  background: #f5f9fe;
+}
+
 // レスポンシブ table　表
 table {
   width: 100%;
@@ -55,8 +63,15 @@ table {
 
 .bold {
   // font-weight: boldのとき、文字がにじんで見える場合はこのclassで太字にする（YuGothic Midiumを使わないようにする）
-  font-family: "Helvetica Neue", "Arial", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "YuGothic",
-    "Yu Gothic", "Meiryo", sans-serif;
+  font-family:
+    "Helvetica Neue",
+    "Arial",
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    "YuGothic",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
   font-weight: bold;
 }
 

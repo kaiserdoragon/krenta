@@ -152,6 +152,27 @@
       <div class="swiper-pagination"></div>
     </div>
 
+    <section class="top_greet sec bg_blue">
+      <div class="container">
+        <img src="<?php echo get_template_directory_uri(); ?>/img/top/greet_anniversary.png" alt="" width="432" height="217">
+        <img src="<?php echo get_template_directory_uri(); ?>/img/top/greet_logo.png" alt="" width="215" height="82">
+        <h2><span><span>20</span>周年</span>のご挨拶</h2>
+        <p>
+          いつもKレンタをご利用いただき、誠にありがとうございます。<br>
+          Kレンタは名古屋で創業して、蟹江町に移転しました。<br>
+          地域のお客さまとともに歩みを重ね、<br>
+          20周年を迎えることができました。<br>
+          支えてくださったすべての皆さまに、心より御礼申し上げます。<br>
+          当店は、日々の移動や通勤、出張や単身赴任、ご家族でのお出かけ、<br class="is-hidden_sp">
+          ちょっとした荷物運搬まで、使える格安レンタカーとして、<br class="is-hidden_sp">
+          軽自動車に特化したウィークリー／マンスリーの分かりやすい料金プランをご用意し、<br class="is-hidden_sp">
+          暮らしと仕事の足を支えてまいりました。<br>
+          これからも、はじめての方にも選びやすい料金体系、日常的に使いやすい品揃え、<br class="is-hidden_sp">
+          そして安心してお任せいただける対応を大切に、より良いサービスに磨きをかけてまいります。<br>
+          節目の年も、皆さまのカーライフに寄り添い続けます。
+        </p>
+      </div>
+    </section>
 
 
     <section class="top_info">
@@ -176,92 +197,6 @@
       </dl>
       <?php wp_reset_postdata(); ?>
     </section>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
 
 </main>
 <?php get_footer(); ?>
