@@ -186,18 +186,18 @@
             短期から長期まで<br class="is-hidden_sp">
             名古屋での毎日にちょうどいい1台をご用意。
           </p>
-          <p>
+          <p class="top_about--txt">
             セカンドカー・商用・長期出張・移住準備、ローンを組みたくない方にもぴったりです。
           </p>
-          <div>
-            <span><span>1</span>日当たり</span>
-            <b>816円～(税込)</b>
+          <div class="top_about--offer">
+            <span class="top_about--num"><span>1</span>日当たり</span>
+            <b class="top_about--price"><span>816</span>円～(税込)</b>
           </div>
           <p>
             お得にレンタルOK！！<br>
             名古屋市内の移動はもちろん、週末ドライブや帰省の相棒にもどうぞ。
           </p>
-          <p>
+          <p class="top_about--txt -orange">
             名古屋で格安に車を借りるなら<br class="is-hidden_sp">
             Kレンタにお任せください！
           </p>
@@ -205,28 +205,58 @@
       </div>
     </section>
 
+    <section class="top_cv">
+      <div class="container">
+        <p>
+          レンタカーのお問い合わせ・ご予約は<br>
+          下記からお気軽にお問い合わせください！！
+        </p>
+        <div class="header--btn">
+          <a href="<?php echo home_url('/reservation'); ?>">
+            レンタカーのご予約はコチラ
+            <span>24時間いつでも受付中</span>
+          </a>
+          <a href="tel:0120-995-758">
+            0120-995-758
+            <span>年中無休 10：00～19：00</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-    <section class="top_info">
-      <h2 class="top_info--ttl">お知らせ</h2>
-      <?php
-      $args = array(
-        'posts_per_page' => 3,
-        'post_type' => 'post', //postは通常の投稿機能
-        'post_status' => 'publish'
-      );
-      $my_posts = get_posts($args);
-      ?>
-      <dl class="top_info--list">
-        <?php foreach ($my_posts as $post): setup_postdata($post); ?>
-          <dt class="top_info--term">
-            <span class="top_info--time"><?php the_time('Y.m.j'); ?></span>
-          </dt>
-          <dd class="top_info--detail">
-            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-          </dd>
-        <?php endforeach; ?>
-      </dl>
-      <?php wp_reset_postdata(); ?>
+    <section class="top_info sec">
+      <div class="container">
+        <h2 class="ttl">お知らせ</h2>
+        <?php
+        $args = array(
+          'posts_per_page' => 3,
+          'post_type'      => 'post',
+          'post_status'    => 'publish'
+        );
+        $my_posts = get_posts($args);
+        ?>
+        <dl class="top_info--list">
+          <?php foreach ($my_posts as $post): setup_postdata($post); ?>
+            <div class="top_info--item">
+              <dt class="top_info--term">
+                <span class="top_info--time"><?php the_time('Y.m.d'); ?></span>
+                <?php
+                $categories = get_the_category();
+                if (! empty($categories)) {
+                  $cat_slug = esc_attr($categories[0]->slug);
+                  $cat_name = esc_html($categories[0]->name);
+                  echo '<span class="top_info--cat cat-' . $cat_slug . '">' . $cat_name . '</span>';
+                }
+                ?>
+              </dt>
+              <dd class="top_info--detail">
+                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+              </dd>
+            </div>
+          <?php endforeach; ?>
+        </dl>
+        <?php wp_reset_postdata(); ?>
+      </div>
     </section>
 
 </main>

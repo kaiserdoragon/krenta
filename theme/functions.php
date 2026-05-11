@@ -244,7 +244,6 @@ if (! function_exists('theme_enqueue_js_only_optimized_assets')) {
     // スクリプト登録 — 必要に応じてハンドル名／パス／依存を調整してください
     $register_script('swiperjs',    'js/swiper-bundle.min.js', array());
     $register_script('mainscripts', 'js/scripts.js',           array('jquery'));
-    $register_script('animationjs', 'js/animation.js',         array('jquery'));
     $register_script('slider',      'js/slider.js',            array('jquery', 'swiperjs'));
 
     // ページごとの条件付き読み込み例（コメント解除して使用）
