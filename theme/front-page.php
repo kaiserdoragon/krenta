@@ -154,23 +154,54 @@
 
     <section class="top_greet sec bg_blue">
       <div class="container">
-        <img src="<?php echo get_template_directory_uri(); ?>/img/top/greet_anniversary.png" alt="" width="432" height="217">
-        <img src="<?php echo get_template_directory_uri(); ?>/img/top/greet_logo.png" alt="" width="215" height="82">
-        <h2><span><span>20</span>周年</span>のご挨拶</h2>
-        <p>
-          いつもKレンタをご利用いただき、誠にありがとうございます。<br>
-          Kレンタは名古屋で創業して、蟹江町に移転しました。<br>
-          地域のお客さまとともに歩みを重ね、<br>
-          20周年を迎えることができました。<br>
-          支えてくださったすべての皆さまに、心より御礼申し上げます。<br>
-          当店は、日々の移動や通勤、出張や単身赴任、ご家族でのお出かけ、<br class="is-hidden_sp">
-          ちょっとした荷物運搬まで、使える格安レンタカーとして、<br class="is-hidden_sp">
-          軽自動車に特化したウィークリー／マンスリーの分かりやすい料金プランをご用意し、<br class="is-hidden_sp">
-          暮らしと仕事の足を支えてまいりました。<br>
-          これからも、はじめての方にも選びやすい料金体系、日常的に使いやすい品揃え、<br class="is-hidden_sp">
-          そして安心してお任せいただける対応を大切に、より良いサービスに磨きをかけてまいります。<br>
-          節目の年も、皆さまのカーライフに寄り添い続けます。
-        </p>
+        <div class="bg_frame">
+          <div class="top_greet--image">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/top/greet_anniversary.png" alt="" width="432" height="217">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/top/greet_logo.png" alt="" width="215" height="82">
+          </div>
+          <h2 class="top_greet--ttl"><span class="top_greet--red"><span class="top_greet--num">20</span>周年</span>のご挨拶</h2>
+          <p>
+            いつもKレンタをご利用いただき、誠にありがとうございます。<br>
+            Kレンタは名古屋で創業して、蟹江町に移転しました。<br>
+            地域のお客さまとともに歩みを重ね、<br>
+            20周年を迎えることができました。<br>
+            支えてくださったすべての皆さまに、心より御礼申し上げます。<br>
+            当店は、日々の移動や通勤、出張や単身赴任、ご家族でのお出かけ、<br class="is-hidden_sp">
+            ちょっとした荷物運搬まで、使える格安レンタカーとして、<br class="is-hidden_sp">
+            軽自動車に特化したウィークリー／マンスリーの分かりやすい料金プランをご用意し、<br class="is-hidden_sp">
+            暮らしと仕事の足を支えてまいりました。<br>
+            これからも、はじめての方にも選びやすい料金体系、日常的に使いやすい品揃え、<br class="is-hidden_sp">
+            そして安心してお任せいただける対応を大切に、より良いサービスに磨きをかけてまいります。<br>
+            節目の年も、皆さまのカーライフに寄り添い続けます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="top_about sec">
+      <div class="container">
+        <h2 class="ttl">Kレンタの格安レンタカーについて</h2>
+        <div class="top_about--inner">
+          <p>
+            短期から長期まで<br class="is-hidden_sp">
+            名古屋での毎日にちょうどいい1台をご用意。
+          </p>
+          <p>
+            セカンドカー・商用・長期出張・移住準備、ローンを組みたくない方にもぴったりです。
+          </p>
+          <div>
+            <span><span>1</span>日当たり</span>
+            <b>816円～(税込)</b>
+          </div>
+          <p>
+            お得にレンタルOK！！<br>
+            名古屋市内の移動はもちろん、週末ドライブや帰省の相棒にもどうぞ。
+          </p>
+          <p>
+            名古屋で格安に車を借りるなら<br class="is-hidden_sp">
+            Kレンタにお任せください！
+          </p>
+        </div>
       </div>
     </section>
 

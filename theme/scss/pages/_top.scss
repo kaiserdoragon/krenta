@@ -637,3 +637,145 @@
     }
   }
 }
+
+.top_greet {
+  img {
+    display: block;
+    margin: auto;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .bg_frame {
+    position: relative;
+
+    &::before,
+    &::after {
+      position: absolute;
+      display: inline-block;
+      content: "";
+    }
+
+    &::before {
+      top: -75px;
+      left: -75px;
+      width: 224px;
+      aspect-ratio: 224/163;
+      background: url(../img/top/greet_decoration_left.png) no-repeat center/contain;
+    }
+
+    &::after {
+      right: -85px;
+      bottom: -75px;
+      width: 209px;
+      aspect-ratio: 209/177;
+      background: url(../img/top/greet_decoration_right.png) no-repeat center/contain;
+    }
+  }
+
+  // .top_greet--image
+  &--image {
+    position: relative;
+
+    &::before,
+    &::after {
+      position: absolute;
+      display: inline-block;
+      content: "";
+    }
+
+    &::before {
+      bottom: 0;
+      left: -30px;
+      width: 140px;
+      aspect-ratio: 140/222;
+      background: url(../img/top/greet_star_left.png) no-repeat center/contain;
+    }
+
+    &::after {
+      right: 0;
+      bottom: 0;
+      width: 117px;
+      aspect-ratio: 117/201;
+      background: url(../img/top/greet_star_right.png) no-repeat center/contain;
+    }
+  }
+
+  // .top_greet--ttl
+  &--ttl {
+    position: relative;
+    width: fit-content;
+    padding: 0 15%;
+    margin: auto;
+    font-size: var(--fz40);
+    font-weight: 900;
+    text-align: center;
+
+    &::before,
+    &::after {
+      position: absolute;
+      display: inline-block;
+      content: "";
+    }
+
+    &::before {
+      top: 0;
+      left: 0;
+      width: 83px;
+      aspect-ratio: 83/72;
+      background: url(../img/top/greet_blossoms.png) no-repeat center/contain;
+    }
+
+    &::after {
+      right: 0;
+      bottom: 0;
+      width: 83px;
+      aspect-ratio: 83/72;
+      background: url(../img/top/greet_blossoms.png) no-repeat center/contain;
+    }
+  }
+
+  // .top_greet--red
+  &--red {
+    color: $color-red;
+  }
+
+  // .top_greet--num
+  &--num {
+    font-size: var(--fz65);
+  }
+}
+
+
+.top_about {
+  // .top_about--inner
+  &--inner {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 900px;
+    padding: 60px 40px;
+    margin: auto;
+    background: #fff;
+    border: 3px solid #84bcff;
+    border-radius: 10px;
+
+    &::before {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      bottom: -10px;
+      left: -10px;
+      z-index: -1;
+      content: "";
+      background: #d5e8ff;
+      border-radius: 10px;
+
+      // border: solid 3px #4682b4;
+    }
+  }
+}
+
+

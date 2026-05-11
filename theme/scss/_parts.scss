@@ -16,6 +16,33 @@ img {
   vertical-align: bottom;
 }
 
+.ttl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+  font-size: var(--fz30);
+  font-weight: 900;
+  color: $color-blue;
+  text-align: center;
+
+  &::before,
+  &::after {
+    width: 40px;
+    height: 2px;
+    content: "";
+    background: $color-blue;
+  }
+
+  &::before {
+    margin-right: 15px;
+  }
+
+  &::after {
+    margin-left: 15px;
+  }
+}
+
 .sec {
   padding: 120px 0;
 }
@@ -23,6 +50,19 @@ img {
 .bg_blue {
   background: #f5f9fe;
 }
+
+.bg_frame {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 900px;
+  padding: 90px 100px;
+  margin: auto;
+  background: #fff 0% 0% no-repeat;
+  border: 3px solid #000;
+  border-radius: 20px;
+  box-shadow: 3px 3px 0 #000;
+}
+
 
 // レスポンシブ table　表
 table {
@@ -43,6 +83,8 @@ table {
     }
   }
 }
+
+
 
 // SPの時に邪魔されたときの対処コード
 // table tbody {
