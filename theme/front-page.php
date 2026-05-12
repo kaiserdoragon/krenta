@@ -427,6 +427,121 @@
             </div>
             <img src="<?php echo get_template_directory_uri(); ?>/img/top/reason_01.jpg" alt="" width="300" height="275">
           </li>
+          <li>
+            <div>
+              <h3>単身赴任時の足として（個人で利用）</h3>
+              <p>
+                単身赴任の場所でも自動車はあった方が断然便利です。<br>
+                こんな時、格安レンタカーがオススメ！<br>
+                長期利用（年間）が可能なので時間や料金を気にせず定額で<br class="is-hidden_sp">
+                毎月乗り放題！<br>
+                日常の足としてご利用いただけます。
+              </p>
+            </div>
+            <img src="<?php echo get_template_directory_uri(); ?>/img/top/reason_02.jpg" alt="" width="300" height="275">
+          </li>
+          <li>
+            <div>
+              <h3>営業車として（法人で利用）</h3>
+              <p>
+                会社所有の営業車の場合、車検や点検、<br class="is-hidden_sp">
+                税金など本業とは別に煩わしい業務が増えてしまいます。<br>
+                この点レンタカーなら煩わしい業務はすべてお任せ！<br>
+                毎月レンタカー料金をお支払いいただくだけで営業車として<br class="is-hidden_sp">
+                今すぐ活躍できます！
+              </p>
+            </div>
+            <img src="<?php echo get_template_directory_uri(); ?>/img/top/reason_03.jpg" alt="" width="300" height="275">
+          </li>
+          <li>
+            <div>
+              <h3>作業車として（法人で利用）</h3>
+              <p>
+                建設現場内の移動や、資材を積んで現場間の移動など<br class="is-hidden_sp">
+                「働く車」としても力を発揮します！<br>
+                格安レンタカーなら1週間～数ヶ月まで必要な期間だけ<br class="is-hidden_sp">
+                利用できるのでコスト削減も可能です。
+              </p>
+            </div>
+            <img src="<?php echo get_template_directory_uri(); ?>/img/top/reason_04.jpg" alt="" width="300" height="275">
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="top_voice sec bg_blue">
+      <div class="container">
+        <h2 class="ttl">お客様の声</h2>
+        <p class="top_voice--lead">
+          名古屋の格安レンタカーのKレンタには、ご利用いただいたお客様から声が寄せられます。
+          その一部をご紹介します。
+        </p>
+        <ul>
+          <li>
+            <dl>
+              <dt>
+                <span>名古屋 K様</span>
+                自家用車で利用しています。
+              </dt>
+              <dd>
+                以前は自分の車も持っていたんですが、維持費もかかる
+                ので今はこちらを借りてます。
+              </dd>
+            </dl>
+          </li>
+          <li>
+            <dl>
+              <dt>
+                <span>名古屋 F様</span>
+                マイカー感覚になりました
+              </dt>
+              <dd>
+                週末だけ車が必要で、毎回カーシェアや他社レンタカーと
+                比較していましたが、こちらは軽自動車専門で料金が分か
+                りやすく、結果的に一番お得だと感じました。
+              </dd>
+            </dl>
+          </li>
+          <li>
+            <dl>
+              <dt>
+                <span>名古屋 I社様</span>
+                いつも年始に利用してます。
+              </dt>
+              <dd>
+                毎年社員総出で年始回りしますが足りない車をKレンタ
+                さんでお願いしています。今年もよろしくお願いします。
+              </dd>
+            </dl>
+          </li>
+          <li>
+            <dl>
+              <dt>
+                <span>名古屋 H様</span>
+                感動しました
+              </dt>
+              <dd>
+                こんな安いレンタカーがあるって最近まで知りません
+                でした。今まで結構高い金額出して借りてたんですが、
+                今までのは何だったんだって感じです。（涙）
+                これからも是非利用させてください！
+              </dd>
+            </dl>
+          </li>
+          <li>
+            <dl>
+              <dt>
+                <span>名古屋 A社様</span>
+                営業車で利用させてもらってます。
+              </dt>
+              <dd>
+                変化が激しい昨今、営業車を自社所有するのはリスクが
+                伴い二の足を踏んでいました。
+                経営者仲間の情報で格安レンタカーがあると知り、イン
+                ターネット検索で御社に辿り着きました。
+              </dd>
+            </dl>
+          </li>
         </ul>
       </div>
     </section>
@@ -478,6 +593,20 @@
 
           <?php wp_reset_postdata(); ?>
         <?php endif; ?>
+      </div>
+    </section>
+
+    <section class="top_area">
+      <div class="container">
+        <h2 class="ttl">対応エリア</h2>
+        <img src="<?php echo get_template_directory_uri(); ?>/img/top/area_map.png" alt="" width="444" height="408">
+        <p>
+          名古屋市（天白区・北区・昭和区・千種区・中区・中川区・西区・東区・瑞穂区・緑区・南区・港区・名東区・守山区）
+          愛西市・あま市・安城市・一宮市・稲沢市・大府市・岡崎市・尾張旭市・春日井市・刈谷市・北名古屋市・清須市・
+          江南市・小牧市・瀬戸市・高浜市・知多市・知立市・津島市・東海市・常滑市・豊明市・豊田市・長久手市・西尾市・
+          日進市・半田市・碧南市・みよし市・弥富市・東郷町・大治町・蟹江町・阿久比町・美浜町・扶桑町・新城市・
+          豊川市・豊橋市・蒲郡市・幸田町
+        </p>
       </div>
     </section>
 

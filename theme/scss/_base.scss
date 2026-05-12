@@ -69,6 +69,23 @@ main {
   }
 }
 
+.eyecatch {
+  position: relative;
+
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 0 30px;
+    font-size: 60px;
+    font-weight: 800;
+    color: #002978;
+    background: #fff;
+    transform: translate(-50%, -50%);
+  }
+}
+
+
 // ---------------------------------------------
 //  ヘッダー関連 header
 // ---------------------------------------------
