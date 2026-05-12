@@ -4,26 +4,6 @@ if (!defined('ABSPATH')) {
   exit;
 }
 
-function my_theme_setup()
-{
-  add_theme_support('title-tag');
-  add_theme_support('post-thumbnails');
-
-  add_theme_support(
-    'html5',
-    array(
-      'search-form',
-      'comment-form',
-      'comment-list',
-      'gallery',
-      'caption',
-      'style',
-      'script',
-    )
-  );
-}
-add_action('after_setup_theme', 'my_theme_setup');
-
 /*------------------------------------*\
   初期設定
 \*------------------------------------*/
@@ -36,10 +16,26 @@ function origintheme_setup()
 {
   load_theme_textdomain('origintheme', get_template_directory() . '/languages');
 
-  add_theme_support('post-thumbnails');
-  add_image_size('custom-size', 300, 200, true);
-
   add_theme_support('title-tag');
+  add_theme_support('post-thumbnails');
+  add_theme_support('responsive-embeds');
+  add_theme_support('automatic-feed-links');
+
+  add_theme_support(
+    'html5',
+    array(
+      'search-form',
+      'comment-form',
+      'comment-list',
+      'gallery',
+      'caption',
+      'style',
+      'script',
+      'navigation-widgets',
+    )
+  );
+
+  add_image_size('custom-size', 300, 200, true);
 
   register_nav_menus(array(
     'global-menu' => 'グローバルナビゲーション',
@@ -55,14 +51,487 @@ add_filter('document_title_separator', 'origintheme_document_title_separator');
 
 function origintheme_document_title_parts($title)
 {
-  unset($title['tagline']);
+  if (!is_front_page()) {
+    unset($title['tagline']);
+  }
+
+  if (is_post_type_archive('post')) {
+    $title['title'] = 'お知らせ';
+  }
+
   return $title;
 }
 add_filter('document_title_parts', 'origintheme_document_title_parts');
 
 /*------------------------------------*\
+  SEO: description / canonical / OGP / JSON-LD
+  SEOプラグインを使わない前提でテーマ側から出力します。
+\*------------------------------------*/
+
+function origintheme_normalize_meta_text($text, $width = 160)
+{
+  $text = strip_shortcodes((string) $text);
+  $text = wp_strip_all_tags($text, true);
+  $text = html_entity_decode($text, ENT_QUOTES, get_bloginfo('charset'));
+  $text = preg_replace('/\s+/u', ' ', $text);
+  $text = trim($text);
+
+  if ($text === '') {
+    return '';
+  }
+
+  if (function_exists('mb_strimwidth')) {
+    return mb_strimwidth($text, 0, $width, '...', 'UTF-8');
+  }
+
+  return strlen($text) > $width ? substr($text, 0, $width) . '...' : $text;
+}
+
+function origintheme_get_meta_description()
+{
+  if (is_front_page()) {
+    $description = get_bloginfo('description');
+    return origintheme_normalize_meta_text($description ? $description : get_bloginfo('name'));
+  }
+
+  if (is_singular()) {
+    $post_id = get_queried_object_id();
+    $post    = get_post($post_id);
+
+    if (!$post) {
+      return '';
+    }
+
+    if (has_excerpt($post_id)) {
+      return origintheme_normalize_meta_text(get_the_excerpt($post_id));
+    }
+
+    return origintheme_normalize_meta_text($post->post_content);
+  }
+
+  if (is_post_type_archive('post')) {
+    return origintheme_normalize_meta_text('お知らせ一覧です。最新情報を掲載しています。');
+  }
+
+  if (is_category() || is_tag() || is_tax()) {
+    $description = term_description();
+
+    if ($description) {
+      return origintheme_normalize_meta_text($description);
+    }
+
+    return origintheme_normalize_meta_text(single_term_title('', false) . 'に関する記事一覧です。');
+  }
+
+  if (is_search()) {
+    return origintheme_normalize_meta_text('「' . get_search_query(false) . '」の検索結果です。');
+  }
+
+  if (is_404()) {
+    return origintheme_normalize_meta_text('ページが見つかりませんでした。');
+  }
+
+  return origintheme_normalize_meta_text(get_bloginfo('description'));
+}
+
+function origintheme_get_canonical_url()
+{
+  if (is_404()) {
+    return '';
+  }
+
+  if (is_singular()) {
+    $canonical = wp_get_canonical_url(get_queried_object_id());
+    return $canonical ? $canonical : get_permalink(get_queried_object_id());
+  }
+
+  if (is_front_page()) {
+    return home_url('/');
+  }
+
+  if (is_home()) {
+    $page_for_posts = (int) get_option('page_for_posts');
+    return $page_for_posts ? get_permalink($page_for_posts) : home_url('/');
+  }
+
+  if (is_post_type_archive('post')) {
+    return home_url('/news/');
+  }
+
+  if (is_category() || is_tag() || is_tax()) {
+    $term = get_queried_object();
+
+    if ($term && !is_wp_error($term)) {
+      $url = get_term_link($term);
+      return is_wp_error($url) ? '' : $url;
+    }
+  }
+
+  if (is_author()) {
+    return get_author_posts_url(get_queried_object_id());
+  }
+
+  if (is_date() || is_archive()) {
+    return get_pagenum_link(1);
+  }
+
+  if (is_search()) {
+    return get_search_link();
+  }
+
+  return '';
+}
+
+function origintheme_get_og_image_url()
+{
+  if (is_singular() && has_post_thumbnail()) {
+    $image = wp_get_attachment_image_src(get_post_thumbnail_id(get_queried_object_id()), 'full');
+
+    if (!empty($image[0])) {
+      return $image[0];
+    }
+  }
+
+  $candidates = array(
+    '/img/ogp.jpg',
+  );
+
+  foreach ($candidates as $file) {
+    if (file_exists(get_theme_file_path($file))) {
+      return get_theme_file_uri($file);
+    }
+  }
+
+  $site_icon = get_site_icon_url(512);
+  return $site_icon ? $site_icon : '';
+}
+
+function origintheme_output_seo_meta()
+{
+  if (is_admin()) {
+    return;
+  }
+
+  $description = origintheme_get_meta_description();
+  $canonical   = origintheme_get_canonical_url();
+  $title       = wp_get_document_title();
+  $url         = $canonical ? $canonical : home_url(add_query_arg(array(), $GLOBALS['wp']->request));
+  $site_name   = get_bloginfo('name');
+  $locale      = str_replace('_', '-', get_locale());
+  $og_type     = is_singular('post') ? 'article' : 'website';
+  $og_image    = origintheme_get_og_image_url();
+
+  if ($description) {
+    echo '<meta name="description" content="' . esc_attr($description) . '">' . "\n";
+  }
+
+  if ($canonical) {
+    echo '<link rel="canonical" href="' . esc_url($canonical) . '">' . "\n";
+  }
+
+  echo '<meta property="og:locale" content="' . esc_attr($locale) . '">' . "\n";
+  echo '<meta property="og:type" content="' . esc_attr($og_type) . '">' . "\n";
+  echo '<meta property="og:title" content="' . esc_attr($title) . '">' . "\n";
+
+  if ($description) {
+    echo '<meta property="og:description" content="' . esc_attr($description) . '">' . "\n";
+  }
+
+  echo '<meta property="og:url" content="' . esc_url($url) . '">' . "\n";
+  echo '<meta property="og:site_name" content="' . esc_attr($site_name) . '">' . "\n";
+
+  if ($og_image) {
+    echo '<meta property="og:image" content="' . esc_url($og_image) . '">' . "\n";
+    echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+  } else {
+    echo '<meta name="twitter:card" content="summary">' . "\n";
+  }
+
+  echo '<meta name="twitter:title" content="' . esc_attr($title) . '">' . "\n";
+
+  if ($description) {
+    echo '<meta name="twitter:description" content="' . esc_attr($description) . '">' . "\n";
+  }
+}
+add_action('wp_head', 'origintheme_output_seo_meta', 1);
+
+function origintheme_robots($robots)
+{
+  if (is_search() || is_404() || is_page(array('thanks'))) {
+    $robots['noindex'] = true;
+    $robots['follow']  = true;
+  }
+
+  return $robots;
+}
+add_filter('wp_robots', 'origintheme_robots');
+
+function origintheme_output_base_json_ld()
+{
+  if (is_admin()) {
+    return;
+  }
+
+  $site_url = home_url('/');
+  $site_id  = trailingslashit($site_url) . '#website';
+  $org_id   = trailingslashit($site_url) . '#organization';
+  $logo     = origintheme_get_og_image_url();
+
+  $graph = array(
+    array(
+      '@type'           => 'WebSite',
+      '@id'             => $site_id,
+      'url'             => $site_url,
+      'name'            => get_bloginfo('name'),
+      'description'     => get_bloginfo('description'),
+      'publisher'       => array('@id' => $org_id),
+      'potentialAction' => array(
+        '@type'       => 'SearchAction',
+        'target'      => home_url('/?s={search_term_string}'),
+        'query-input' => 'required name=search_term_string',
+      ),
+    ),
+    array(
+      '@type' => 'Organization',
+      '@id'   => $org_id,
+      'name'  => get_bloginfo('name'),
+      'url'   => $site_url,
+    ),
+  );
+
+  if ($logo) {
+    $graph[1]['logo'] = array(
+      '@type' => 'ImageObject',
+      'url'   => $logo,
+    );
+  }
+
+  $schema = array(
+    '@context' => 'https://schema.org',
+    '@graph'   => $graph,
+  );
+
+  echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
+}
+add_action('wp_head', 'origintheme_output_base_json_ld', 20);
+
+/*------------------------------------*\
+  パンくずリスト HTML / JSON-LD
+\*------------------------------------*/
+
+function origintheme_get_breadcrumb_items()
+{
+  if (is_front_page()) {
+    return array();
+  }
+
+  $items = array(
+    array(
+      'name' => 'TOP',
+      'url'  => home_url('/'),
+    ),
+  );
+
+  if (is_home()) {
+    $page_for_posts = (int) get_option('page_for_posts');
+
+    $items[] = array(
+      'name' => $page_for_posts ? get_the_title($page_for_posts) : 'お知らせ',
+      'url'  => $page_for_posts ? get_permalink($page_for_posts) : home_url('/news/'),
+    );
+
+    return $items;
+  }
+
+  if (is_post_type_archive('post')) {
+    $items[] = array(
+      'name' => 'お知らせ',
+      'url'  => home_url('/news/'),
+    );
+
+    return $items;
+  }
+
+  if (is_singular()) {
+    $post_id   = get_queried_object_id();
+    $post_type = get_post_type($post_id);
+
+    if ($post_type === 'post') {
+      $items[] = array(
+        'name' => 'お知らせ',
+        'url'  => home_url('/news/'),
+      );
+    } elseif ($post_type !== 'page') {
+      $post_type_object = get_post_type_object($post_type);
+
+      if ($post_type_object && !empty($post_type_object->has_archive)) {
+        $items[] = array(
+          'name' => $post_type_object->labels->name,
+          'url'  => get_post_type_archive_link($post_type),
+        );
+      }
+    }
+
+    if (is_page()) {
+      $ancestors = array_reverse(get_post_ancestors($post_id));
+
+      foreach ($ancestors as $ancestor_id) {
+        $items[] = array(
+          'name' => get_the_title($ancestor_id),
+          'url'  => get_permalink($ancestor_id),
+        );
+      }
+    }
+
+    $items[] = array(
+      'name' => get_the_title($post_id),
+      'url'  => get_permalink($post_id),
+    );
+
+    return $items;
+  }
+
+  if (is_category() || is_tag() || is_tax()) {
+    $term = get_queried_object();
+
+    if ($term && !is_wp_error($term)) {
+      if (is_category() || is_tag()) {
+        $items[] = array(
+          'name' => 'お知らせ',
+          'url'  => home_url('/news/'),
+        );
+      }
+
+      if (is_taxonomy_hierarchical($term->taxonomy)) {
+        $ancestors = array_reverse(get_ancestors($term->term_id, $term->taxonomy, 'taxonomy'));
+
+        foreach ($ancestors as $ancestor_id) {
+          $ancestor = get_term($ancestor_id, $term->taxonomy);
+
+          if ($ancestor && !is_wp_error($ancestor)) {
+            $items[] = array(
+              'name' => $ancestor->name,
+              'url'  => get_term_link($ancestor),
+            );
+          }
+        }
+      }
+
+      $items[] = array(
+        'name' => $term->name,
+        'url'  => get_term_link($term),
+      );
+    }
+
+    return $items;
+  }
+
+  if (is_search()) {
+    $items[] = array(
+      'name' => '検索結果',
+      'url'  => get_search_link(),
+    );
+
+    return $items;
+  }
+
+  if (is_404()) {
+    $items[] = array(
+      'name' => 'ページが見つかりません',
+      'url'  => '',
+    );
+
+    return $items;
+  }
+
+  return $items;
+}
+
+function origintheme_breadcrumb()
+{
+  $items = origintheme_get_breadcrumb_items();
+
+  if (count($items) < 2) {
+    return;
+  }
+
+  echo '<nav class="breadcrumb" aria-label="パンくずリスト">';
+  echo '<ol class="breadcrumb__list">';
+
+  $last_index = count($items) - 1;
+
+  foreach ($items as $index => $item) {
+    $name = isset($item['name']) ? $item['name'] : '';
+    $url  = isset($item['url']) ? $item['url'] : '';
+
+    if ($name === '') {
+      continue;
+    }
+
+    echo '<li class="breadcrumb__item">';
+
+    if ($index !== $last_index && $url) {
+      echo '<a href="' . esc_url($url) . '">' . esc_html($name) . '</a>';
+    } else {
+      echo '<span aria-current="page">' . esc_html($name) . '</span>';
+    }
+
+    echo '</li>';
+  }
+
+  echo '</ol>';
+  echo '</nav>';
+}
+
+function origintheme_output_breadcrumb_json_ld()
+{
+  if (is_admin()) {
+    return;
+  }
+
+  $items = origintheme_get_breadcrumb_items();
+
+  if (count($items) < 2) {
+    return;
+  }
+
+  $list = array();
+
+  foreach ($items as $index => $item) {
+    if (empty($item['name'])) {
+      continue;
+    }
+
+    $list_item = array(
+      '@type'    => 'ListItem',
+      'position' => $index + 1,
+      'name'     => $item['name'],
+    );
+
+    if (!empty($item['url'])) {
+      $list_item['item'] = $item['url'];
+    }
+
+    $list[] = $list_item;
+  }
+
+  if (count($list) < 2) {
+    return;
+  }
+
+  $schema = array(
+    '@context'        => 'https://schema.org',
+    '@type'           => 'BreadcrumbList',
+    'itemListElement' => $list,
+  );
+
+  echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
+}
+add_action('wp_head', 'origintheme_output_breadcrumb_json_ld', 21);
+
+/*------------------------------------*\
   head整理・不要出力の抑制
-  ※ wp_enqueue_scripts / wp_print_scripts は外さない
+  wp_enqueue_scripts / wp_print_scripts は外さない
 \*------------------------------------*/
 
 function origintheme_cleanup_head()
@@ -72,18 +541,17 @@ function origintheme_cleanup_head()
   remove_action('wp_head', 'wlwmanifest_link');
   remove_action('wp_head', 'wp_shortlink_wp_head', 10);
   remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10);
+  remove_action('wp_head', 'rel_canonical');
 
-  // oEmbedを使わない前提ならheadとJSを削減
   remove_action('wp_head', 'wp_oembed_add_discovery_links');
   remove_action('wp_head', 'wp_oembed_add_host_js');
 
-  // 絵文字関連の出力を削減
   remove_action('wp_head', 'print_emoji_detection_script', 7);
   remove_action('wp_print_styles', 'print_emoji_styles');
   remove_action('admin_print_scripts', 'print_emoji_detection_script');
   remove_action('admin_print_styles', 'print_emoji_styles');
-  add_filter('emoji_svg_url', '__return_false');
 
+  add_filter('emoji_svg_url', '__return_false');
   add_filter('tiny_mce_plugins', 'origintheme_disable_tinymce_emoji');
 }
 add_action('init', 'origintheme_cleanup_head');
@@ -111,8 +579,7 @@ add_action('wp_enqueue_scripts', 'origintheme_remove_dashicons_for_guests', 100)
 
 /*------------------------------------*\
   ブロックエディタCSSの削減
-  ※ ブロックの見た目を自前CSSで管理している前提。
-  ※ フォームやブロックを使うページは除外する。
+  ブロックの見た目を自前CSSで管理している前提。
 \*------------------------------------*/
 
 function origintheme_dequeue_block_styles()
@@ -121,10 +588,17 @@ function origintheme_dequeue_block_styles()
     return;
   }
 
-  // ブロックCSSを残したいページスラッグ。必要に応じて追加してください。
   $keep_block_css_pages = apply_filters(
     'origintheme_keep_block_css_pages',
-    array('contact', 'inquiry', 'thanks')
+    array(
+      'contact',
+      'inquiry',
+      'thanks',
+      'service',
+      'services',
+      'price',
+      'about',
+    )
   );
 
   if (is_page($keep_block_css_pages)) {
@@ -140,6 +614,7 @@ add_action('wp_enqueue_scripts', 'origintheme_dequeue_block_styles', 100);
 
 /*------------------------------------*\
   外部ファイルの読み込み
+  OGPはこのfunctions.phpで出すため settings/ogp.php は読み込まない。
 \*------------------------------------*/
 
 function origintheme_require_template($relative_path)
@@ -153,7 +628,6 @@ function origintheme_require_template($relative_path)
 
 origintheme_require_template('block/functions-include.php');
 origintheme_require_template('settings/tgmpa.php');
-origintheme_require_template('settings/ogp.php');
 origintheme_require_template('settings/settings-import.php');
 origintheme_require_template('settings/sample-post.php');
 
@@ -182,7 +656,6 @@ function origintheme_enqueue_styles()
 
   $theme_deps = array('reset');
 
-  // TOPページだけで読み込む
   if (is_front_page()) {
     wp_enqueue_style(
       'swipercss',
@@ -210,14 +683,11 @@ function origintheme_enqueue_styles()
 }
 add_action('wp_enqueue_scripts', 'origintheme_enqueue_styles', 5);
 
-// type="text/css" を削除。速度効果は小さいが副作用も少ない。
 function origintheme_remove_style_type_attribute($tag)
 {
   return preg_replace('~\s+type=["\'][^"\']++["\']~', '', $tag);
 }
 add_filter('style_loader_tag', 'origintheme_remove_style_type_attribute', 9);
-
-
 
 /*------------------------------------*\
   JS読み込み
@@ -254,13 +724,12 @@ function origintheme_enqueue_scripts()
     return;
   }
 
-  if (isset($GLOBALS['pagenow']) && 'wp-login.php' === $GLOBALS['pagenow']) {
+  if (isset($GLOBALS['pagenow']) && $GLOBALS['pagenow'] === 'wp-login.php') {
     return;
   }
 
   origintheme_register_and_enqueue_script('mainscripts', 'js/scripts.js', array('jquery'), true);
 
-  // TOPページだけで読み込む
   if (is_front_page()) {
     origintheme_register_and_enqueue_script('swiperjs', 'js/swiper-bundle.min.js', array(), true);
     origintheme_register_and_enqueue_script('slider', 'js/slider.js', array('jquery', 'swiperjs'), true);
@@ -268,7 +737,6 @@ function origintheme_enqueue_scripts()
 }
 add_action('wp_enqueue_scripts', 'origintheme_enqueue_scripts', 20);
 
-//defer付与
 function origintheme_add_defer_attribute_for_legacy_wp($tag, $handle, $src)
 {
   if (version_compare(get_bloginfo('version'), '6.3', '>=')) {
@@ -300,18 +768,14 @@ add_filter('script_loader_tag', 'origintheme_add_defer_attribute_for_legacy_wp',
 function add_globalmenu()
 {
   wp_nav_menu(array(
-    'theme_location'  => 'global-menu',
-    'menu'            => '',
-    'container'       => 'nav',
-    'container_class' => '',
-    'container_id'    => 'gnav',
-    'menu_class'      => '',
-    'fallback_cb'     => 'wp_page_menu',
-    'before'          => '',
-    'after'           => '',
-    'echo'            => true,
-    'depth'           => 1,
-    'walker'          => '',
+    'theme_location'       => 'global-menu',
+    'container'            => 'nav',
+    'container_id'         => 'gnav',
+    'container_aria_label' => 'グローバルナビゲーション',
+    'menu_class'           => 'gnav__list',
+    'fallback_cb'          => false,
+    'echo'                 => true,
+    'depth'                => 1,
   ));
 }
 
@@ -321,9 +785,10 @@ function add_globalmenu()
 
 function post_has_archive($args, $post_type)
 {
-  if ('post' === $post_type) {
+  if ($post_type === 'post') {
     $args['rewrite']     = true;
     $args['has_archive'] = 'news';
+    $args['label']       = 'お知らせ';
   }
 
   return $args;
@@ -375,35 +840,6 @@ function custom_excerpt_length($length)
   return 20;
 }
 add_filter('excerpt_length', 'custom_excerpt_length', 999);
-
-/*------------------------------------*\
-  Breadcrumb NavXT
-\*------------------------------------*/
-
-function origintheme_breadcrumb_remove_default_home($trail)
-{
-  if (!empty($trail->breadcrumbs)) {
-    array_pop($trail->breadcrumbs);
-  }
-}
-
-function origintheme_breadcrumb_add_static_items($breadcrumb_trail)
-{
-  if (!class_exists('bcn_breadcrumb')) {
-    return;
-  }
-
-  if (is_post_type_archive('post') || is_singular('post')) {
-    $breadcrumb_trail->add(new bcn_breadcrumb('お知らせ', '<a title="%ftitle%." href="%link%">%htitle%</a>', array(), home_url('/news/')));
-  }
-
-  $breadcrumb_trail->add(new bcn_breadcrumb('TOP', '<a title="%ftitle%." href="%link%">%htitle%</a>', array('home'), home_url('/')));
-}
-
-if (function_exists('bcn_display_list')) {
-  add_action('bcn_after_fill', 'origintheme_breadcrumb_remove_default_home');
-  add_action('bcn_after_fill', 'origintheme_breadcrumb_add_static_items');
-}
 
 /*------------------------------------*\
   カテゴリラベル出力
@@ -473,7 +909,7 @@ if (is_admin()) {
   例: [myphp file="shortcode"] => include/shortcode.php
 \*------------------------------------*/
 
-function Include_my_php($params = array())
+function origintheme_include_my_php($params = array())
 {
   $atts = shortcode_atts(array(
     'file' => 'default',
@@ -481,7 +917,6 @@ function Include_my_php($params = array())
 
   $file = preg_replace('/\.php$/', '', (string) $atts['file']);
 
-  // ファイル名のみ許可。サブディレクトリや ../ は許可しない。
   if (!preg_match('/\A[a-zA-Z0-9_-]+\z/', $file)) {
     return '';
   }
@@ -505,7 +940,9 @@ function Include_my_php($params = array())
   include $target;
   return ob_get_clean();
 }
-add_shortcode('myphp', 'Include_my_php');
+add_shortcode('myphp', 'origintheme_include_my_php');
+
+
 
 
 // -------------------------------------

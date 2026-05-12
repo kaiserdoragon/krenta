@@ -87,6 +87,17 @@
         </div>
 
       </article>
+      <section class="price_kinds sec">
+        <div class="container">
+          <h2 class="ttl">軽自動車専門のレンタカー店</h2>
+          <p class="price_kinds--lead">
+            Kレンタの格安レンタカーは<br class="is-hidden_sp">
+            <span class="price_kinds--lead -orange">ウィークリーコース</span>と<span class="price_kinds--lead -blue">マンスリーコース</span>の２プランでご利用いただけます。<br>
+            何れも業界トップクラスの低価格を実現しているので<br class="is-hidden_sp">
+            セカンドカーとして、営業車としてお使いください。
+          </p>
+        </div>
+      </section>
     </main>
 
     <script type="application/ld+json">

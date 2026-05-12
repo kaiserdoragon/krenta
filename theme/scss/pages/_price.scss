@@ -1,0 +1,25 @@
+@charset "UTF-8";
+@use "../variables" as *;
+
+// ---------------------------------------------
+//  車種・料金専用
+// ---------------------------------------------
+
+
+.price_kinds {
+  // .price_kinds--lead
+  &--lead {
+    margin-bottom: 80px;
+    font-size: var(--fz18);
+    font-weight: 700;
+    text-align: center;
+
+    &.-orange {
+      color: #fa9315;
+    }
+
+    &.-blue {
+      color: #008cfd;
+    }
+  }
+}
