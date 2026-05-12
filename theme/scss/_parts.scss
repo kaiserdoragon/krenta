@@ -26,6 +26,14 @@ img {
   color: $color-blue;
   text-align: center;
 
+  span {
+    display: inline-block;
+    padding: 0 10px;
+    margin: 0 5px;
+    color: #e9173a;
+    background: #f8ff36;
+  }
+
   &::before,
   &::after {
     width: 40px;
@@ -61,6 +69,19 @@ img {
   border: 3px solid #000;
   border-radius: 20px;
   box-shadow: 3px 3px 0 #000;
+}
+
+.btn_lowerlayer {
+  display: block;
+  width: fit-content;
+  padding: 15px 65px 15px 25px;
+  margin: auto;
+  font-size: var(--fz20);
+  font-weight: 800;
+  color: #002978;
+  background: url(../img/top/icon_arrow_blue.png) no-repeat center right 25px / 30px, #fff;
+  border: 1px solid #002978;
+  border-radius: 1000px;
 }
 
 

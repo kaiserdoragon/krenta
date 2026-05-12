@@ -191,7 +191,7 @@
           </p>
           <div class="top_about--offer">
             <span class="top_about--num"><span>1</span>日当たり</span>
-            <b class="top_about--price"><span>816</span>円～(税込)</b>
+            <b class="top_about--price"><span>816</span>円～<span class="top_about--tax">(税込)</span></b>
           </div>
           <p>
             お得にレンタルOK！！<br>
@@ -224,38 +224,260 @@
       </div>
     </section>
 
+    <section class="top_introduction sec bg_blue">
+      <div class="container">
+        <h2 class="ttl">Kレンタのレンタカーのご紹介</h2>
+        <p class="top_introduction--lead">
+          Kレンタの格安レンタカーは「マンスリー」と「ウィークリー」の2プランでご利用いただけます。<br>
+          何れも業界トップクラスの低価格を実現しているのでセカンドカーとして、営業車としてお使いください。<br>
+          カーシェアリングよりお得です！
+        </p>
+        <div class="top_introduction--list">
+          <article>
+            <div class="top_introduction--circle">
+              1日あたり<br>816円！
+            </div>
+            <img src="<?php echo get_template_directory_uri(); ?>/img/top/introduction_01.png" alt="" width="445" height="254">
+            <div class="top_introduction--dot">
+              <h3>軽自動車Sタイプ</h3>
+              <dl class="top_introduction--price">
+                <dt>ウィークリー</dt>
+                <dd>7,500円<span>(税込)</span></dd>
+              </dl>
+              <dl class="top_introduction--price -month">
+                <dt>マンスリー</dt>
+                <dd>24,500円<span>(税込)</span></dd>
+              </dl>
+            </div>
+            <p class="top_introduction--txt">
+              友達同士やカップルでの名古屋観光やドライブに<br class="is-hidden_sp">
+              最適なミラ・アルトなどコンパクトタイプの軽乗用車が<br class="is-hidden_sp">
+              1週間7,500円という激安価格でご利用いただけます。
+            </p>
+            <a href="">この車両を問い合わせする</a>
+          </article>
+          <article>
+            <div class="top_introduction--circle">
+              荷物の運搬<br>に便利！
+            </div>
+            <img src="<?php echo get_template_directory_uri(); ?>/img/top/introduction_02.png" alt="" width="393" height="275">
+            <div class="top_introduction--dot">
+              <h3>軽トラックタイプ</h3>
+              <dl class="top_introduction--price">
+                <dt>ウィークリー</dt>
+                <dd>9,800円<span>(税込)</span></dd>
+              </dl>
+              <dl class="top_introduction--price -month">
+                <dt>マンスリー</dt>
+                <dd>25,800円<span>(税込)</span></dd>
+              </dl>
+            </div>
+            <p class="top_introduction--txt">
+              ちょっとした引っ越しや荷物の運搬に<br class="is-hidden_sp">
+              便利なハイゼットなどの軽トラックが<br class="is-hidden_sp">
+              1週間9,800円という激安価格でご利用いただけます。
+            </p>
+            <a href="">この車両を問い合わせする</a>
+          </article>
+          <article>
+            <div class="top_introduction--circle">
+              大人4人<br>でも悠々！
+            </div>
+            <img src="<?php echo get_template_directory_uri(); ?>/img/top/introduction_03.png" alt="" width="373" height="253">
+            <div class="top_introduction--dot">
+              <h3>軽自動車Mタイプ</h3>
+              <dl class="top_introduction--price">
+                <dt>ウィークリー</dt>
+                <dd>9,500円<span>(税込)</span></dd>
+              </dl>
+              <dl class="top_introduction--price -month">
+                <dt>マンスリー</dt>
+                <dd>29,500円<span>(税込)</span></dd>
+              </dl>
+            </div>
+            <p class="top_introduction--txt">
+              ご家族のファミリーカーとしてご旅行などに最適な<br class="is-hidden_sp">
+              ムーブ・ワゴンRなどのファミリータイプの軽乗用車が<br class="is-hidden_sp">
+              1週間9,500円という激安価格でご利用いただけます。
+            </p>
+            <a href="">この車両を問い合わせする</a>
+          </article>
+          <article>
+            <div class="top_introduction--circle">
+              家族で<br>乗れる！
+            </div>
+            <img src="<?php echo get_template_directory_uri(); ?>/img/top/introduction_04.png" alt="" width="381" height="239">
+            <div class="top_introduction--dot">
+              <h3>軽自動車Sタイプ</h3>
+              <dl class="top_introduction--price">
+                <dt>ウィークリー</dt>
+                <dd>13,500円<span>(税込)</span></dd>
+              </dl>
+              <dl class="top_introduction--price -month">
+                <dt>マンスリー</dt>
+                <dd>37,500円<span>(税込)</span></dd>
+              </dl>
+            </div>
+            <p class="top_introduction--txt">
+              営業車や商品の納品・運搬に便利なエブリィなどの<br class="is-hidden_sp">
+              ワンボックスタイプの軽乗用車が<br class="is-hidden_sp">
+              1週間 13,500円という激安価格でご利用いただけます。
+            </p>
+            <a href="">この車両を問い合わせする</a>
+          </article>
+        </div>
+        <a href="" class="btn_lowerlayer">レンタカーの車種・料金の詳細はコチラ</a>
+      </div>
+    </section>
+
+    <section class="top_flow sec">
+      <div class="container">
+        <h2 class="ttl">レンタカーご利用の流れ</h2>
+        <p class="top_flow--lead">
+          格安・激安レンタカー「Kレンタ」のご利用のながれを説明します。
+        </p>
+        <ol>
+          <li>
+            <div class="top_flow--circle">
+              <span>STEP</span>01
+            </div>
+            <img src="<?php echo get_template_directory_uri(); ?>/img/top/flow_01.png" alt="" width="74" height="47">
+            <p>
+              利用したい<br>
+              レンタカーを選ぶ
+            </p>
+          </li>
+          <li>
+            <div class="top_flow--circle">
+              <span>STEP</span>02
+            </div>
+            <img src="<?php echo get_template_directory_uri(); ?>/img/top/flow_02.png" alt="" width="36" height="57">
+            <p>
+              ご予約<br>
+              申し込み
+            </p>
+          </li>
+          <li>
+            <div class="top_flow--circle">
+              <span>STEP</span>03
+            </div>
+            <img src="<?php echo get_template_directory_uri(); ?>/img/top/flow_03.png" alt="" width="57" height="54">
+            <p>
+              予約内容の確認と<br>
+              利用方法の説明
+            </p>
+          </li>
+          <li>
+            <div class="top_flow--circle">
+              <span>STEP</span>04
+            </div>
+            <img src="<?php echo get_template_directory_uri(); ?>/img/top/flow_04.png" alt="" width="51" height="54">
+            <p>
+              ご来店<br>
+              ご契約
+            </p>
+          </li>
+        </ol>
+        <a href="" class="btn_lowerlayer">レンタカーご利用の流れの詳細はコチラ</a>
+      </div>
+    </section>
+
+    <section class="top_pr sec bg_blue">
+      <div class="container">
+        <h2 class="ttl">Kレンタはレンタカーの<span>最安価</span>に挑戦中！！</h2>
+        <div class="top_pr--inner">
+          <img src="<?php echo get_template_directory_uri(); ?>/img/top/pr_catch.jpg" alt="" width="649" height="487">
+          <div class="top_pr--txt">
+            <p class="u-mb15">
+              名古屋にある格安・激安レンタカーのKレンタは、<br class="is-hidden_sp">
+              少しでも皆様のお役にたつために、軽自動車に特化した<br class="is-hidden_sp">
+              日本で唯一の軽四専門店です。
+            </p>
+            <p class="u-mb15">
+              プランとして<span class="top_pr--orange">ウィークリーコース</span>と<span class="top_pr--blue">マンスリーコース</span>をご用意しておりますので、
+              大きな荷物の移動やお引越し、会社の営業車での利用から自家用まで、<br class="is-hidden_sp">
+              用途に合わせてご利用いただけます。
+            </p>
+            <p class="u-mb15">
+              名古屋を含む愛知県の方々で、格安レンタカーが<br class="is-hidden_sp">
+              必要な方は是非ご利用ください！<br>
+              ご予約はオンライン予約または0120-995-758までお願いいたします。<br>
+              ご予約以外で格安レンタカーについてご不明な点などありましたら<br class="is-hidden_sp">
+              お気軽にお問い合わせください。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="top_reason sec">
+      <div class="container">
+        <h2 class="ttl">Kレンタが選ばれる４つの理由</h2>
+        <ul>
+          <li>
+            <div>
+              <h3>ご家族用のセカンドカーとして（個人で利用）</h3>
+              <p>
+                奥様、お子様のセカンドカーとしてレンタカーを<br class="is-hidden_sp">
+                ご利用いただいております。<br>
+                自己所有の車だと、保険料や車検、自動車税などランニング<br class="is-hidden_sp">
+                コストがどうしても必要ですが、レンタカーなら毎月のご利用<br class="is-hidden_sp">
+                料金だけで自家用車と同様にお使いいただけます。
+              </p>
+            </div>
+            <img src="<?php echo get_template_directory_uri(); ?>/img/top/reason_01.jpg" alt="" width="300" height="275">
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <section class="top_info sec">
       <div class="container">
         <h2 class="ttl">お知らせ</h2>
+
         <?php
         $args = array(
           'posts_per_page' => 3,
           'post_type'      => 'post',
-          'post_status'    => 'publish'
+          'post_status'    => 'publish',
         );
+
         $my_posts = get_posts($args);
         ?>
-        <dl class="top_info--list">
-          <?php foreach ($my_posts as $post): setup_postdata($post); ?>
-            <div class="top_info--item">
-              <dt class="top_info--term">
-                <span class="top_info--time"><?php the_time('Y.m.d'); ?></span>
-                <?php
-                $categories = get_the_category();
-                if (! empty($categories)) {
-                  $cat_slug = esc_attr($categories[0]->slug);
-                  $cat_name = esc_html($categories[0]->name);
-                  echo '<span class="top_info--cat cat-' . $cat_slug . '">' . $cat_name . '</span>';
-                }
-                ?>
-              </dt>
-              <dd class="top_info--detail">
-                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-              </dd>
-            </div>
-          <?php endforeach; ?>
-        </dl>
-        <?php wp_reset_postdata(); ?>
+
+        <?php if (!empty($my_posts)) : ?>
+          <ul class="top_info--list">
+            <?php foreach ($my_posts as $post) : setup_postdata($post); ?>
+              <li class="top_info--item">
+                <a href="<?php echo esc_url(get_permalink()); ?>" class="top_info--link">
+                  <div class="top_info--meta">
+                    <time class="top_info--time" datetime="<?php echo esc_attr(get_the_date('Y-m-d')); ?>">
+                      <?php echo esc_html(get_the_date('Y.m.d')); ?>
+                    </time>
+
+                    <?php
+                    $categories = get_the_category();
+
+                    if (!empty($categories)) :
+                      $cat_slug = esc_attr($categories[0]->slug);
+                      $cat_name = esc_html($categories[0]->name);
+                    ?>
+                      <span class="top_info--cat cat-<?php echo $cat_slug; ?>">
+                        <?php echo $cat_name; ?>
+                      </span>
+                    <?php endif; ?>
+                  </div>
+
+                  <p class="top_info--detail">
+                    <?php echo esc_html(get_the_title()); ?>
+                  </p>
+                </a>
+              </li>
+            <?php endforeach; ?>
+          </ul>
+
+          <?php wp_reset_postdata(); ?>
+        <?php endif; ?>
       </div>
     </section>
 
