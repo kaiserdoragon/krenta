@@ -235,5 +235,17 @@
     padding: 0 min(4vw, 25px);
     margin: auto;
   }
+
+  // .flow_question--download
+  &--download {
+    p {
+      text-align: center;
+    }
+
+    .flow_order--document {
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+  }
 }
 

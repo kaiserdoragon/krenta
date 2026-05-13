@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
 // ヘッダーのスクロール位置を取得 /////////////////////////////////////////////
 // headerの高さ分スクロールしたら、-fixedクラスをつける。
 const Header = document.getElementById("js-header");
@@ -79,7 +78,6 @@ if (Header) {
 //   }
 // });
 
-
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".header");
   const root = document.documentElement;
@@ -98,32 +96,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-//別URLからやってきたときに発火
-window.addEventListener("load", () => {
-  const url = window.location.href;
-  if (url.indexOf("#") !== -1) {
-    const id = url.split("#");
-    const target = document.getElementById(id[id.length - 1]);
-    if (target) {
-      window.scroll({ top: 0 });
-      window.scroll({ top: target.offsetTop - headerHeight, behavior: "smooth" });
-    }
-  }
-});
-
-
-
 // SP(<=767px)のときだけフッター追従ボタンを有効化
 (() => {
-  const btn = document.getElementById('js_fixed-btn');
+  const btn = document.getElementById("js_fixed-btn");
   if (!btn) return;
 
   const THRESHOLD = 500;
-  const mql = window.matchMedia('(max-width: 767px)');
+  const mql = window.matchMedia("(max-width: 767px)");
   let controller = null;
 
   const update = () => {
-    btn.classList.toggle('is-active', window.scrollY >= THRESHOLD);
+    btn.classList.toggle("is-active", window.scrollY >= THRESHOLD);
   };
 
   const enable = () => {
@@ -132,32 +115,30 @@ window.addEventListener("load", () => {
     const opts = { passive: true, signal: controller.signal };
 
     // 初期反映
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', update, { once: true });
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", update, { once: true });
     } else {
       update();
     }
 
     // スクロール/リサイズで状態更新（SP時のみ有効）
-    window.addEventListener('scroll', update, opts);
-    window.addEventListener('resize', update, opts);
+    window.addEventListener("scroll", update, opts);
+    window.addEventListener("resize", update, opts);
   };
 
   const disable = () => {
     if (!controller) return;
-    controller.abort();   // まとめてリスナー解除
+    controller.abort(); // まとめてリスナー解除
     controller = null;
-    btn.classList.remove('is-active'); // デスクトップへ戻ったら非表示に
+    btn.classList.remove("is-active"); // デスクトップへ戻ったら非表示に
   };
 
   // 初期判定
   mql.matches ? enable() : disable();
 
   // 767pxをまたいだら有効/無効を切り替え
-  mql.addEventListener('change', (e) => (e.matches ? enable() : disable()));
+  mql.addEventListener("change", (e) => (e.matches ? enable() : disable()));
 })();
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
   new ScrollHint(".js-scrollable", {
@@ -167,18 +148,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-
 (function ($, root, undefined) {
-  console.log('jqueryのコードはここ');
+  console.log("jqueryのコードはここ");
 
   // PC(>=768px)のときだけスクロールで出現するヘッダーを有効化
   $(function () {
-    var mql = window.matchMedia('(min-width: 768px)');
+    var mql = window.matchMedia("(min-width: 768px)");
 
     var $win = $(window);
-    var $header = $('#js-fixed-header');
-    var $main = $('main');
+    var $header = $("#js-fixed-header");
+    var $main = $("main");
 
     var threshold = 0;
     var ticking = false;
@@ -193,14 +172,14 @@ document.addEventListener("DOMContentLoaded", () => {
     function apply() {
       var sc = $win.scrollTop();
       if (sc > threshold) {
-        $header.addClass('is-visible');
+        $header.addClass("is-visible");
       } else {
-        $header.removeClass('is-visible');
+        $header.removeClass("is-visible");
       }
 
       // 初回 apply のあとでだけ is-ready を付ける
       if (!initialized) {
-        $header.addClass('is-ready');
+        $header.addClass("is-ready");
         initialized = true;
       }
     }
@@ -219,15 +198,15 @@ document.addEventListener("DOMContentLoaded", () => {
       if (enabled) return;
       enabled = true;
       recalcThreshold();
-      $win.on('scroll.fixedHeader', onScroll);
-      $win.on('resize.fixedHeader', recalcThreshold);
+      $win.on("scroll.fixedHeader", onScroll);
+      $win.on("resize.fixedHeader", recalcThreshold);
     }
 
     function disable() {
       if (!enabled) return;
       enabled = false;
-      $win.off('.fixedHeader');
-      $header.removeClass('is-visible is-ready');
+      $win.off(".fixedHeader");
+      $header.removeClass("is-visible is-ready");
       initialized = false;
     }
 
@@ -239,12 +218,9 @@ document.addEventListener("DOMContentLoaded", () => {
     check();
 
     if (mql.addEventListener) {
-      mql.addEventListener('change', check);
+      mql.addEventListener("change", check);
     } else if (mql.addListener) {
       mql.addListener(check);
     }
   });
-
-
-
 })(jQuery, this);

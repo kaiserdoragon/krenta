@@ -22,7 +22,7 @@
           <li><a href="<?php echo home_url('/flow'); ?>">ご利用の流れ</a></li>
           <li><a href="<?php echo home_url('/store'); ?>">店舗紹介</a></li>
           <li><a href="<?php echo home_url('/contact'); ?>">お問い合わせ</a></li>
-          <li><a href="<?php echo home_url('/'); ?>">保険・補償</a></li>
+          <li><a href="<?php echo home_url('/flow/#question'); ?>">保険・補償</a></li>
           <li><a href="<?php echo home_url('/privacy'); ?>">プライバシーポリシー</a></li>
         </ul>
       </div>

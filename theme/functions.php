@@ -828,8 +828,9 @@ function wp_pagination()
       'base'      => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
       'format'    => '?paged=%#%',
       'current'   => max(1, get_query_var('paged')),
-      'prev_text' => '<span>≪</span>',
-      'next_text' => '<span>≫</span>',
+      // 修正箇所：文字列結合を使用し、esc_urlで無害化、alt属性にテキストを付与
+      'prev_text' => '<span><img src="' . esc_url(get_template_directory_uri()) . '/img/news/icon_prev.png" alt="前のページ" width="15" height="15"></span>',
+      'next_text' => '<span><img src="' . esc_url(get_template_directory_uri()) . '/img/news/icon_next.png" alt="次のページ" width="15" height="15"></span>',
       'total'     => $wp_query->max_num_pages,
     ))
   );

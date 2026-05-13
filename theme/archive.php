@@ -1,36 +1,58 @@
 <?php get_header(); ?>
-  <div class="eyecatch">
-    <h1>お知らせ</h1>
-  </div>
-<?php get_template_part('include/common', 'breadcrumb'); //　Breadcrumb NavXTを使わないときは削除?>
-  <div class="has_sidebar news_page">
-    <main>
-      <?php if(have_posts()) : ?><?php while(have_posts()) : the_post(); ?>
-        <section class="post_excerpt">
-          <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-          <div class="post_excerpt--img">
-            <?php if(has_post_thumbnail()): // サムネイルを持っているとき ?>
-              <a href="<?php the_permalink(); ?>">
-                <?php the_post_thumbnail(); ?>
-              </a>
-            <?php else: // サムネイルを持っていない ?><?php endif; ?>
-          </div>
-          <div class="post_excerpt--txt">
-            <div class="post_meta">
-			  <time class="post_meta--date" datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.m.d'); ?></time>
-              <ul class="post_meta--cat_list">
-                <?php categories_label() ?>
-              </ul>
-              <p class="post_meta--tag">
-                <?php echo get_the_tag_list('#', ' #', ''); ?>
-              </p>
+
+<div class="eyecatch">
+  <h1>お知らせ</h1>
+  <img src="<?php echo get_template_directory_uri(); ?>/img/news/news.jpg" alt="" width="1920" height="400">
+</div>
+
+<div class="breadcrumbs--wrap">
+  <?php
+  get_template_part('include/common', 'breadcrumb');
+  ?>
+</div>
+
+<main>
+  <div class="news_archive--wrap">
+    <section class="news_archive">
+      <h2 class="ttl">お知らせ</h2>
+      <div class="news_archive--inner">
+        <?php if (have_posts()) : ?>
+          <?php while (have_posts()) : the_post(); ?>
+            <div class="news_archive--contents">
+              <time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.m.d'); ?></time>
+              <?php
+              $categories = get_the_category();
+              if (! empty($categories)) {
+                echo '<span>';
+                echo '<a href="' . esc_url(get_category_link($categories[0]->term_id)) . '">' . esc_html($categories[0]->name) . '</a>';
+                echo '</span>';
+              }
+              ?>
+              <h2>
+                <a href="<?php the_permalink(); ?>">
+                  <?php
+                  $title = get_the_title();
+                  $limit = 20; // 表示したい上限文字数
+
+                  if (mb_strlen($title) > $limit) {
+                    $title = mb_substr($title, 0, $limit) . '...';
+                  }
+                  echo esc_html($title);
+                  ?>
+                </a>
+              </h2>
             </div>
-            <?php the_excerpt(); ?>
-          </div>
-        </section>
-      <?php endwhile; ?><?php endif; ?>
-      <div class="pagination"><?php wp_pagination();//ページネーション ?></div>
-    </main>
-    <?php get_sidebar(); ?>
+          <?php endwhile; ?>
+        <?php else : ?>
+          <p>該当する記事が見つかりませんでした。</p>
+        <?php endif; ?>
+      </div>
+    </section>
+    <div class="pagination">
+      <?php wp_pagination(); ?>
+    </div>
   </div>
+</main>
+
+
 <?php get_footer(); ?>

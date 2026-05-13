@@ -93,7 +93,7 @@
                   車種と料金ページよりご希望の車種を探してください。<br>
                   詳細ページにて車両情報や積載部分の内寸などご確認いただけます。
                 </p>
-                <a href="" class="flow_order--contact">車種・料金の詳細はこちらから</a>
+                <a href="<?php echo home_url('/price'); ?>" class="flow_order--contact">車種・料金の詳細はこちらから</a>
               </div>
               <img src="<?php echo get_template_directory_uri(); ?>/img/flow/order_01.jpg" alt="" width="350" height="300">
             </li>
@@ -209,7 +209,7 @@
         </div>
       </section>
 
-      <section class="flow_question sec">
+      <section class="flow_question sec" id="question">
         <div class="flow_question--inner">
           <h2 class="ttl">「保険・補償」についてのご質問とご解答</h2>
           <dl>
@@ -248,6 +248,30 @@
                 </tr>
               </tbody>
             </table>
+          </div>
+          <div class="flow_question--download u-mt80">
+            <p class="u-mb15">レンタカーご契約時の必要な書類は以下よりダウンロード可能です。</p>
+            <ul class="flow_order--document">
+              <li>
+                <a href="<?php echo get_template_directory_uri(); ?>/pdf/契約書.pdf" download="契約書">
+                  契約書
+                  <span>※PDFファイルがダウンロードされます</span>
+                </a>
+              </li>
+              <li>
+                <a href="<?php echo get_template_directory_uri(); ?>/pdf/同意書.pdf" download="同意書">
+                  同意書
+                  <span>※PDFファイルがダウンロードされます</span>
+                </a>
+              </li>
+              <li>
+                <a href=" <?php echo get_template_directory_uri(); ?>/pdf/注意事項.pdf" download="注意事項">
+                  注意事項
+                  <span>※PDFファイルがダウンロードされます</span>
+                </a>
+              </li>
+            </ul>
+            <p>※ダウンロードしたファイルを印刷した後、ご記入の上お持ちいただければ手続きが早く済みます。</p>
           </div>
         </div>
       </section>

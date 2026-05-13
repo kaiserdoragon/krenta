@@ -326,7 +326,7 @@
           <a href="">この車両を問い合わせする</a>
         </article>
       </div>
-      <a href="" class="btn_lowerlayer">レンタカーの車種・料金の詳細はコチラ</a>
+      <a href="<?php echo home_url('/price'); ?>" class="btn_lowerlayer">レンタカーの車種・料金の詳細はコチラ</a>
     </div>
   </section>
 
@@ -378,7 +378,7 @@
           </p>
         </li>
       </ol>
-      <a href="" class="btn_lowerlayer">レンタカーご利用の流れの詳細はコチラ</a>
+      <a href="<?php echo home_url('/flow'); ?>" class="btn_lowerlayer">レンタカーご利用の流れの詳細はコチラ</a>
     </div>
   </section>
 

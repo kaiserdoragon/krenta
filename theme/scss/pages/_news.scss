@@ -1,0 +1,63 @@
+@charset "UTF-8";
+@use "../variables"as *;
+
+// ---------------------------------------------
+//  お知らせ専用（archive,single）
+// ---------------------------------------------
+
+
+.news_archive {
+  // .archive--inner
+  &--inner {
+    box-sizing: border-box;
+    width: min(850px, 100%); // デザインの幅 + padding
+    padding: 0 min(4vw, 25px);
+    margin: auto;
+  }
+
+  //.archive--wrap
+  &--wrap {
+    padding: 60px 0 120px;
+  }
+
+  // .archive--contents
+  &--contents {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 16.1%);
+
+    span {
+      padding: 3px 5px;
+      color: #fff;
+      background: #004ea2;
+      border-radius: 5px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+
+.news_single {
+  padding: 60px 0 120px;
+
+  h2 {
+    margin-bottom: 15px;
+    font-size: var(--fz25);
+    font-weight: 800;
+    color: #0050a2;
+  }
+
+  // .archive--inner
+  &--inner {
+    box-sizing: border-box;
+    width: min(850px, 100%); // デザインの幅 + padding
+    padding: 0 min(4vw, 25px);
+    margin: auto;
+  }
+}
+
