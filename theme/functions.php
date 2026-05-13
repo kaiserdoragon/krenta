@@ -678,6 +678,13 @@ function origintheme_enqueue_styles()
   }
 
   wp_enqueue_style(
+    'scrollhintcss',
+    $uri('/css/scroll-hint.css'),
+    array('reset'),
+    origintheme_asset_version('/css/scroll-hint.css')
+  );
+
+  wp_enqueue_style(
     'theme',
     $uri('/style.css'),
     $theme_deps,
@@ -738,7 +745,8 @@ function origintheme_enqueue_scripts()
     return;
   }
 
-  origintheme_register_and_enqueue_script('mainscripts', 'js/scripts.js', array('jquery'), true);
+  origintheme_register_and_enqueue_script('scrollhintjs', 'js/scroll-hint.min.js', array('jquery'), true);
+  origintheme_register_and_enqueue_script('mainscripts', 'js/scripts.js', array('jquery', 'scrollhintjs'), true);
 
   if (is_front_page()) {
     origintheme_register_and_enqueue_script('swiperjs', 'js/swiper-bundle.min.js', array(), true);
@@ -757,7 +765,7 @@ function origintheme_add_defer_attribute_for_legacy_wp($tag, $handle, $src)
     return $tag;
   }
 
-  $defer_handles = array('mainscripts', 'swiperjs', 'slider');
+  $defer_handles = array('mainscripts', 'scrollhintjs', 'swiperjs', 'slider');
 
   if (!in_array($handle, $defer_handles, true)) {
     return $tag;

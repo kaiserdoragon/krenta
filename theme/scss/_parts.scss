@@ -86,6 +86,11 @@ img {
 
 
 // レスポンシブ table　表
+.js-scrollable {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 table {
   width: 100%;
 

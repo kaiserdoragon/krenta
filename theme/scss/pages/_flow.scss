@@ -5,3 +5,241 @@
 //  ご利用の流れ専用
 // ---------------------------------------------
 
+.flow_order {
+  counter-reset: num;
+
+  h3 {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    max-width: 450px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-size: var(--fz25);
+    font-weight: 800;
+    color: #2d6bbb;
+    counter-increment: num;
+    border-bottom: 3px solid #dfe9f5;
+
+
+
+    &::before {
+      padding: 0 7px;
+      color: #fff;
+      content: counter(num, decimal-leading-zero) "";
+      background: #2d6bbb;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 60px;
+      aspect-ratio: 60 / 3;
+      content: "";
+      background: #2d6bbb;
+    }
+  }
+
+  p {
+    margin-bottom: 40px;
+  }
+
+  li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: 80px;
+    }
+  }
+
+  .header--btn {
+    justify-content: flex-start;
+  }
+
+  // .flow_order--inner
+  &--inner {
+    box-sizing: border-box;
+    width: min(1150px, 100%);
+    padding: 0 min(4vw, 25px);
+    margin: auto;
+  }
+
+  // .flow_order--contact
+  &--contact {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    padding: 15px 25px 15px 0;
+    font-size: var(--fz18);
+    font-weight: 800;
+    color: #fff;
+    text-align: center;
+    background: url(../img/top/icon_arrow.png) no-repeat center right 25px / 25px, #0f30df;
+    border-radius: 1000px;
+  }
+
+  // .flow_order--document
+  &--document {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    li {
+      display: block;
+      width: 230px;
+      padding: 5px;
+      margin-bottom: 0 !important;
+      font-size: var(--fz20);
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      background: url(../img/flow/icon_btn.png) no-repeat right 7% top 30% / 20px, #002984;
+      border-radius: 5px;
+    }
+
+    a {
+      display: block;
+      padding: 5px 0;
+    }
+
+    span {
+      display: block;
+      font-size: var(--fz12);
+    }
+  }
+}
+
+.flow_belongings {
+  ul {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+  p {
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  span {
+    font-size: var(--fz20);
+    font-weight: 700;
+    color: #e9173a;
+  }
+
+  img {
+    display: block;
+    margin: auto;
+    border-radius: 15px;
+  }
+
+  // .flow_order--inner
+  &--inner {
+    box-sizing: border-box;
+    width: min(1050px, 100%);
+    padding: 0 min(4vw, 25px);
+    margin: auto;
+  }
+}
+
+.flow_question {
+  dl {
+    padding: 0 0 30px 15px;
+    border-bottom: 1px solid #dedede;
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+
+  dt {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      font-size: var(--fz14);
+      font-weight: bold;
+      color: #fff;
+      background: #002978;
+      border-radius: 50%;
+    }
+  }
+
+  dd {
+    display: flex;
+    gap: 10px;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      font-size: var(--fz14);
+      font-weight: bold;
+      color: #002978;
+      background: #fff;
+      border: 1px solid #002978;
+      border-radius: 50%;
+    }
+  }
+
+  .js-scrollable {
+    width: 300px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  table {
+    width: 500px;
+    border-collapse: collapse;
+  }
+
+  th {
+    width: calc(100% / 3);
+    padding: 10px 0;
+    color: #fff;
+    background: #28559a;
+    border-right: 1px solid #dfdfdf;
+
+    &:first-child {
+      border-right: 1px solid #dfdfdf;
+      border-left: 1px solid #28559a;
+    }
+
+    &:last-child {
+      border-right: 1px solid #28559a;
+    }
+  }
+
+  td {
+    padding: 10px 0;
+    text-align: center;
+    vertical-align: middle;
+    border-right: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    border-left: 1px solid #dfdfdf;
+  }
+
+  // .flow_question--inner
+  &--inner {
+    box-sizing: border-box;
+    width: min(950px, 100%);
+    padding: 0 min(4vw, 25px);
+    margin: auto;
+  }
+}
+

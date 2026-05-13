@@ -158,6 +158,16 @@ window.addEventListener("load", () => {
 })();
 
 
+
+new ScrollHint('.js-scrollable', {
+  scrollHintIconAppendClass: 'scroll-hint-icon-white',
+  applyToParents: true,
+  i18n: {
+    scrollable: 'スクロールできます'
+  }
+});
+
+
 (function ($, root, undefined) {
   console.log('jqueryのコードはここ');
 
