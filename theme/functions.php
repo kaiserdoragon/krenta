@@ -679,8 +679,8 @@ function origintheme_enqueue_styles()
 
   wp_enqueue_style(
     'scrollhintcss',
-    get_theme_file_uri('/css/scroll-hint.css'),
-    array(),
+    $uri('/css/scroll-hint.css'),
+    array('reset'),
     origintheme_asset_version('/css/scroll-hint.css')
   );
 
