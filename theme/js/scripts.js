@@ -159,13 +159,14 @@ window.addEventListener("load", () => {
 
 
 
-new ScrollHint('.js-scrollable', {
-  scrollHintIconAppendClass: 'scroll-hint-icon-white',
-  applyToParents: true,
-  i18n: {
-    scrollable: 'スクロールできます'
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  new ScrollHint(".js-scrollable", {
+    i18n: {
+      scrollable: "スクロールできます。",
+    },
+  });
 });
+
 
 
 (function ($, root, undefined) {
