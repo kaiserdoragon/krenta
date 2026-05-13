@@ -56,26 +56,45 @@ if (Header) {
 
 // アンカーリンクのスムーススクロール //////////////////////////////////////////////
 // iOSでスムーススクロールをするためには「<script src=" https://polyfill.io/v3/polyfill.min.js?features=smoothscroll"></script>」を読み込む必要がある。
-const headerHeight = ((load) => {
-  return load ? document.getElementsByClassName("header")[0].offsetHeight : 0;
-})(true); // ※ヘッダー高さをロード時にはかりたいときは、ここをtrueにする
+// const headerHeight = ((load) => {
+//   return load ? document.getElementsByClassName("header")[0].offsetHeight : 0;
+// })(true); // ※ヘッダー高さをロード時にはかりたいときは、ここをtrueにする
 
-const anchor = document.querySelectorAll("a[href*='#']:not(.is-noscroll)"); // 発火しない場合は「.is-noscroll」
-[...anchor].forEach((element) => {
-  const target = ((hash) => {
-    return hash
-      ? document.querySelector(element.hash)
-      : console.error(`リンクが空です。 ${element.outerHTML}`);
-  })(element.hash);
+// const anchor = document.querySelectorAll("a[href*='#']:not(.is-noscroll)"); // 発火しない場合は「.is-noscroll」
+// [...anchor].forEach((element) => {
+//   const target = ((hash) => {
+//     return hash
+//       ? document.querySelector(element.hash)
+//       : console.error(`リンクが空です。 ${element.outerHTML}`);
+//   })(element.hash);
 
-  if (target) {
-    element.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.scrollTo({
-        top: target.offsetTop - headerHeight,
-        behavior: "smooth",
-      });
+//   if (target) {
+//     element.addEventListener("click", (e) => {
+//       e.preventDefault();
+//       window.scrollTo({
+//         top: target.offsetTop - headerHeight,
+//         behavior: "smooth",
+//       });
+//     });
+//   }
+// });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector(".header");
+  const root = document.documentElement;
+
+  if (header) {
+    // ヘッダーの高さを監視し、変化するたびにCSS変数を更新
+    const observer = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        // border-boxを含めた正確な高さを取得
+        const height = entry.borderBoxSize[0].blockSize;
+        root.style.setProperty("--header-height", `${height}px`);
+      }
     });
+
+    observer.observe(header);
   }
 });
 

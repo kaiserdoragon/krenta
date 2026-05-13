@@ -319,6 +319,16 @@ add_action('wp_head', 'origintheme_output_base_json_ld', 20);
   パンくずリスト HTML / JSON-LD
 \*------------------------------------*/
 
+function origintheme_breadcrumb_home_title($title, $type = array(), $id = null)
+{
+  if (is_array($type) && in_array('home', $type, true)) {
+    return 'TOP';
+  }
+
+  return $title;
+}
+add_filter('bcn_breadcrumb_title', 'origintheme_breadcrumb_home_title', 10, 3);
+
 function origintheme_get_breadcrumb_items()
 {
   if (is_front_page()) {

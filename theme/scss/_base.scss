@@ -5,8 +5,13 @@
 //  base
 // ---------------------------------------------
 
+:root {
+  --header-height: 100px; /* フォールバック（初期値） */
+}
+
 html {
-  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
 }
 
 body {
@@ -33,6 +38,10 @@ body {
   width: min(1550px, 100%); // デザインの幅 + padding
   padding: 0 min(4vw, 25px);
   margin: auto;
+
+  &.-md {
+    width: min(1050px, 100%); // デザインの幅 + padding
+  }
 }
 
 main {

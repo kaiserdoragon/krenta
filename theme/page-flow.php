@@ -77,15 +77,16 @@
           </h1>
         </header>
       </article>
-      <div class="container">
+      <div class="breadcrumbs--wrap">
         <?php
         get_template_part('include/common', 'breadcrumb');
         ?>
-
-        <div>
-          <?php the_content(); ?>
-        </div>
       </div>
+      <section class="flow_order sec">
+        <div class="flow_order--inner">
+
+        </div>
+      </section>
     </main>
 
     <script type="application/ld+json">
