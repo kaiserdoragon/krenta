@@ -16,7 +16,7 @@
 		<header class="header">
 			<small>
 				<div class="container">
-					【1日当たり最安の816円！】<br class="is-hidden_pc">名古屋で軽自動車専門の格安・激安レンタカーならKレンタ！<br class="is-hidden_pc">～マンスリーとウィークリーのプランをご用意しています～
+					【1日当たり最安の816円！】<br class="is-hidden_pc">名古屋で軽自動車専門の格安・激安レンタカーならケーレンタ！<br class="is-hidden_pc">～マンスリーとウィークリーのプランをご用意しています～
 				</div>
 			</small>
 			<div class="header--inner">
@@ -25,7 +25,7 @@
 					<a href="<?php echo home_url('/'); ?>">
 						<picture>
 							<source srcset="<?php echo get_template_directory_uri(); ?>/img/common/logo.webp" type="image/webp">
-							<img src="<?php echo get_template_directory_uri(); ?>/img/common/logo.png" alt="名古屋の格安レンタカー店「Kレンタ」" width="429" height="89">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/common/logo.png" alt="名古屋の格安レンタカー店「ケーレンタ」" width="429" height="89">
 						</picture>
 					</a>
 				</h1>

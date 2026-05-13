@@ -71,7 +71,7 @@
                   <span class="top_mv_02--marker"><b>816</b><span class="top_mv_01--yen">円～</span></span><span class="top_mv_01--taxin">（税込）</span>
                 </div>
               </h2>
-              <p class="top_mv_02--txt">Kレンタの格安レンタカーは<br class="is-hidden_pc"><span>ウィークリー</span>と<span>マンスリー</span>の<br class="is-hidden_sp">2プランでご利用いただけます。</p>
+              <p class="top_mv_02--txt">ケーレンタの格安レンタカーは<br class="is-hidden_pc"><span>ウィークリー</span>と<span>マンスリー</span>の<br class="is-hidden_sp">2プランでご利用いただけます。</p>
               <picture>
                 <source srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_cars_sp.webp" media="(max-width: 1024px)" width="343" height="265" />
                 <source srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_cars_sp.png" media="(max-width: 1024px)" width="343" height="265" />
@@ -161,8 +161,8 @@
         </div>
         <h2 class="top_greet--ttl"><span class="top_greet--red"><span class="top_greet--num">20</span>周年</span>のご挨拶</h2>
         <p>
-          いつもKレンタをご利用いただき、誠にありがとうございます。<br>
-          Kレンタは名古屋で創業して、蟹江町に移転しました。<br>
+          いつもケーレンタをご利用いただき、誠にありがとうございます。<br>
+          ケーレンタは名古屋で創業して、蟹江町に移転しました。<br>
           地域のお客さまとともに歩みを重ね、<br>
           20周年を迎えることができました。<br>
           支えてくださったすべての皆さまに、心より御礼申し上げます。<br>
@@ -180,7 +180,7 @@
 
   <section class="top_about sec">
     <div class="container">
-      <h2 class="ttl">Kレンタの格安レンタカーについて</h2>
+      <h2 class="ttl">ケーレンタの格安レンタカーについて</h2>
       <div class="top_about--inner">
         <p>
           短期から長期まで<br class="is-hidden_sp">
@@ -199,7 +199,7 @@
         </p>
         <p class="top_about--txt -orange">
           名古屋で格安に車を借りるなら<br class="is-hidden_sp">
-          Kレンタにお任せください！
+          ケーレンタにお任せください！
         </p>
       </div>
     </div>
@@ -226,9 +226,9 @@
 
   <section class="top_introduction sec bg_blue">
     <div class="container">
-      <h2 class="ttl">Kレンタのレンタカーのご紹介</h2>
+      <h2 class="ttl">ケーレンタのレンタカーのご紹介</h2>
       <p class="top_introduction--lead">
-        Kレンタの格安レンタカーは「マンスリー」と「ウィークリー」の2プランでご利用いただけます。<br>
+        ケーレンタの格安レンタカーは「マンスリー」と「ウィークリー」の2プランでご利用いただけます。<br>
         何れも業界トップクラスの低価格を実現しているのでセカンドカーとして、営業車としてお使いください。<br>
         カーシェアリングよりお得です！
       </p>
@@ -334,7 +334,7 @@
     <div class="container">
       <h2 class="ttl">レンタカーご利用の流れ</h2>
       <p class="top_flow--lead">
-        格安・激安レンタカー「Kレンタ」のご利用のながれを説明します。
+        格安・激安レンタカー「ケーレンタ」のご利用のながれを説明します。
       </p>
       <ol>
         <li>
@@ -384,12 +384,12 @@
 
   <section class="top_pr sec bg_blue">
     <div class="container">
-      <h2 class="ttl">Kレンタはレンタカーの<span>最安価</span>に挑戦中！！</h2>
+      <h2 class="ttl">ケーレンタはレンタカーの<span>最安価</span>に挑戦中！！</h2>
       <div class="top_pr--inner">
         <img src="<?php echo get_template_directory_uri(); ?>/img/top/pr_catch.jpg" alt="" width="649" height="487">
         <div class="top_pr--txt">
           <p class="u-mb15">
-            名古屋にある格安・激安レンタカーのKレンタは、<br class="is-hidden_sp">
+            名古屋にある格安・激安レンタカーのケーレンタは、<br class="is-hidden_sp">
             少しでも皆様のお役にたつために、軽自動車に特化した<br class="is-hidden_sp">
             日本で唯一の軽四専門店です。
           </p>
@@ -412,7 +412,7 @@
 
   <section class="top_reason sec">
     <div class="container">
-      <h2 class="ttl">Kレンタが選ばれる４つの理由</h2>
+      <h2 class="ttl">ケーレンタが選ばれる４つの理由</h2>
       <ul>
         <li>
           <div>
@@ -473,7 +473,7 @@
     <div class="container">
       <h2 class="ttl">お客様の声</h2>
       <p class="top_voice--lead">
-        名古屋の格安レンタカーのKレンタには、ご利用いただいたお客様から声が寄せられます。
+        名古屋の格安レンタカーのケーレンタには、ご利用いただいたお客様から声が寄せられます。
         その一部をご紹介します。
       </p>
       <ul>
@@ -509,7 +509,7 @@
               いつも年始に利用してます。
             </dt>
             <dd>
-              毎年社員総出で年始回りしますが足りない車をKレンタ
+              毎年社員総出で年始回りしますが足りない車をケーレンタ
               さんでお願いしています。今年もよろしくお願いします。
             </dd>
           </dl>

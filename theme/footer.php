@@ -13,7 +13,7 @@
           <a href="<?php echo home_url('/'); ?>">
             <picture>
               <source srcset="<?php echo get_template_directory_uri(); ?>/img/common/logo.webp" type="image/webp">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/common/logo.png" alt="名古屋の格安レンタカー店「Kレンタ」" width="300" height="62">
+              <img src="<?php echo get_template_directory_uri(); ?>/img/common/logo.png" alt="名古屋の格安レンタカー店「ケーレンタ」" width="300" height="62">
             </picture>
           </a>
         </div>
@@ -34,7 +34,7 @@
       </address>
     </div>
   </div>
-  <p class="footer--copy"><small>Copyright Kレンタ All Rights Reseved.</small></p>
+  <p class="footer--copy"><small>Copyright ケーレンタ All Rights Reseved.</small></p>
 </footer>
 </div>
 <?php wp_footer(); ?>
