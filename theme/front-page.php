@@ -1,6 +1,10 @@
 <?php get_header(); ?>
-<main>
 
+<?php
+$template_uri = get_template_directory_uri();
+?>
+
+<main>
   <div class="top_mv">
     <div class="swiper">
       <div class="swiper-wrapper">
@@ -16,7 +20,7 @@
               </div>
 
               <h2 class="top_mv_01--weekprice">
-                <span class="top_mv_01--one">1</span>週間<strong><b><span class="top_mv_01--dots">7</span>,<span class="top_mv_01--dots">5</span><span class="top_mv_01--dots">0</span><span class="top_mv_01--dots">0</span></b><span class="top_mv_01--yen">円～</strong></span><span class="top_mv_01--taxin">（税込）</span>
+                <span class="top_mv_01--one">1</span>週間<strong><b><span class="top_mv_01--dots">7</span>,<span class="top_mv_01--dots">5</span><span class="top_mv_01--dots">0</span><span class="top_mv_01--dots">0</span></b><span class="top_mv_01--yen">円～</span></strong><span class="top_mv_01--taxin">（税込）</span>
               </h2>
 
               <ul>
@@ -28,35 +32,32 @@
               </ul>
             </div>
             <picture class="top_mv_01--bg">
-              <!-- SP: まずWebP（768px以下の時） -->
               <source
-                srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv1_sp.webp"
+                srcset="<?php echo esc_url($template_uri . '/img/top/img_mv1_sp.webp'); ?>"
                 media="(max-width: 1024px)"
                 type="image/webp"
                 width="375"
                 height="750" />
 
-              <!-- SP: WebP非対応時のJPEG -->
               <source
-                srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv1_sp.jpg"
+                srcset="<?php echo esc_url($template_uri . '/img/top/img_mv1_sp.jpg'); ?>"
                 media="(max-width: 1024px)"
                 width="375"
                 height="750" />
 
-              <!-- PC: まずWebP（メディア条件なし＝SP条件に当たらなければPC用が選ばれる） -->
               <source
-                srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv1.webp"
+                srcset="<?php echo esc_url($template_uri . '/img/top/img_mv1.webp'); ?>"
                 type="image/webp"
                 width="1920"
                 height="700" />
 
-              <!-- フォールバック（最終手段） -->
               <img
-                src="<?php echo get_template_directory_uri(); ?>/img/top/img_mv1.jpg"
+                src="<?php echo esc_url($template_uri . '/img/top/img_mv1.jpg'); ?>"
                 alt=""
                 width="1920"
                 height="700"
-                fetchpriority="high" />
+                fetchpriority="high"
+                decoding="async" />
             </picture>
           </article>
         </div>
@@ -73,77 +74,71 @@
               </h2>
               <p class="top_mv_02--txt">ケーレンタの格安レンタカーは<br class="is-hidden_pc"><span>ウィークリー</span>と<span>マンスリー</span>の<br class="is-hidden_sp">2プランでご利用いただけます。</p>
               <picture>
-                <source srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_cars_sp.webp" media="(max-width: 1024px)" width="343" height="265" />
-                <source srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_cars_sp.png" media="(max-width: 1024px)" width="343" height="265" />
-                <source srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_cars.webp" type="image/webp" width="718" height="177" fetchpriority="high">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/top/img_cars.png" alt="" width="718" height="177" fetchpriority="high">
+                <source srcset="<?php echo esc_url($template_uri . '/img/top/img_cars_sp.webp'); ?>" media="(max-width: 1024px)" width="343" height="265" />
+                <source srcset="<?php echo esc_url($template_uri . '/img/top/img_cars_sp.png'); ?>" media="(max-width: 1024px)" width="343" height="265" />
+                <source srcset="<?php echo esc_url($template_uri . '/img/top/img_cars.webp'); ?>" type="image/webp" width="718" height="177">
+                <img src="<?php echo esc_url($template_uri . '/img/top/img_cars.png'); ?>" alt="ケーレンタで利用できる軽自動車レンタカーの車両一覧" width="718" height="177" loading="lazy" decoding="async">
               </picture>
             </div>
             <picture class="top_mv_02--bg">
-              <!-- SP: まずWebP（1024px以下の時） -->
               <source
-                srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv2_sp.webp"
+                srcset="<?php echo esc_url($template_uri . '/img/top/img_mv2_sp.webp'); ?>"
                 media="(max-width: 1024px)"
                 type="image/webp"
                 width="375"
                 height="750" />
 
-              <!-- SP: WebP非対応時のJPEG -->
               <source
-                srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv2_sp.jpg"
+                srcset="<?php echo esc_url($template_uri . '/img/top/img_mv2_sp.jpg'); ?>"
                 media="(max-width: 1024px)"
                 width="375"
                 height="750" />
 
-              <!-- PC: まずWebP（メディア条件なし＝SP条件に当たらなければPC用が選ばれる） -->
               <source
-                srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv2.webp"
+                srcset="<?php echo esc_url($template_uri . '/img/top/img_mv2.webp'); ?>"
                 type="image/webp"
                 width="1920"
                 height="700" />
 
-              <!-- フォールバック（最終手段） -->
               <img
-                src="<?php echo get_template_directory_uri(); ?>/img/top/img_mv2.jpg"
+                src="<?php echo esc_url($template_uri . '/img/top/img_mv2.jpg'); ?>"
                 alt=""
                 width="1920"
                 height="700"
-                fetchpriority="high" />
+                loading="lazy"
+                decoding="async" />
             </picture>
           </article>
         </div>
         <div class="swiper-slide">
           <article class="top_mv_03">
             <picture class="top_mv_03--bg">
-              <!-- SP: まずWebP（1024px以下の時） -->
               <source
-                srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv3_sp.webp"
+                srcset="<?php echo esc_url($template_uri . '/img/top/img_mv3_sp.webp'); ?>"
                 media="(max-width: 1024px)"
                 type="image/webp"
                 width="375"
                 height="750" />
 
-              <!-- SP: WebP非対応時のJPEG -->
               <source
-                srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv3_sp.jpg"
+                srcset="<?php echo esc_url($template_uri . '/img/top/img_mv3_sp.jpg'); ?>"
                 media="(max-width: 1024px)"
                 width="375"
                 height="750" />
 
-              <!-- PC: まずWebP（メディア条件なし＝SP条件に当たらなければPC用が選ばれる） -->
               <source
-                srcset="<?php echo get_template_directory_uri(); ?>/img/top/img_mv3.webp"
+                srcset="<?php echo esc_url($template_uri . '/img/top/img_mv3.webp'); ?>"
                 type="image/webp"
                 width="1920"
                 height="700" />
 
-              <!-- フォールバック（最終手段） -->
               <img
-                src="<?php echo get_template_directory_uri(); ?>/img/top/img_mv3.jpg"
+                src="<?php echo esc_url($template_uri . '/img/top/img_mv3.jpg'); ?>"
                 alt=""
                 width="1920"
                 height="700"
-                fetchpriority="high" />
+                loading="lazy"
+                decoding="async" />
             </picture>
           </article>
         </div>
@@ -156,8 +151,8 @@
     <div class="container">
       <div class="bg_frame">
         <div class="top_greet--image">
-          <img src="<?php echo get_template_directory_uri(); ?>/img/top/greet_anniversary.png" alt="" width="432" height="217">
-          <img src="<?php echo get_template_directory_uri(); ?>/img/top/greet_logo.png" alt="" width="215" height="82">
+          <img src="<?php echo esc_url($template_uri . '/img/top/greet_anniversary.png'); ?>" alt="ケーレンタ20周年" width="432" height="217" loading="lazy" decoding="async">
+          <img src="<?php echo esc_url($template_uri . '/img/top/greet_logo.png'); ?>" alt="ケーレンタ" width="215" height="82" loading="lazy" decoding="async">
         </div>
         <h2 class="top_greet--ttl"><span class="top_greet--red"><span class="top_greet--num">20</span>周年</span>のご挨拶</h2>
         <p>
@@ -212,7 +207,7 @@
         下記からお気軽にお問い合わせください！！
       </p>
       <div class="header--btn">
-        <a href="<?php echo home_url('/reservation'); ?>">
+        <a href="<?php echo esc_url(home_url('/reservation/')); ?>">
           レンタカーのご予約はコチラ
           <span>24時間いつでも受付中</span>
         </a>
@@ -229,7 +224,7 @@
       <h2 class="ttl">ケーレンタのレンタカーのご紹介</h2>
       <p class="top_introduction--lead">
         ケーレンタの格安レンタカーは「マンスリー」と「ウィークリー」の2プランでご利用いただけます。<br>
-        何れも業界トップクラスの低価格を実現しているのでセカンドカーとして、営業車としてお使いください。<br>
+        いずれも業界トップクラスの低価格を実現しているので、セカンドカーとして、営業車としてお使いください。<br>
         カーシェアリングよりお得です！
       </p>
       <div class="top_introduction--list">
@@ -237,7 +232,7 @@
           <div class="top_introduction--circle">
             1日あたり<br>816円！
           </div>
-          <img src="<?php echo get_template_directory_uri(); ?>/img/top/introduction_01.png" alt="" width="445" height="254">
+          <img src="<?php echo esc_url($template_uri . '/img/top/introduction_01.png'); ?>" alt="軽自動車Sタイプのレンタカー" width="445" height="254" loading="lazy" decoding="async">
           <div class="top_introduction--dot">
             <h3>軽自動車Sタイプ</h3>
             <dl class="top_introduction--price">
@@ -254,13 +249,13 @@
             最適なミラ・アルトなどコンパクトタイプの軽乗用車が<br class="is-hidden_sp">
             1週間7,500円という激安価格でご利用いただけます。
           </p>
-          <a href="">この車両を問い合わせする</a>
+          <a href="<?php echo esc_url(home_url('/reservation/')); ?>">この車両を問い合わせする</a>
         </article>
         <article>
           <div class="top_introduction--circle">
             荷物の運搬<br>に便利！
           </div>
-          <img src="<?php echo get_template_directory_uri(); ?>/img/top/introduction_02.png" alt="" width="393" height="275">
+          <img src="<?php echo esc_url($template_uri . '/img/top/introduction_02.png'); ?>" alt="軽トラックタイプのレンタカー" width="393" height="275" loading="lazy" decoding="async">
           <div class="top_introduction--dot">
             <h3>軽トラックタイプ</h3>
             <dl class="top_introduction--price">
@@ -277,13 +272,13 @@
             便利なハイゼットなどの軽トラックが<br class="is-hidden_sp">
             1週間9,800円という激安価格でご利用いただけます。
           </p>
-          <a href="">この車両を問い合わせする</a>
+          <a href="<?php echo esc_url(home_url('/reservation/')); ?>">この車両を問い合わせする</a>
         </article>
         <article>
           <div class="top_introduction--circle">
             大人4人<br>でも悠々！
           </div>
-          <img src="<?php echo get_template_directory_uri(); ?>/img/top/introduction_03.png" alt="" width="373" height="253">
+          <img src="<?php echo esc_url($template_uri . '/img/top/introduction_03.png'); ?>" alt="軽自動車Mタイプのレンタカー" width="373" height="253" loading="lazy" decoding="async">
           <div class="top_introduction--dot">
             <h3>軽自動車Mタイプ</h3>
             <dl class="top_introduction--price">
@@ -300,15 +295,15 @@
             ムーブ・ワゴンRなどのファミリータイプの軽乗用車が<br class="is-hidden_sp">
             1週間9,500円という激安価格でご利用いただけます。
           </p>
-          <a href="">この車両を問い合わせする</a>
+          <a href="<?php echo esc_url(home_url('/reservation/')); ?>">この車両を問い合わせする</a>
         </article>
         <article>
           <div class="top_introduction--circle">
-            家族で<br>乗れる！
+            荷物も<br>運べる！
           </div>
-          <img src="<?php echo get_template_directory_uri(); ?>/img/top/introduction_04.png" alt="" width="381" height="239">
+          <img src="<?php echo esc_url($template_uri . '/img/top/introduction_04.png'); ?>" alt="軽自動車Lタイプのレンタカー" width="381" height="239" loading="lazy" decoding="async">
           <div class="top_introduction--dot">
-            <h3>軽自動車Sタイプ</h3>
+            <h3>軽自動車Lタイプ</h3>
             <dl class="top_introduction--price">
               <dt>ウィークリー</dt>
               <dd>13,500円<span>(税込)</span></dd>
@@ -321,12 +316,12 @@
           <p class="top_introduction--txt">
             営業車や商品の納品・運搬に便利なエブリィなどの<br class="is-hidden_sp">
             ワンボックスタイプの軽乗用車が<br class="is-hidden_sp">
-            1週間 13,500円という激安価格でご利用いただけます。
+            1週間13,500円という激安価格でご利用いただけます。
           </p>
-          <a href="">この車両を問い合わせする</a>
+          <a href="<?php echo esc_url(home_url('/reservation/')); ?>">この車両を問い合わせする</a>
         </article>
       </div>
-      <a href="<?php echo home_url('/price'); ?>" class="btn_lowerlayer">レンタカーの車種・料金の詳細はコチラ</a>
+      <a href="<?php echo esc_url(home_url('/price/')); ?>" class="btn_lowerlayer">レンタカーの車種・料金の詳細はコチラ</a>
     </div>
   </section>
 
@@ -334,14 +329,14 @@
     <div class="container">
       <h2 class="ttl">レンタカーご利用の流れ</h2>
       <p class="top_flow--lead">
-        格安・激安レンタカー「ケーレンタ」のご利用のながれを説明します。
+        格安・激安レンタカー「ケーレンタ」のご利用の流れを説明します。
       </p>
       <ol>
         <li>
           <div class="top_flow--circle">
             <span>STEP</span>01
           </div>
-          <img src="<?php echo get_template_directory_uri(); ?>/img/top/flow_01.png" alt="" width="74" height="47">
+          <img src="<?php echo esc_url($template_uri . '/img/top/flow_01.png'); ?>" alt="利用したいレンタカーを選ぶ" width="74" height="47" loading="lazy" decoding="async">
           <p>
             利用したい<br>
             レンタカーを選ぶ
@@ -351,7 +346,7 @@
           <div class="top_flow--circle">
             <span>STEP</span>02
           </div>
-          <img src="<?php echo get_template_directory_uri(); ?>/img/top/flow_02.png" alt="" width="36" height="57">
+          <img src="<?php echo esc_url($template_uri . '/img/top/flow_02.png'); ?>" alt="レンタカーを予約申し込みする" width="36" height="57" loading="lazy" decoding="async">
           <p>
             ご予約<br>
             申し込み
@@ -361,7 +356,7 @@
           <div class="top_flow--circle">
             <span>STEP</span>03
           </div>
-          <img src="<?php echo get_template_directory_uri(); ?>/img/top/flow_03.png" alt="" width="57" height="54">
+          <img src="<?php echo esc_url($template_uri . '/img/top/flow_03.png'); ?>" alt="予約内容の確認と利用方法の説明" width="57" height="54" loading="lazy" decoding="async">
           <p>
             予約内容の確認と<br>
             利用方法の説明
@@ -371,14 +366,14 @@
           <div class="top_flow--circle">
             <span>STEP</span>04
           </div>
-          <img src="<?php echo get_template_directory_uri(); ?>/img/top/flow_04.png" alt="" width="51" height="54">
+          <img src="<?php echo esc_url($template_uri . '/img/top/flow_04.png'); ?>" alt="店舗で契約手続きを行う" width="51" height="54" loading="lazy" decoding="async">
           <p>
             ご来店<br>
             ご契約
           </p>
         </li>
       </ol>
-      <a href="<?php echo home_url('/flow'); ?>" class="btn_lowerlayer">レンタカーご利用の流れの詳細はコチラ</a>
+      <a href="<?php echo esc_url(home_url('/flow/')); ?>" class="btn_lowerlayer">レンタカーご利用の流れの詳細はコチラ</a>
     </div>
   </section>
 
@@ -386,12 +381,12 @@
     <div class="container">
       <h2 class="ttl">ケーレンタはレンタカーの<span>最安価</span>に挑戦中！！</h2>
       <div class="top_pr--inner">
-        <img src="<?php echo get_template_directory_uri(); ?>/img/top/pr_catch.jpg" alt="" width="649" height="487">
+        <img src="<?php echo esc_url($template_uri . '/img/top/pr_catch.jpg'); ?>" alt="ケーレンタは名古屋の格安レンタカーとして低価格に挑戦中" width="649" height="487" loading="lazy" decoding="async">
         <div class="top_pr--txt">
           <p class="u-mb15">
             名古屋にある格安・激安レンタカーのケーレンタは、<br class="is-hidden_sp">
             少しでも皆様のお役にたつために、軽自動車に特化した<br class="is-hidden_sp">
-            日本で唯一の軽四専門店です。
+            レンタカー店です。
           </p>
           <p class="u-mb15">
             プランとして<span class="top_pr--orange">ウィークリーコース</span>と<span class="top_pr--blue">マンスリーコース</span>をご用意しておりますので、
@@ -412,7 +407,7 @@
 
   <section class="top_reason sec">
     <div class="container">
-      <h2 class="ttl">ケーレンタが選ばれる４つの理由</h2>
+      <h2 class="ttl">ケーレンタが選ばれる4つの理由</h2>
       <ul>
         <li>
           <div>
@@ -425,7 +420,7 @@
               料金だけで自家用車と同様にお使いいただけます。
             </p>
           </div>
-          <img src="<?php echo get_template_directory_uri(); ?>/img/top/reason_01.jpg" alt="" width="300" height="275">
+          <img src="<?php echo esc_url($template_uri . '/img/top/reason_01.jpg'); ?>" alt="ご家族用のセカンドカーとしてレンタカーを利用するイメージ" width="300" height="275" loading="lazy" decoding="async">
         </li>
         <li>
           <div>
@@ -438,7 +433,7 @@
               日常の足としてご利用いただけます。
             </p>
           </div>
-          <img src="<?php echo get_template_directory_uri(); ?>/img/top/reason_02.jpg" alt="" width="300" height="275">
+          <img src="<?php echo esc_url($template_uri . '/img/top/reason_02.jpg'); ?>" alt="単身赴任時の移動手段としてレンタカーを利用するイメージ" width="300" height="275" loading="lazy" decoding="async">
         </li>
         <li>
           <div>
@@ -451,7 +446,7 @@
               今すぐ活躍できます！
             </p>
           </div>
-          <img src="<?php echo get_template_directory_uri(); ?>/img/top/reason_03.jpg" alt="" width="300" height="275">
+          <img src="<?php echo esc_url($template_uri . '/img/top/reason_03.jpg'); ?>" alt="法人の営業車としてレンタカーを利用するイメージ" width="300" height="275" loading="lazy" decoding="async">
         </li>
         <li>
           <div>
@@ -463,7 +458,7 @@
               利用できるのでコスト削減も可能です。
             </p>
           </div>
-          <img src="<?php echo get_template_directory_uri(); ?>/img/top/reason_04.jpg" alt="" width="300" height="275">
+          <img src="<?php echo esc_url($template_uri . '/img/top/reason_04.jpg'); ?>" alt="作業車としてレンタカーを利用するイメージ" width="300" height="275" loading="lazy" decoding="async">
         </li>
       </ul>
     </div>
@@ -552,9 +547,10 @@
 
       <?php
       $args = array(
-        'posts_per_page' => 3,
-        'post_type'      => 'post',
-        'post_status'    => 'publish',
+        'posts_per_page'      => 3,
+        'post_type'           => 'post',
+        'post_status'         => 'publish',
+        'ignore_sticky_posts' => true,
       );
 
       $my_posts = get_posts($args);
@@ -599,7 +595,7 @@
   <section class="top_area sec">
     <div class="container">
       <h2 class="ttl">対応エリア</h2>
-      <img src="<?php echo get_template_directory_uri(); ?>/img/top/area_map.png" alt="" width="444" height="408">
+      <img src="<?php echo esc_url($template_uri . '/img/top/area_map.png'); ?>" alt="ケーレンタの対応エリアマップ" width="444" height="408" loading="lazy" decoding="async">
       <p>
         名古屋市（天白区・北区・昭和区・千種区・中区・中川区・西区・東区・瑞穂区・緑区・南区・港区・名東区・守山区）
         愛西市・あま市・安城市・一宮市・稲沢市・大府市・岡崎市・尾張旭市・春日井市・刈谷市・北名古屋市・清須市・

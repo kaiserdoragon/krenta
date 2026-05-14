@@ -204,20 +204,10 @@
     &:hover {
       opacity: 0.6;
     }
-
-    @include max-mq {
-      // width: 100%;
-      // max-width: 80%;
-      // height: 50px;
-    }
   }
 
   .smf-button-control {
     margin-left: 0 !important;
-  }
-
-  @include max-mq {
-    // width: min(240px, 100%);
   }
 
   &--wrap {

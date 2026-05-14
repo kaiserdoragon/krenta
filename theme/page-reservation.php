@@ -16,6 +16,8 @@
       $thumbnail_alt = $title;
     }
 
+    $template_uri = get_template_directory_uri();
+
     $breadcrumb_items = array();
     $position = 1;
 
@@ -72,7 +74,7 @@
             </figure>
           <?php endif; ?>
 
-          <h1>
+          <h1 id="page-title">
             <?php echo esc_html($title); ?>
           </h1>
         </header>
@@ -91,8 +93,89 @@
             レンタカーのご予約はお電話でも受付中！！
           </p>
           <a class="reservation--banner" href="tel:0120-995-758">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/flow/belongings_banner.jpg" alt="" width="675" height="200">
+            <img
+              src="<?php echo esc_url($template_uri . '/img/flow/belongings_banner.jpg'); ?>"
+              alt="お電話でのご予約・お問い合わせ 0120-995-758"
+              width="675"
+              height="200"
+              loading="lazy"
+              decoding="async">
           </a>
+
+          <ul class="top_introduction">
+            <li>
+              <img
+                src="<?php echo esc_url($template_uri . '/img/reservation/reservation_01.png'); ?>"
+                alt="軽自動車Sタイプのレンタカー"
+                width="290"
+                height="165"
+                loading="lazy"
+                decoding="async">
+              <h3>軽自動車Sタイプ</h3>
+              <dl class="top_introduction--price">
+                <dt>ウィークリー</dt>
+                <dd>7,500円<span>(税込)</span></dd>
+              </dl>
+              <dl class="top_introduction--price -month">
+                <dt>マンスリー</dt>
+                <dd>24,500円<span>(税込)</span></dd>
+              </dl>
+            </li>
+            <li>
+              <img
+                src="<?php echo esc_url($template_uri . '/img/reservation/reservation_02.png'); ?>"
+                alt="軽トラックタイプのレンタカー"
+                width="265"
+                height="184"
+                loading="lazy"
+                decoding="async">
+              <h3>軽トラックタイプ</h3>
+              <dl class="top_introduction--price">
+                <dt>ウィークリー</dt>
+                <dd>9,800円<span>(税込)</span></dd>
+              </dl>
+              <dl class="top_introduction--price -month">
+                <dt>マンスリー</dt>
+                <dd>25,800円<span>(税込)</span></dd>
+              </dl>
+            </li>
+            <li>
+              <img
+                src="<?php echo esc_url($template_uri . '/img/reservation/reservation_04.png'); ?>"
+                alt="軽自動車Mタイプのレンタカー"
+                width="332"
+                height="200"
+                loading="lazy"
+                decoding="async">
+              <h3>軽自動車Mタイプ</h3>
+              <dl class="top_introduction--price">
+                <dt>ウィークリー</dt>
+                <dd>9,500円<span>(税込)</span></dd>
+              </dl>
+              <dl class="top_introduction--price -month">
+                <dt>マンスリー</dt>
+                <dd>29,500円<span>(税込)</span></dd>
+              </dl>
+            </li>
+            <li>
+              <img
+                src="<?php echo esc_url($template_uri . '/img/reservation/reservation_03.png'); ?>"
+                alt="軽自動車Lタイプのレンタカー"
+                width="309"
+                height="204"
+                loading="lazy"
+                decoding="async">
+              <h3>軽自動車Lタイプ</h3>
+              <dl class="top_introduction--price">
+                <dt>ウィークリー</dt>
+                <dd>13,500円<span>(税込)</span></dd>
+              </dl>
+              <dl class="top_introduction--price -month">
+                <dt>マンスリー</dt>
+                <dd>37,500円<span>(税込)</span></dd>
+              </dl>
+            </li>
+          </ul>
           <h4>注意事項</h4>
           <p class="contact--lead">
             ケーレンタをご利用いただく際は、必ず契約書・同意書・注意事項をお読みいただき、<br class="is-hidden_sp">
@@ -100,32 +183,28 @@
           </p>
           <ul class="flow_order--document">
             <li>
-              <a href="<?php echo get_template_directory_uri(); ?>/pdf/契約書.pdf" download="契約書">
+              <a href="<?php echo esc_url($template_uri . '/pdf/契約書.pdf'); ?>" download="契約書.pdf">
                 契約書
                 <span>※PDFファイルがダウンロードされます</span>
               </a>
             </li>
             <li>
-              <a href="<?php echo get_template_directory_uri(); ?>/pdf/同意書.pdf" download="同意書">
+              <a href="<?php echo esc_url($template_uri . '/pdf/同意書.pdf'); ?>" download="同意書.pdf">
                 同意書
                 <span>※PDFファイルがダウンロードされます</span>
               </a>
             </li>
             <li>
-              <a href=" <?php echo get_template_directory_uri(); ?>/pdf/注意事項.pdf" download="注意事項">
+              <a href="<?php echo esc_url($template_uri . '/pdf/注意事項.pdf'); ?>" download="注意事項.pdf">
                 注意事項
                 <span>※PDFファイルがダウンロードされます</span>
               </a>
             </li>
           </ul>
-          <?php echo apply_filters('the_content', '<!-- wp:snow-monkey-forms/snow-monkey-form {"formId":94} /-->'); ?>
+          <?php echo do_blocks('<!-- wp:snow-monkey-forms/snow-monkey-form {"formId":94} /-->'); ?>
         </div>
       </section>
-
-
-
     </main>
-
     <script type="application/ld+json">
       <?php echo wp_json_encode($breadcrumb_schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?>
     </script>
