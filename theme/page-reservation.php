@@ -77,17 +77,31 @@
           </h1>
         </header>
       </article>
-      <div class="container">
-        <div class="breadcrumbs--wrap">
-          <?php
-          get_template_part('include/common', 'breadcrumb');
-          ?>
-        </div>
-
-        <div>
-          <?php the_content(); ?>
-        </div>
+      <div class="breadcrumbs--wrap">
+        <?php
+        get_template_part('include/common', 'breadcrumb');
+        ?>
       </div>
+
+      <section class="contact price_details sec">
+        <div class="container">
+          <h2 class="ttl">空車確認・レンタカー予約</h2>
+          <p class="contact--lead">
+            以下にご利用期間、ご利用希望レンタカーを選択後、空車確認ボタンをクリックしてください。<br>
+            レンタカーのご予約はお電話でも受付中！！
+          </p>
+          <img src="<?php echo get_template_directory_uri(); ?>/img/flow/belongings_banner.jpg" alt="" width="675" height="200">
+          <h4>料金</h4>
+          <p class="contact--lead -supplement">
+            ケーレンタをご利用いただく際は、必ず契約書・同意書・注意事項をお読みいただき、<br class="is-hidden_sp">
+            ご同意いただいてからご予約いただきますようお願い申し上げます。
+          </p>
+          <?php echo apply_filters('the_content', '<!-- wp:snow-monkey-forms/snow-monkey-form {"formId":83} /-->'); ?>
+        </div>
+      </section>
+
+
+
     </main>
 
     <script type="application/ld+json">

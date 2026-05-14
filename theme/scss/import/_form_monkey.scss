@@ -180,14 +180,13 @@
     color: #fff;
     letter-spacing: 0.1em;
     cursor: pointer;
-    background: red;
+    background: #28559a;
     border: none;
     border-radius: 45px;
     transition: 0.3s;
 
     &:hover {
-      background-color: $color-blue;
-      opacity: 0.8;
+      opacity: 0.6;
     }
 
     @include max-mq {

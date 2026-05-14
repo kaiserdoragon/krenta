@@ -6,8 +6,6 @@
 // ---------------------------------------------
 
 // contact form
-
-                                                                                            
 @forward "../import/form_monkey";
 
 // エラーメッセージ用ツールチップ
@@ -18,12 +16,34 @@
 //  contact用の追加クラス
 // ---------------------------------------------
 
+
+.contact {
+  // .contact--lead
+  &--lead {
+    margin-bottom: 30px;
+    font-size: var(--fz18);
+    font-weight: 700;
+    text-align: center;
+
+    &.-supplement {
+      margin-bottom: 60px;
+      font-size: var(--fz16);
+      font-weight: 400;
+    }
+  }
+}
+
 #loading {
   display: none;
 }
 
 .thanks {
-  padding: 20px;
-  font-size: var(--fz18);
-  text-align: center;
+  p {
+    margin-bottom: 15px;
+  }
+
+  // .thanks--inner
+  &--inner {
+    text-align: center;
+  }
 }

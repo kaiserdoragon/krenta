@@ -1,0 +1,67 @@
+@charset "UTF-8";
+@use "../variables"as *;
+
+// ---------------------------------------------
+//  プライバシー専用
+// ---------------------------------------------
+
+.privacy_policy {
+  h3 {
+    width: fit-content;
+    padding: 10px 20px;
+    margin: 0 auto 30px;
+    margin-bottom: 30px;
+    font-size: var(--fz23);
+    font-weight: 800;
+    color: #0050a2;
+    background: #f1f1f1;
+  }
+
+  // .privacy_policy--lead
+  &--lead {
+    margin-bottom: 60px;
+    font-size: var(--fz18);
+    font-weight: 700;
+    text-align: center;
+  }
+
+  // .privacy_policy--content
+  &--content {
+    &:not(:last-of-type) {
+      margin-bottom: 60px;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    ul {
+      width: fit-content;
+      margin: auto;
+    }
+
+    li {
+      padding-left: 1em;
+      text-indent: -1em;
+    }
+
+    table {
+      width: fit-content;
+      margin: auto;
+    }
+
+    th {
+      width: 25%;
+      text-align: left;
+    }
+
+    th,
+    td {
+      padding-bottom: 10px;
+    }
+  }
+}

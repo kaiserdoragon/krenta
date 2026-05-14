@@ -73,21 +73,40 @@
           <?php endif; ?>
 
           <h1>
-            <?php echo esc_html($title); ?>
+            お問い合わせ
           </h1>
         </header>
       </article>
-      <div class="container">
-        <div class="breadcrumbs--wrap">
-          <?php
-          get_template_part('include/common', 'breadcrumb');
-          ?>
-        </div>
-
-        <div>
-          <?php the_content(); ?>
-        </div>
+      <div class="breadcrumbs--wrap">
+        <?php
+        get_template_part('include/common', 'breadcrumb');
+        ?>
       </div>
+
+      <section class="thanks sec">
+        <div class="container">
+          <h2 class="ttl">お問い合わせありがとうございます</h2>
+          <div class="thanks--inner">
+            <p>
+              お問い合わせありがとうございます。
+            </p>
+            <p>
+              このたびは、お問い合わせ頂き誠にありがとうございます。
+            </p>
+            <p>
+              お送り頂きました内容を確認の上、2～3営業日以内に折り返しご連絡させて頂きます。<br>
+              また、ご記入頂いたメールアドレスへ、自動返信の確認メールをお送りしております。<br>
+              しばらく経ってもメールが届かない場合は、入力頂いたメールアドレスが間違っているか、迷惑メールフォルダに振り分けられている可能性がございます。<br>
+              また、ドメイン指定をされている場合は、「info@shima-car.com」からのメールが受信できるようあらかじめ設定をお願いいたします。<br>
+              以上の内容をご確認の上、お手数ですがもう一度フォームよりお問い合わせ頂きますようお願い申し上げます。<br>
+            </p>
+            <p>
+              なお、お急ぎの場合は電話でもご相談を受け付けております。<br>
+              0120-995-758までご遠慮なくご相談ください。<br>
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script type="application/ld+json">

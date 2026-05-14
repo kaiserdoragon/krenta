@@ -325,9 +325,15 @@ function origintheme_breadcrumb_home_title($title, $type = array(), $id = null)
     return 'TOP';
   }
 
+  // サンクスページの時にパンくずを変更
+  if ($id && get_post_type($id) === 'page' && get_post_field('post_name', $id) === 'thanks') {
+    return 'お問い合わせありがとうございます。';
+  }
+
   return $title;
 }
 add_filter('bcn_breadcrumb_title', 'origintheme_breadcrumb_home_title', 10, 3);
+
 
 function origintheme_get_breadcrumb_items()
 {
@@ -538,6 +544,8 @@ function origintheme_output_breadcrumb_json_ld()
   echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
 }
 add_action('wp_head', 'origintheme_output_breadcrumb_json_ld', 21);
+
+
 
 /*------------------------------------*\
   head整理・不要出力の抑制
@@ -983,7 +991,7 @@ add_action(
       'load', // ページ全体の読み込み完了後に実行
       function() {
         // 対象のフォーム要素を取得（'snow-monkey-form-9' の部分は実際のフォームIDに合わせてください）
-        const form = document.getElementById('snow-monkey-form-9');
+        const form = document.getElementById('snow-monkey-form-83');
 
         // フォーム要素が存在する場合のみ処理を実行
         if (form) {

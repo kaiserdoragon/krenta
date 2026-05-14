@@ -77,17 +77,32 @@
           </h1>
         </header>
       </article>
-      <div class="container">
-        <div class="breadcrumbs--wrap">
-          <?php
-          get_template_part('include/common', 'breadcrumb');
-          ?>
-        </div>
-
-        <div>
-          <?php the_content(); ?>
-        </div>
+      <div class="breadcrumbs--wrap">
+        <?php
+        get_template_part('include/common', 'breadcrumb');
+        ?>
       </div>
+
+      <section class="contact sec">
+        <div class="container">
+          <h2 class="ttl">お問い合わせ</h2>
+          <p class="contact--lead">
+            Kレンタは、初心者からご高齢の方まで、名古屋市で格安のレンタカーを安心・手軽にご利用いただけるよう、<br class="is-hidden_sp">
+            車を「持つ」負担を抑え、必要なときだけ賢く使える新しいカーライフをご提供します。<br>
+            短時間から長期まで、使いたい期間だけ気軽にレンタルでき、維持費や管理の手間も最小限。<br>
+            予約から受け取り・返却までスタッフが丁寧にサポート。
+          </p>
+          <p class="contact--lead -supplement">
+            お問い合わせ後、1〜2営業日以内に弊社担当者から連絡させていただきます。<br>
+            また、お問い合わせはお電話でも受け付けております。<br>
+            ※営業を目的としたお問合せはご遠慮ください。
+          </p>
+          <?php echo apply_filters('the_content', '<!-- wp:snow-monkey-forms/snow-monkey-form {"formId":83} /-->'); ?>
+        </div>
+      </section>
+
+
+
     </main>
 
     <script type="application/ld+json">
