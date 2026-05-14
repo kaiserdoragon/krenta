@@ -16,6 +16,8 @@
       $thumbnail_alt = $title;
     }
 
+    $template_uri = get_template_directory_uri();
+
     $breadcrumb_items = array();
     $position = 1;
 
@@ -72,7 +74,7 @@
             </figure>
           <?php endif; ?>
 
-          <h1>
+          <h1 id="page-title">
             <?php echo esc_html($title); ?>
           </h1>
         </header>
@@ -87,32 +89,32 @@
           <h2 class="ttl">軽自動車専門のレンタカー店</h2>
           <p class="price_kinds--lead">
             ケーレンタの格安レンタカーは<br class="is-hidden_sp">
-            <span class="price_kinds--lead -orange">ウィークリーコース</span>と<span class="price_kinds--lead -blue">マンスリーコース</span>の２プランでご利用いただけます。<br>
-            何れも業界トップクラスの低価格を実現しているので<br class="is-hidden_sp">
+            <span class="price_kinds--lead -orange">ウィークリーコース</span>と<span class="price_kinds--lead -blue">マンスリーコース</span>の2プランでご利用いただけます。<br>
+            いずれも業界トップクラスの低価格を実現しているので<br class="is-hidden_sp">
             セカンドカーとして、営業車としてお使いください。
           </p>
           <ul>
             <li>
-              <a href="<?php echo home_url('/price/#price_details_01'); ?>">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/price/kinds_01.png" alt="" width="124" height="70">
+              <a href="<?php echo esc_url(home_url('/price/#price_details_01')); ?>">
+                <img src="<?php echo esc_url($template_uri . '/img/price/kinds_01.png'); ?>" alt="軽乗用車Sタイプ" width="124" height="70" loading="lazy" decoding="async">
                 <p>軽乗用車Sタイプ</p>
               </a>
             </li>
             <li>
-              <a href="<?php echo home_url('/price/#price_details_02'); ?>">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/price/kinds_02.png" alt="" width="113" height="79">
+              <a href="<?php echo esc_url(home_url('/price/#price_details_02')); ?>">
+                <img src="<?php echo esc_url($template_uri . '/img/price/kinds_02.png'); ?>" alt="軽トラックタイプ" width="113" height="79" loading="lazy" decoding="async">
                 <p>軽トラックタイプ</p>
               </a>
             </li>
             <li>
-              <a href="<?php echo home_url('/price/#price_details_03'); ?>">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/price/kinds_03.png" alt="" width="126" height="84">
+              <a href="<?php echo esc_url(home_url('/price/#price_details_03')); ?>">
+                <img src="<?php echo esc_url($template_uri . '/img/price/kinds_03.png'); ?>" alt="軽自動車Mタイプ" width="126" height="84" loading="lazy" decoding="async">
                 <p>軽自動車Mタイプ</p>
               </a>
             </li>
             <li>
-              <a href="<?php echo home_url('/price/#price_details_04'); ?>">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/price/kinds_04.png" alt="" width="124" height="70">
+              <a href="<?php echo esc_url(home_url('/price/#price_details_04')); ?>">
+                <img src="<?php echo esc_url($template_uri . '/img/price/kinds_04.png'); ?>" alt="軽自動車Lタイプ" width="124" height="70" loading="lazy" decoding="async">
                 <p>軽自動車Lタイプ</p>
               </a>
             </li>
@@ -121,9 +123,9 @@
             <section class="price_details" id="price_details_01">
               <div class="price_details--inner">
                 <h3>軽乗用車Sタイプ</h3>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/price/details_01.png" alt="" width="290" height="165">
+                <img src="<?php echo esc_url($template_uri . '/img/price/details_01.png'); ?>" alt="軽乗用車Sタイプのレンタカー" width="290" height="165" loading="lazy" decoding="async">
                 <p class="price_details--lead">
-                  一時的な転勤や長期出張での営業車両として、毎日の通勤からちょっとしたお買い物から<br class="is-hidden_sp">
+                  一時的な転勤や長期出張での営業車両として、毎日の通勤からちょっとしたお買い物、<br class="is-hidden_sp">
                   送り迎えなどにもコンパクトサイズの軽四は小回りも利くので大変便利。<br>
                   そんな軽四Sタイプの格安レンタカー！商用車として営業車としても活躍中！
                 </p>
@@ -169,13 +171,13 @@
                   </dl>
                 </div>
                 <p class="price_details--remarks">※加入任意保険、消費税込み、車両保険別、留意事項</p>
-                <a href="">この車両を問い合わせする</a>
+                <a href="<?php echo esc_url(home_url('/reservation/')); ?>">この車両を問い合わせする</a>
               </div>
             </section>
             <section class="price_details" id="price_details_02">
               <div class="price_details--inner">
                 <h3>軽トラックタイプ</h3>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/price/details_02.png" alt="" width="265" height="184">
+                <img src="<?php echo esc_url($template_uri . '/img/price/details_02.png'); ?>" alt="軽トラックタイプのレンタカー" width="265" height="184" loading="lazy" decoding="async">
                 <p class="price_details--lead">
                   乗用車には乗らないちょっと大きめの荷物の運搬や、<br class="is-hidden_sp">
                   地元のお祭りやイベントの荷物の搬送、一人暮らしの引越しなどにも<br class="is-hidden_sp">
@@ -224,17 +226,17 @@
                   </dl>
                 </div>
                 <p class="price_details--remarks">※加入任意保険、消費税込み、車両保険別、留意事項</p>
-                <a href="">この車両を問い合わせする</a>
+                <a href="<?php echo esc_url(home_url('/reservation/')); ?>">この車両を問い合わせする</a>
               </div>
             </section>
             <section class="price_details" id="price_details_03">
               <div class="price_details--inner">
                 <h3>軽自動車Mタイプ</h3>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/price/details_03.png" alt="" width="309" height="204">
+                <img src="<?php echo esc_url($template_uri . '/img/price/details_03.png'); ?>" alt="軽自動車Mタイプのレンタカー" width="309" height="204" loading="lazy" decoding="async">
                 <p class="price_details--lead">
                   ファミリータイプの決定版サイズ！<br>
                   車内も広々しているのでお買い物から家族でお出掛けまでしっかりサポート。<br>
-                  名古屋への転勤や長期出張でも資料など沢山積めるのでの営業車両としてもおススメです。
+                  名古屋への転勤や長期出張でも資料など沢山積めるので営業車両としてもおススメです。
                 </p>
                 <h4>料金</h4>
                 <div class="price_details--breakdown">
@@ -278,13 +280,13 @@
                   </dl>
                 </div>
                 <p class="price_details--remarks">※加入任意保険、消費税込み、車両保険別、留意事項</p>
-                <a href="">この車両を問い合わせする</a>
+                <a href="<?php echo esc_url(home_url('/reservation/')); ?>">この車両を問い合わせする</a>
               </div>
             </section>
             <section class="price_details" id="price_details_04">
               <div class="price_details--inner">
-                <h3>軽自動車Mタイプ</h3>
-                <img src="<?php echo get_template_directory_uri(); ?>/img/price/details_04.png" alt="" width="332" height="200">
+                <h3>軽自動車Lタイプ</h3>
+                <img src="<?php echo esc_url($template_uri . '/img/price/details_04.png'); ?>" alt="軽自動車Lタイプのレンタカー" width="332" height="200" loading="lazy" decoding="async">
                 <p class="price_details--lead">
                   荷物をいっぱい運びたいが雨にぬれては困ってしまう。<br>
                   そんなときに大活躍なワンボックスタイプ。<br>
@@ -333,7 +335,7 @@
                   </dl>
                 </div>
                 <p class="price_details--remarks">※加入任意保険、消費税込み、車両保険別、留意事項</p>
-                <a href="">この車両を問い合わせする</a>
+                <a href="<?php echo esc_url(home_url('/reservation/')); ?>">この車両を問い合わせする</a>
               </div>
             </section>
           </div>

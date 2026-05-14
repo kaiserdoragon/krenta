@@ -53,6 +53,7 @@
 
     <main class="<?php echo esc_attr($page_class); ?>" aria-labelledby="page-title">
       <article id="post-<?php the_ID(); ?>" <?php post_class('page-article'); ?>>
+
         <header class="eyecatch">
           <?php if (has_post_thumbnail($post_id)) : ?>
             <figure>
@@ -62,7 +63,7 @@
                 'full',
                 array(
                   'class'         => 'eyecatch--img',
-                  'alt'           => $thumbnail_alt,
+                  'alt'           => esc_attr($thumbnail_alt),
                   'loading'       => 'eager',
                   'decoding'      => 'async',
                   'fetchpriority' => 'high',
@@ -72,37 +73,37 @@
             </figure>
           <?php endif; ?>
 
-          <h1>
+          <h1 id="page-title">
             <?php echo esc_html($title); ?>
           </h1>
         </header>
-      </article>
-      <div class="breadcrumbs--wrap">
-        <?php
-        get_template_part('include/common', 'breadcrumb');
-        ?>
-      </div>
 
-      <section class="contact sec">
-        <div class="container">
-          <h2 class="ttl">お問い合わせ</h2>
-          <p class="contact--lead">
-            ケーレンタは、初心者からご高齢の方まで、名古屋市で格安のレンタカーを安心・手軽にご利用いただけるよう、<br class="is-hidden_sp">
-            車を「持つ」負担を抑え、必要なときだけ賢く使える新しいカーライフをご提供します。<br>
-            短時間から長期まで、使いたい期間だけ気軽にレンタルでき、維持費や管理の手間も最小限。<br>
-            予約から受け取り・返却までスタッフが丁寧にサポート。
-          </p>
-          <p class="contact--lead -supplement">
-            お問い合わせ後、1〜2営業日以内に弊社担当者から連絡させていただきます。<br>
-            また、お問い合わせはお電話でも受け付けております。<br>
-            ※営業を目的としたお問合せはご遠慮ください。
-          </p>
-          <?php echo apply_filters('the_content', '<!-- wp:snow-monkey-forms/snow-monkey-form {"formId":83} /-->'); ?>
+        <div class="breadcrumbs--wrap">
+          <?php get_template_part('include/common', 'breadcrumb'); ?>
         </div>
-      </section>
 
+        <section class="contact sec" aria-labelledby="contact-form-title">
+          <div class="container">
+            <h2 id="contact-form-title" class="ttl">お問い合わせフォーム</h2>
 
+            <p class="contact--lead">
+              ケーレンタは、初心者からご高齢の方まで、名古屋市で格安のレンタカーを安心・手軽にご利用いただけるよう、<br class="is-hidden_sp">
+              車を「持つ」負担を抑え、必要なときだけ賢く使える新しいカーライフをご提供します。<br>
+              短時間から長期まで、使いたい期間だけ気軽にレンタルでき、維持費や管理の手間も最小限。<br>
+              予約から受け取り・返却までスタッフが丁寧にサポートします。
+            </p>
 
+            <p class="contact--lead -supplement">
+              お問い合わせ後、1〜2営業日以内に弊社担当者から連絡させていただきます。<br>
+              お問い合わせはお電話でも受け付けております。<br>
+              ※営業を目的としたお問い合わせはご遠慮ください。
+            </p>
+
+            <?php echo do_blocks('<!-- wp:snow-monkey-forms/snow-monkey-form {"formId":83} /-->'); ?>
+          </div>
+        </section>
+
+      </article>
     </main>
 
     <script type="application/ld+json">

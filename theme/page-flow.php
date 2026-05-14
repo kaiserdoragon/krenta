@@ -16,6 +16,8 @@
       $thumbnail_alt = $title;
     }
 
+    $template_uri = get_template_directory_uri();
+
     $breadcrumb_items = array();
     $position = 1;
 
@@ -53,6 +55,7 @@
 
     <main class="<?php echo esc_attr($page_class); ?>" aria-labelledby="page-title">
       <article id="post-<?php the_ID(); ?>" <?php post_class('page-article'); ?>>
+
         <header class="eyecatch">
           <?php if (has_post_thumbnail($post_id)) : ?>
             <figure>
@@ -72,211 +75,290 @@
             </figure>
           <?php endif; ?>
 
-          <h1>
+          <h1 id="page-title">
             <?php echo esc_html($title); ?>
           </h1>
         </header>
-      </article>
-      <div class="breadcrumbs--wrap">
-        <?php
-        get_template_part('include/common', 'breadcrumb');
-        ?>
-      </div>
-      <section class="flow_order sec">
-        <div class="flow_order--inner">
-          <h2 class="ttl">ご利用の流れ</h2>
-          <ol>
-            <li>
-              <div>
-                <h3>利用したいレンタカーを選ぶ</h3>
-                <p>
-                  車種と料金ページよりご希望の車種を探してください。<br>
-                  詳細ページにて車両情報や積載部分の内寸などご確認いただけます。
-                </p>
-                <a href="<?php echo home_url('/price'); ?>" class="flow_order--contact">車種・料金の詳細はこちらから</a>
-              </div>
-              <img src="<?php echo get_template_directory_uri(); ?>/img/flow/order_01.jpg" alt="" width="350" height="300">
-            </li>
-            <li>
-              <div>
-                <h3>ご予約・申し込み</h3>
-                <p>
-                  本サイトまたはお電話にてご予約ください。
-                </p>
-                <div class="header--btn">
-                  <a href="<?php echo home_url('/reservation'); ?>">
-                    レンタカーのご予約はコチラ
-                    <span>24時間いつでも受付中</span>
-                  </a>
-                  <a href="tel:0120-995-758">
-                    0120-995-758
-                    <span>年中無休 10：00～19：00</span>
+
+        <div class="breadcrumbs--wrap">
+          <?php get_template_part('include/common', 'breadcrumb'); ?>
+        </div>
+
+        <section class="flow_order sec" aria-labelledby="flow-order-title">
+          <div class="flow_order--inner">
+            <h2 id="flow-order-title" class="ttl">ご予約からご返却までの流れ</h2>
+
+            <ol>
+              <li>
+                <div>
+                  <h3>利用したいレンタカーを選ぶ</h3>
+                  <p>
+                    車種と料金ページよりご希望の車種をお探しください。<br>
+                    詳細ページにて車両情報や積載部分の内寸などをご確認いただけます。
+                  </p>
+                  <a href="<?php echo esc_url(home_url('/price/')); ?>" class="flow_order--contact">
+                    レンタカーの車種・料金を見る
                   </a>
                 </div>
-              </div>
-              <img src="<?php echo get_template_directory_uri(); ?>/img/flow/order_02.jpg" alt="" width="350" height="300">
-            </li>
-            <li>
-              <div>
-                <h3>予約内容の確認と利用方法の説明</h3>
-                <p>
-                  ご予約後、当社スタッフにより予約内容の確認、空車状況の確認をさせていただきます。<br>
-                  確認後、お客様にお手続き方法、レンタカーの引き渡し方法、注意事項等を案内させて頂きます。
-                </p>
-              </div>
-              <img src="<?php echo get_template_directory_uri(); ?>/img/flow/order_03.jpg" alt="" width="350" height="300">
-            </li>
-            <li>
-              <div>
-                <h3>ご来店・ご契約</h3>
-                <p>
-                  ご予約のお時間までに必ずご来店をお願いいたします。<br>
-                  ご予約時間に遅れる場合は事前に必ずご予約店舗までご連絡をお願いいたします。<br>
-                  ご来店・ご契約の際は、レンタカーご契約時にご用意いただくものを必ずご用意ください。
-                </p>
-                <ul class="flow_order--document">
-                  <li>
-                    <a href="<?php echo get_template_directory_uri(); ?>/pdf/契約書.pdf" download="契約書">
-                      契約書
-                      <span>※PDFファイルがダウンロードされます</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="<?php echo get_template_directory_uri(); ?>/pdf/同意書.pdf" download="同意書">
-                      同意書
-                      <span>※PDFファイルがダウンロードされます</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href=" <?php echo get_template_directory_uri(); ?>/pdf/注意事項.pdf" download="注意事項">
-                      注意事項
-                      <span>※PDFファイルがダウンロードされます</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <img src=" <?php echo get_template_directory_uri(); ?>/img/flow/order_04.jpg" alt="" width="350" height="300">
-            </li>
-            <li>
-              <div>
-                <h3>ご出発</h3>
-                <p>
-                  レンタカーの車体チェック、お車の操作方法、万が一の際のご対応方法を<br class="is-hidden_sp">
-                  説明させていただきます。車体チェックと操作説明が完了しましたらご出発いただけます。<br>
-                  ※未成年者が契約者となる場合、保護者様へご連絡させていただく場合がございます。<br>
-                  予めご了承ください。
-                </p>
-              </div>
-              <img src=" <?php echo get_template_directory_uri(); ?>/img/flow/order_05.jpg" alt="" width="350" height="300">
-            </li>
-            <li>
-              <div>
-                <h3>ご返却</h3>
-                <p>
-                  レンタカーご利用期間の最終日にレンタカーを当社までご返却ください。<br>
-                  ご利用期間の延長やご利用期間前の返却については予めメール・電話にてご連絡ください。<br>
-                  ※ ご利用期間の延長についてはレンタカーの空き状況により延長出来ない場合も御座います。
-                </p>
-              </div>
-              <img src=" <?php echo get_template_directory_uri(); ?>/img/flow/order_06.jpg" alt="" width="350" height="300">
-            </li>
-          </ol>
-        </div>
-      </section>
+                <img
+                  src="<?php echo esc_url($template_uri . '/img/flow/order_01.jpg'); ?>"
+                  alt="車種と料金ページから利用したいレンタカーを選ぶイメージ"
+                  width="350"
+                  height="300"
+                  loading="lazy"
+                  decoding="async">
+              </li>
 
-      <section class="flow_belongings sec">
-        <div class="flow_belongings--inner">
-          <h2 class="ttl">レンタカーお引渡し時にご持参頂くもの</h2>
-          <ul>
-            <li>
-              <img src="<?php echo get_template_directory_uri(); ?>/img/flow/belongings_01.jpg" alt="" width="320" height="240">
-            </li>
-            <li>
-              <img src="<?php echo get_template_directory_uri(); ?>/img/flow/belongings_02.jpg" alt="" width="320" height="240">
-            </li>
-            <li>
-              <img src="<?php echo get_template_directory_uri(); ?>/img/flow/belongings_03.jpg" alt="" width="320" height="240">
-            </li>
-          </ul>
-          <p>
-            車の引き渡し日当日は予約時間までに<br class="is-hidden_sp">
-            <span>免許証・印鑑・ご利用料金・書類</span>をご持参の上、当社までお越しください。<br>
-            やむを得ずご予約時間に遅れる場合は必ず電話でご連絡ください。<br>
-            ダウンロードしてお持ち頂けるとお手続きは早いです。<br>
-            ダウンロード出来ない場合は店舗にてご用意あります。
-          </p>
-          <a class="flow_belongings--banner" href="tel:0120-995-758">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/flow/belongings_banner.jpg" alt="" width="675" height="200">
-          </a>
-        </div>
-      </section>
+              <li>
+                <div>
+                  <h3>ご予約・お申し込み</h3>
+                  <p>
+                    本サイトまたはお電話にてご予約ください。
+                  </p>
+                  <div class="header--btn">
+                    <a href="<?php echo esc_url(home_url('/reservation/')); ?>">
+                      レンタカーを予約する
+                      <span>24時間いつでも受付中</span>
+                    </a>
+                    <a href="tel:0120-995-758">
+                      0120-995-758
+                      <span>年中無休 10：00～19：00</span>
+                    </a>
+                  </div>
+                </div>
+                <img
+                  src="<?php echo esc_url($template_uri . '/img/flow/order_02.jpg'); ?>"
+                  alt="レンタカーを本サイトまたは電話で予約するイメージ"
+                  width="350"
+                  height="300"
+                  loading="lazy"
+                  decoding="async">
+              </li>
 
-      <section class="flow_question sec" id="question">
-        <div class="flow_question--inner">
-          <h2 class="ttl">「保険・補償」についてのご質問とご解答</h2>
-          <dl>
-            <dt><span>Q</span>車の基本料金のほかに、保険に加入する必要はありますか？</dt>
-            <dd><span>A</span>別途ご加入いただく必要があります。保険料など詳しくはお電話（0120-995-758）にてお問合せください。</dd>
-          </dl>
-          <dl>
-            <dt><span>Q</span>万が一事故を起こしてしまった場合。</dt>
-            <dd>
-              <span>A</span>事故が発生した現場より警察への連絡と、当社への連絡を必ず行ってください。<br>
-              連絡がされなかった場合、保険や補償の適応がされません。この場合、修理代金などはお客様でご負担いただきます。
-            </dd>
-          </dl>
-          <div class="js-scrollable">
-            <table>
-              <thead>
-                <tr>
-                  <th>保険の種類</th>
-                  <th>補償内容</th>
-                  <th>事故免責額(お客様負担)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>対人賠償保険</td>
-                  <td>無制限</td>
-                  <td rowspan="3">50,000円（税込）</td>
-                </tr>
-                <tr>
-                  <td>対人賠償保険</td>
-                  <td>無制限</td>
-                </tr>
-                <tr>
-                  <td>対人賠償保険</td>
-                  <td>無制限</td>
-                </tr>
-              </tbody>
-            </table>
+              <li>
+                <div>
+                  <h3>予約内容の確認と利用方法のご案内</h3>
+                  <p>
+                    ご予約後、当社スタッフが予約内容と空車状況を確認いたします。<br>
+                    確認後、お手続き方法、レンタカーの引き渡し方法、注意事項などをご案内いたします。
+                  </p>
+                </div>
+                <img
+                  src="<?php echo esc_url($template_uri . '/img/flow/order_03.jpg'); ?>"
+                  alt="スタッフが予約内容と空車状況を確認するイメージ"
+                  width="350"
+                  height="300"
+                  loading="lazy"
+                  decoding="async">
+              </li>
+
+              <li>
+                <div>
+                  <h3>ご来店・ご契約</h3>
+                  <p>
+                    ご予約のお時間までにご来店をお願いいたします。<br>
+                    ご予約時間に遅れる場合は、事前に必ずご予約店舗までご連絡ください。<br>
+                    ご来店・ご契約の際は、レンタカーご契約時に必要なものをご用意ください。
+                  </p>
+
+                  <ul class="flow_order--document">
+                    <li>
+                      <a href="<?php echo esc_url($template_uri . '/pdf/契約書.pdf'); ?>" download="契約書.pdf">
+                        契約書
+                        <span>※PDFファイルがダウンロードされます</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="<?php echo esc_url($template_uri . '/pdf/同意書.pdf'); ?>" download="同意書.pdf">
+                        同意書
+                        <span>※PDFファイルがダウンロードされます</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="<?php echo esc_url($template_uri . '/pdf/注意事項.pdf'); ?>" download="注意事項.pdf">
+                        注意事項
+                        <span>※PDFファイルがダウンロードされます</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <img
+                  src="<?php echo esc_url($template_uri . '/img/flow/order_04.jpg'); ?>"
+                  alt="店舗でレンタカーの契約手続きを行うイメージ"
+                  width="350"
+                  height="300"
+                  loading="lazy"
+                  decoding="async">
+              </li>
+
+              <li>
+                <div>
+                  <h3>ご出発</h3>
+                  <p>
+                    レンタカーの車体チェック、お車の操作方法、万が一の際の対応方法を<br class="is-hidden_sp">
+                    ご説明いたします。車体チェックと操作説明が完了しましたらご出発いただけます。<br>
+                    ※未成年者が契約者となる場合、保護者様へご連絡させていただく場合がございます。<br>
+                    あらかじめご了承ください。
+                  </p>
+                </div>
+                <img
+                  src="<?php echo esc_url($template_uri . '/img/flow/order_05.jpg'); ?>"
+                  alt="車体チェックと操作説明を受けて出発するイメージ"
+                  width="350"
+                  height="300"
+                  loading="lazy"
+                  decoding="async">
+              </li>
+
+              <li>
+                <div>
+                  <h3>ご返却</h3>
+                  <p>
+                    レンタカーご利用期間の最終日に、レンタカーを当社までご返却ください。<br>
+                    ご利用期間の延長やご利用期間前の返却については、あらかじめメールまたはお電話にてご連絡ください。<br>
+                    ※ご利用期間の延長については、レンタカーの空き状況により対応できない場合がございます。
+                  </p>
+                </div>
+                <img
+                  src="<?php echo esc_url($template_uri . '/img/flow/order_06.jpg'); ?>"
+                  alt="レンタカーを店舗へ返却するイメージ"
+                  width="350"
+                  height="300"
+                  loading="lazy"
+                  decoding="async">
+              </li>
+            </ol>
           </div>
-          <div class="flow_question--download u-mt80">
-            <p class="u-mb15">レンタカーご契約時の必要な書類は以下よりダウンロード可能です。</p>
-            <ul class="flow_order--document">
+        </section>
+
+        <section class="flow_belongings sec" aria-labelledby="flow-belongings-title">
+          <div class="flow_belongings--inner">
+            <h2 id="flow-belongings-title" class="ttl">レンタカーお引き渡し時にご持参いただくもの</h2>
+
+            <ul>
               <li>
-                <a href="<?php echo get_template_directory_uri(); ?>/pdf/契約書.pdf" download="契約書">
-                  契約書
-                  <span>※PDFファイルがダウンロードされます</span>
-                </a>
+                <img
+                  src="<?php echo esc_url($template_uri . '/img/flow/belongings_01.jpg'); ?>"
+                  alt="レンタカー契約時に必要な免許証のイメージ"
+                  width="320"
+                  height="240"
+                  loading="lazy"
+                  decoding="async">
               </li>
               <li>
-                <a href="<?php echo get_template_directory_uri(); ?>/pdf/同意書.pdf" download="同意書">
-                  同意書
-                  <span>※PDFファイルがダウンロードされます</span>
-                </a>
+                <img
+                  src="<?php echo esc_url($template_uri . '/img/flow/belongings_02.jpg'); ?>"
+                  alt="レンタカー契約時に必要な印鑑のイメージ"
+                  width="320"
+                  height="240"
+                  loading="lazy"
+                  decoding="async">
               </li>
               <li>
-                <a href=" <?php echo get_template_directory_uri(); ?>/pdf/注意事項.pdf" download="注意事項">
-                  注意事項
-                  <span>※PDFファイルがダウンロードされます</span>
-                </a>
+                <img
+                  src="<?php echo esc_url($template_uri . '/img/flow/belongings_03.jpg'); ?>"
+                  alt="レンタカー契約時に必要な書類のイメージ"
+                  width="320"
+                  height="240"
+                  loading="lazy"
+                  decoding="async">
               </li>
             </ul>
-            <p>※ダウンロードしたファイルを印刷した後、ご記入の上お持ちいただければ手続きが早く済みます。</p>
+
+            <p>
+              車の引き渡し日当日は、予約時間までに<br class="is-hidden_sp">
+              <span>免許証・印鑑・ご利用料金・書類</span>をご持参の上、当社までお越しください。<br>
+              やむを得ずご予約時間に遅れる場合は、必ずお電話でご連絡ください。<br>
+              事前に書類をダウンロード・印刷してご持参いただくと、お手続きがスムーズです。<br>
+              ダウンロードできない場合は、店舗にてご用意いたします。
+            </p>
+
+            <a class="flow_belongings--banner" href="tel:0120-995-758">
+              <img
+                src="<?php echo esc_url($template_uri . '/img/flow/belongings_banner.jpg'); ?>"
+                alt="お電話でのご予約・お問い合わせ 0120-995-758"
+                width="675"
+                height="200"
+                loading="lazy"
+                decoding="async">
+            </a>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section class="flow_question sec" id="question" aria-labelledby="flow-question-title">
+          <div class="flow_question--inner">
+            <h2 id="flow-question-title" class="ttl">保険・補償についてのよくあるご質問</h2>
+
+            <dl>
+              <dt><span>Q</span>車の基本料金のほかに、保険に加入する必要はありますか？</dt>
+              <dd><span>A</span>別途ご加入いただく必要があります。保険料など詳しくはお電話（0120-995-758）にてお問い合わせください。</dd>
+            </dl>
+
+            <dl>
+              <dt><span>Q</span>万が一事故を起こしてしまった場合はどうすればよいですか？</dt>
+              <dd>
+                <span>A</span>事故が発生した場合は、現場より警察への連絡と当社への連絡を必ず行ってください。<br>
+                ご連絡がない場合、保険や補償が適用されない場合があります。この場合、修理代金などはお客様のご負担となります。
+              </dd>
+            </dl>
+
+            <div class="js-scrollable">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">保険の種類</th>
+                    <th scope="col">補償内容</th>
+                    <th scope="col">事故免責額（お客様負担）</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>対人賠償保険</td>
+                    <td>無制限</td>
+                    <td rowspan="3">50,000円（税込）</td>
+                  </tr>
+                  <tr>
+                    <td>対物賠償保険</td>
+                    <td>無制限</td>
+                  </tr>
+                  <tr>
+                    <td>車両補償</td>
+                    <td>内容をご確認ください</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="flow_question--download u-mt80">
+              <p class="u-mb15">レンタカーご契約時に必要な書類は以下よりダウンロード可能です。</p>
+
+              <ul class="flow_order--document">
+                <li>
+                  <a href="<?php echo esc_url($template_uri . '/pdf/契約書.pdf'); ?>" download="契約書.pdf">
+                    契約書
+                    <span>※PDFファイルがダウンロードされます</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="<?php echo esc_url($template_uri . '/pdf/同意書.pdf'); ?>" download="同意書.pdf">
+                    同意書
+                    <span>※PDFファイルがダウンロードされます</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="<?php echo esc_url($template_uri . '/pdf/注意事項.pdf'); ?>" download="注意事項.pdf">
+                    注意事項
+                    <span>※PDFファイルがダウンロードされます</span>
+                  </a>
+                </li>
+              </ul>
+
+              <p>※ダウンロードしたファイルを印刷し、ご記入の上でお持ちいただければ、お手続きがスムーズです。</p>
+            </div>
+          </div>
+        </section>
+
+      </article>
     </main>
 
     <script type="application/ld+json">
