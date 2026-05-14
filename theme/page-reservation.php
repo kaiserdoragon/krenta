@@ -96,7 +96,7 @@
             ケーレンタをご利用いただく際は、必ず契約書・同意書・注意事項をお読みいただき、<br class="is-hidden_sp">
             ご同意いただいてからご予約いただきますようお願い申し上げます。
           </p>
-          <?php echo apply_filters('the_content', '<!-- wp:snow-monkey-forms/snow-monkey-form {"formId":83} /-->'); ?>
+          <?php echo apply_filters('the_content', '<!-- wp:snow-monkey-forms/snow-monkey-form {"formId":94} /-->'); ?>
         </div>
       </section>
 

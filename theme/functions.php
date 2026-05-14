@@ -55,6 +55,11 @@ function origintheme_document_title_parts($title)
     unset($title['tagline']);
   }
 
+  // サンクスページのタイトルタグを変更
+  if (is_singular('page') && get_post_field('post_name', get_queried_object_id()) === 'thanks') {
+    $title['title'] = 'お問い合わせありがとうございます。';
+  }
+
   if (is_post_type_archive('post')) {
     $title['title'] = 'お知らせ';
   }
@@ -992,6 +997,78 @@ add_action(
       function() {
         // 対象のフォーム要素を取得（'snow-monkey-form-9' の部分は実際のフォームIDに合わせてください）
         const form = document.getElementById('snow-monkey-form-83');
+
+        // フォーム要素が存在する場合のみ処理を実行
+        if (form) {
+          // Snow Monkey Forms の送信イベントを監視
+          form.addEventListener(
+            'smf.submit', // Snow Monkey Forms が発行するカスタムイベント
+            function(event) {
+              // セキュリティ: イベントオブジェクトの検証
+              if (!event || !event.detail || typeof event.detail.status !== 'string') {
+                return;
+              }
+
+              // 送信ステータスが 'complete' (完了) の場合のみ処理を実行
+              if ('complete' === event.detail.status) {
+                // 指定したサンクスページへリダイレクト
+                // '/thanks/' の部分は実際のサンクスページのスラッグ等に合わせてください
+                window.location.href = '<?php echo esc_url(home_url("/thanks/")); ?>';
+              }
+            }
+          );
+        }
+      }
+    );
+  </script>
+
+  <?php
+    // バッファリングしたJavaScriptコードを取得
+    $data = ob_get_clean();
+
+    // セキュリティ: データの検証
+    if (empty($data)) {
+      return;
+    }
+
+    // <script> タグを除去（wp_add_inline_script が自動で追加するため）
+    $data = str_replace(['<script>', '</script>'], '', $data);
+
+    // snow-monkey-forms スクリプトの後に追加
+    wp_add_inline_script(
+      'snow-monkey-forms', // Snow Monkey Forms のスクリプトハンドル名
+      $data,
+      'after' // snow-monkey-forms スクリプトの後に出力
+    );
+  },
+  11 // 優先度を少し高く設定 (デフォルトは10)
+);
+
+
+
+
+
+
+// -------------------------------------
+// Snow Monkey Forms 送信完了後にサンクスページへリダイレクト
+// -------------------------------------
+add_action(
+  'wp_enqueue_scripts',
+  function () {
+    // セキュリティ: 管理画面では実行しない
+    if (is_admin()) {
+      return;
+    }
+
+    // JavaScriptコードをバッファリング開始
+    ob_start();
+  ?>
+  <script>
+    window.addEventListener(
+      'load', // ページ全体の読み込み完了後に実行
+      function() {
+        // 対象のフォーム要素を取得（'snow-monkey-form-9' の部分は実際のフォームIDに合わせてください）
+        const form = document.getElementById('snow-monkey-form-94');
 
         // フォーム要素が存在する場合のみ処理を実行
         if (form) {
