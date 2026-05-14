@@ -83,7 +83,7 @@
         ?>
       </div>
 
-      <section class="reservation price_details sec">
+      <section class="reservation sec">
         <div class="container">
           <h2 class="ttl">空車確認・レンタカー予約</h2>
           <p class="reservation--lead">
@@ -93,11 +93,31 @@
           <a class="reservation--banner" href="tel:0120-995-758">
             <img src="<?php echo get_template_directory_uri(); ?>/img/flow/belongings_banner.jpg" alt="" width="675" height="200">
           </a>
-          <h4>料金</h4>
-          <p class="contact--lead -supplement">
+          <h4>注意事項</h4>
+          <p class="contact--lead">
             ケーレンタをご利用いただく際は、必ず契約書・同意書・注意事項をお読みいただき、<br class="is-hidden_sp">
             ご同意いただいてからご予約いただきますようお願い申し上げます。
           </p>
+          <ul class="flow_order--document">
+            <li>
+              <a href="<?php echo get_template_directory_uri(); ?>/pdf/契約書.pdf" download="契約書">
+                契約書
+                <span>※PDFファイルがダウンロードされます</span>
+              </a>
+            </li>
+            <li>
+              <a href="<?php echo get_template_directory_uri(); ?>/pdf/同意書.pdf" download="同意書">
+                同意書
+                <span>※PDFファイルがダウンロードされます</span>
+              </a>
+            </li>
+            <li>
+              <a href=" <?php echo get_template_directory_uri(); ?>/pdf/注意事項.pdf" download="注意事項">
+                注意事項
+                <span>※PDFファイルがダウンロードされます</span>
+              </a>
+            </li>
+          </ul>
           <?php echo apply_filters('the_content', '<!-- wp:snow-monkey-forms/snow-monkey-form {"formId":94} /-->'); ?>
         </div>
       </section>

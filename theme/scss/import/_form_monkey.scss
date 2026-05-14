@@ -37,8 +37,8 @@
     padding: 10px 4px 10px 10px !important;
     font-family: inherit;
     color: #333;
-    background: #eff1f4 !important;
-    border: none !important;
+    background: #fff !important;
+    border: 1px solid #9e9999 !important;
     border-radius: 5px;
     box-shadow: none;
 
@@ -154,6 +154,15 @@
 
 .smf-progress-tracker {
   margin-bottom: 60px !important;
+}
+
+.smf-form .smf-select-control {
+  width: 100%;
+}
+
+.smf-form .smf-select-control__control {
+  width: 100%;
+  padding: 10px 0 10px 10px !important;
 }
 
 

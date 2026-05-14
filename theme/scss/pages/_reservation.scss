@@ -6,6 +6,39 @@
 // ---------------------------------------------
 
 .reservation {
+  .flow_order--document {
+    justify-content: center;
+    margin-bottom: 80px;
+  }
+
+  .contact--lead {
+    font-size: var(--fz16);
+    font-weight: 400;
+  }
+
+  h4 {
+    position: relative;
+    width: 100%;
+    max-width: 160px;
+    margin: 0 auto 40px;
+    font-size: 25px;
+    font-weight: 800;
+    color: #002978;
+    text-align: center;
+    border-bottom: 4px solid #e5e9f3;
+
+    &::after {
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      width: 40px;
+      aspect-ratio: 40 / 4;
+      content: "";
+      background: #002978;
+      transform: translateX(-50%);
+    }
+  }
+
   // .reservation--lead
   &--lead {
     position: relative;
@@ -31,7 +64,7 @@
   &--banner {
     display: block;
     width: fit-content;
-    margin: auto;
+    margin: 0 auto 30px;
 
     img {
       border-radius: 15px;
