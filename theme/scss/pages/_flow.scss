@@ -133,18 +133,23 @@
     color: #e9173a;
   }
 
-  img {
-    display: block;
-    margin: auto;
-    border-radius: 15px;
-  }
-
   // .flow_order--inner
   &--inner {
     box-sizing: border-box;
     width: min(1050px, 100%);
     padding: 0 min(4vw, 25px);
     margin: auto;
+  }
+
+  // .flow_belongings--banner
+  &--banner {
+    display: block;
+    width: fit-content;
+    margin: auto;
+
+    img {
+      border-radius: 15px;
+    }
   }
 }
 

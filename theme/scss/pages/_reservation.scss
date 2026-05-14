@@ -1,0 +1,40 @@
+@charset "UTF-8";
+@use "../variables"as *;
+
+// ---------------------------------------------
+//  レンタカー予約専用
+// ---------------------------------------------
+
+.reservation {
+  // .reservation--lead
+  &--lead {
+    position: relative;
+    margin-bottom: 100px;
+    font-size: var(--fz18);
+    font-weight: 700;
+    text-align: center;
+
+    &::after {
+      position: absolute;
+      bottom: -65px;
+      left: 50%;
+      display: inline-block;
+      width: 186px;
+      aspect-ratio: 186/41;
+      content: "";
+      background: url(../img/reservation/arrow.png) no-repeat center/contain;
+      transform: translateX(-50%);
+    }
+  }
+
+  // .reservation--banner
+  &--banner {
+    display: block;
+    width: fit-content;
+    margin: auto;
+
+    img {
+      border-radius: 15px;
+    }
+  }
+}

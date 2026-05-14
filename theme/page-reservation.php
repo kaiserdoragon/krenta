@@ -83,14 +83,16 @@
         ?>
       </div>
 
-      <section class="contact price_details sec">
+      <section class="reservation price_details sec">
         <div class="container">
           <h2 class="ttl">空車確認・レンタカー予約</h2>
-          <p class="contact--lead">
+          <p class="reservation--lead">
             以下にご利用期間、ご利用希望レンタカーを選択後、空車確認ボタンをクリックしてください。<br>
             レンタカーのご予約はお電話でも受付中！！
           </p>
-          <img src="<?php echo get_template_directory_uri(); ?>/img/flow/belongings_banner.jpg" alt="" width="675" height="200">
+          <a class="reservation--banner" href="tel:0120-995-758">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/flow/belongings_banner.jpg" alt="" width="675" height="200">
+          </a>
           <h4>料金</h4>
           <p class="contact--lead -supplement">
             ケーレンタをご利用いただく際は、必ず契約書・同意書・注意事項をお読みいただき、<br class="is-hidden_sp">

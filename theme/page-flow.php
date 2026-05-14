@@ -205,7 +205,9 @@
             ダウンロードしてお持ち頂けるとお手続きは早いです。<br>
             ダウンロード出来ない場合は店舗にてご用意あります。
           </p>
-          <img src="<?php echo get_template_directory_uri(); ?>/img/flow/belongings_banner.jpg" alt="" width="675" height="200">
+          <a class="flow_belongings--banner" href="tel:0120-995-758">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/flow/belongings_banner.jpg" alt="" width="675" height="200">
+          </a>
         </div>
       </section>
 
