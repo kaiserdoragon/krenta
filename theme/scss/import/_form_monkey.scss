@@ -9,11 +9,9 @@
 // SNOW MONKEY フォーム
 
 .snow-monkey-form {
-  margin-bottom: 100px;
-
-  @include max-mq {
-    margin-bottom: 60px;
-  }
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
 }
 
 .smf-form {
@@ -36,11 +34,9 @@
   textarea {
     box-sizing: border-box;
     width: 100%;
-    padding: 10px 4px !important;
+    padding: 10px 4px 10px 10px !important;
     font-family: inherit;
-    font-size: var(--fz16);
-    font-weight: normal;
-    color: #000;
+    color: #333;
     background: #eff1f4 !important;
     border: none !important;
     border-radius: 5px;
@@ -75,7 +71,7 @@
 .smf-item {
   display: flex;
   gap: 20px;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 30px;
 
   @include max-mq {
@@ -89,11 +85,10 @@
       span::after {
         color: #fff;
         content: "必須";
-        background: red;
+        background: #ff0041;
       }
     }
   }
-
 
   &.is-option {
     .smf-item__col--label {
@@ -104,23 +99,28 @@
       }
     }
   }
+
+  &:last-child {
+    align-items: flex-start;
+  }
+}
+
+.smf-item__label {
+  padding-left: 50px;
 }
 
 .smf-item__col {
   &.smf-item__col--label {
     position: relative;
     width: 100%;
-    max-width: 230px;
-    font-size: var(--fz20);
-    font-weight: bold;
-    text-align: left;
-    vertical-align: middle;
+    max-width: 310px;
+    font-size: var(--fz18);
 
     span {
       &::after {
         position: absolute;
         top: 50%;
-        right: 0;
+        left: 0;
         padding: 4px 5px 5px;
         font-size: var(--fz15);
         font-weight: 400;
@@ -148,6 +148,13 @@
   }
 }
 
+.smf-progress-tracker__item[aria-current="true"] .smf-progress-tracker__item__number {
+  background-color: #002978 !important;
+}
+
+.smf-progress-tracker {
+  margin-bottom: 60px !important;
+}
 
 
 //------------------------
@@ -210,19 +217,4 @@
   }
 }
 
-// .entry_policy {
-//   box-sizing: border-box;
-//   height: 300px;
-//   padding: 30px;
-//   margin-bottom: 30px;
-//   overflow-y: scroll;
-//   font-size: var(--fz15);
-//   background-color: #eee;
 
-//   p,
-//   ul {
-//     &:not(:last-child) {
-//       margin-bottom: 20px;
-//     }
-//   }
-// }
