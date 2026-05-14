@@ -1,0 +1,94 @@
+@charset "UTF-8";
+@use "../variables" as *;
+
+// ---------------------------------------------
+//  店舗紹介専用
+// ---------------------------------------------
+
+
+.store_info {
+  img {
+    display: block;
+    margin: 0 auto 60px;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  tr {
+    &:first-child {
+      th {
+        border-top: 1px solid #28559a;
+      }
+
+      td {
+        border-top: 1px solid #dfdfdf;
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto 120px;
+  }
+
+  th {
+    box-sizing: border-box;
+    width: 140px;
+    padding: 10px 20px;
+    color: #fff;
+    background: #28559a;
+    border-bottom: 1px solid #dfdfdf;
+  }
+
+  td {
+    box-sizing: border-box;
+    padding: 10px 20px;
+    border-right: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+  }
+
+  h3 {
+    position: relative;
+    width: 100%;
+    max-width: 160px;
+    margin: 0 auto 40px;
+    font-size: 25px;
+    font-weight: 800;
+    color: #002978;
+    text-align: center;
+    border-bottom: 4px solid #e5e9f3;
+
+    &::after {
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      width: 40px;
+      aspect-ratio: 40 / 4;
+      content: "";
+      background: #002978;
+      transform: translateX(-50%);
+    }
+  }
+
+  iframe[src*="www.google.com/maps/embed"] {
+    display: block;
+    width: 800px;
+    aspect-ratio: 2 / 1;
+    margin: auto;
+  }
+
+  // .store_info--txt
+  &--txt {
+    margin-bottom: 60px;
+    font-size: var(--fz18);
+    font-weight: 700;
+  }
+
+  // .store_info--access
+  &--access {
+    margin-bottom: 30px;
+  }
+}

@@ -50,29 +50,6 @@ main {
   }
 }
 
-// グーグルマップ
-.googlemap {
-  position: relative;
-
-  &::before {
-    display: block;
-    padding-top: 46%; // 【マップの高さ】高さ/幅*100%
-    content: "";
-  }
-
-  iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  @include max-mq {
-    &::before {
-      padding-top: 450px;
-    }
-  }
-}
 
 .eyecatch {
   position: relative;
@@ -93,7 +70,6 @@ main {
     width: 100%;
   }
 }
-
 
 // ---------------------------------------------
 //  ヘッダー関連 header
