@@ -126,7 +126,7 @@
       <section class="store_info sec">
         <div class="container">
           <h2 class="ttl">店舗紹介</h2>
-          <img src="<?php echo esc_url($store_image); ?>" alt="ケーレンタの店舗外観" width="754" height="444" loading="lazy" decoding="async">
+          <img src="<?php echo esc_url($store_image); ?>" alt="ケーレンタの店舗外観" width="800" height="380" loading="lazy" decoding="async">
           <p class="store_info--txt">
             自動車販売店直営のレンタカー「ケーレンタ」です。<br>
             仕入・点検の基準を販売同等に整え、コンディションが良く、<br class="is-hidden_sp">

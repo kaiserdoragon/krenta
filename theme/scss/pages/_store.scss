@@ -75,7 +75,8 @@
 
   iframe[src*="www.google.com/maps/embed"] {
     display: block;
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
     aspect-ratio: 2 / 1;
     margin: auto;
   }

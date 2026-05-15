@@ -96,7 +96,8 @@
 
     li {
       display: block;
-      width: 230px;
+      width: 100%;
+      max-width: 230px;
       padding: 5px;
       margin-bottom: 0 !important;
       font-size: var(--fz20);
@@ -115,6 +116,10 @@
     span {
       display: block;
       font-size: var(--fz12);
+    }
+
+    @include max-mq {
+      flex-direction: column;
     }
   }
 }

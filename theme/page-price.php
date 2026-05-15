@@ -119,10 +119,11 @@
               </a>
             </li>
           </ul>
-          <div class="container">
-            <section class="price_details" id="price_details_01">
-              <div class="price_details--inner">
-                <h3>軽乗用車Sタイプ</h3>
+
+          <section class="price_details" id="price_details_01">
+            <div class="price_details--inner">
+              <h3>軽乗用車Sタイプ</h3>
+              <div class="container">
                 <img src="<?php echo esc_url($template_uri . '/img/price/details_01.png'); ?>" alt="軽乗用車Sタイプのレンタカー" width="290" height="165" loading="lazy" decoding="async">
                 <p class="price_details--lead">
                   一時的な転勤や長期出張での営業車両として、毎日の通勤からちょっとしたお買い物、<br class="is-hidden_sp">
@@ -133,7 +134,7 @@
                 <div class="price_details--breakdown">
                   <dl class="price_details--plan">
                     <dt>ウィークリープラン</dt>
-                    <div class="price_details--content -blue">
+                    <div class="price_details--content">
                       <div>
                         <dd>
                           ウィークリー料金
@@ -173,10 +174,12 @@
                 <p class="price_details--remarks">※加入任意保険、消費税込み、車両保険別、留意事項</p>
                 <a href="<?php echo esc_url(home_url('/reservation/')); ?>">この車両を問い合わせする</a>
               </div>
-            </section>
-            <section class="price_details" id="price_details_02">
-              <div class="price_details--inner">
-                <h3>軽トラックタイプ</h3>
+            </div>
+          </section>
+          <section class="price_details" id="price_details_02">
+            <div class="price_details--inner">
+              <h3>軽トラックタイプ</h3>
+              <div class="container">
                 <img src="<?php echo esc_url($template_uri . '/img/price/details_02.png'); ?>" alt="軽トラックタイプのレンタカー" width="265" height="184" loading="lazy" decoding="async">
                 <p class="price_details--lead">
                   乗用車には乗らないちょっと大きめの荷物の運搬や、<br class="is-hidden_sp">
@@ -188,7 +191,7 @@
                 <div class="price_details--breakdown">
                   <dl class="price_details--plan">
                     <dt>ウィークリープラン</dt>
-                    <div class="price_details--content -blue">
+                    <div class="price_details--content">
                       <div>
                         <dd>
                           ウィークリー料金
@@ -228,10 +231,12 @@
                 <p class="price_details--remarks">※加入任意保険、消費税込み、車両保険別、留意事項</p>
                 <a href="<?php echo esc_url(home_url('/reservation/')); ?>">この車両を問い合わせする</a>
               </div>
-            </section>
-            <section class="price_details" id="price_details_03">
-              <div class="price_details--inner">
-                <h3>軽自動車Mタイプ</h3>
+            </div>
+          </section>
+          <section class="price_details" id="price_details_03">
+            <div class="price_details--inner">
+              <h3>軽自動車Mタイプ</h3>
+              <div class="container">
                 <img src="<?php echo esc_url($template_uri . '/img/price/details_03.png'); ?>" alt="軽自動車Mタイプのレンタカー" width="309" height="204" loading="lazy" decoding="async">
                 <p class="price_details--lead">
                   ファミリータイプの決定版サイズ！<br>
@@ -242,7 +247,7 @@
                 <div class="price_details--breakdown">
                   <dl class="price_details--plan">
                     <dt>ウィークリープラン</dt>
-                    <div class="price_details--content -blue">
+                    <div class="price_details--content">
                       <div>
                         <dd>
                           ウィークリー料金
@@ -282,10 +287,12 @@
                 <p class="price_details--remarks">※加入任意保険、消費税込み、車両保険別、留意事項</p>
                 <a href="<?php echo esc_url(home_url('/reservation/')); ?>">この車両を問い合わせする</a>
               </div>
-            </section>
-            <section class="price_details" id="price_details_04">
-              <div class="price_details--inner">
-                <h3>軽自動車Lタイプ</h3>
+            </div>
+          </section>
+          <section class="price_details" id="price_details_04">
+            <div class="price_details--inner">
+              <h3>軽自動車Lタイプ</h3>
+              <div class="container">
                 <img src="<?php echo esc_url($template_uri . '/img/price/details_04.png'); ?>" alt="軽自動車Lタイプのレンタカー" width="332" height="200" loading="lazy" decoding="async">
                 <p class="price_details--lead">
                   荷物をいっぱい運びたいが雨にぬれては困ってしまう。<br>
@@ -297,7 +304,7 @@
                 <div class="price_details--breakdown">
                   <dl class="price_details--plan">
                     <dt>ウィークリープラン</dt>
-                    <div class="price_details--content -blue">
+                    <div class="price_details--content">
                       <div>
                         <dd>
                           ウィークリー料金
@@ -337,8 +344,9 @@
                 <p class="price_details--remarks">※加入任意保険、消費税込み、車両保険別、留意事項</p>
                 <a href="<?php echo esc_url(home_url('/reservation/')); ?>">この車両を問い合わせする</a>
               </div>
-            </section>
-          </div>
+            </div>
+          </section>
+
         </div>
       </section>
     </main>

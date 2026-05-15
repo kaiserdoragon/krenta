@@ -19,7 +19,6 @@
 
   li {
     box-sizing: border-box;
-    font-size: var(--fz23);
     font-weight: 800;
     color: #002978;
     text-align: center;
@@ -53,6 +52,10 @@
     }
   }
 
+  p {
+    font-size: var(--fz23);
+  }
+
   // .price_kinds--lead
   &--lead {
     margin-bottom: 80px;
@@ -66,6 +69,16 @@
 
     &.-blue {
       color: #008cfd;
+    }
+  }
+
+  @include tb-mq {
+    ul {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    p {
+      font-size: var(--fz18);
     }
   }
 }
@@ -139,7 +152,7 @@
     margin-bottom: 80px;
   }
 
-  &:nth-child(2) {
+  &:nth-of-type(2) {
     h3 {
       &::before {
         background: url(../img/price/details_num_02.png) no-repeat center / contain;
@@ -147,7 +160,7 @@
     }
   }
 
-  &:nth-child(3) {
+  &:nth-of-type(3) {
     h3 {
       &::before {
         background: url(../img/price/details_num_03.png) no-repeat center / contain;
@@ -155,7 +168,7 @@
     }
   }
 
-  &:nth-child(4) {
+  &:nth-of-type(4) {
     h3 {
       &::before {
         background: url(../img/price/details_num_04.png) no-repeat center / contain;
@@ -167,11 +180,15 @@
   &--lead {
     width: 100%;
     max-width: 800px;
-    padding-bottom: 60px;
+    padding: 0 20px 60px;
     margin: 0 auto 60px;
-    font-size: var(--fz18);
+    font-size: var(--fz18) !important;
     text-align: center;
     border-bottom: 1px dashed #b5b5b5;
+
+    @include max-mq {
+      padding: 0 0 30px;
+    }
   }
 
   // .price_details--num
@@ -195,11 +212,16 @@
 
   // .price_details--plan
   &--plan {
+    width: calc(100% / 2);
     padding: 5px;
     background: #fa9315;
 
     &.-blue {
       background: #008cfd;
+    }
+
+    @include tb-mq {
+      width: 100%;
     }
   }
 
@@ -226,6 +248,14 @@
     &.-blue {
       &::after {
         background: #77d5ff;
+      }
+    }
+
+    @include max-mq {
+      flex-direction: column;
+
+      &::after {
+        transform: translate(-50%, -50%) rotateZ(90deg);
       }
     }
   }
@@ -266,6 +296,17 @@
   &--remarks {
     margin-bottom: 60px;
     text-align: center;
+  }
+
+  @include max-mq {
+    h3 {
+      font-size: var(--fz28);
+
+      &::before {
+        left: 20px;
+        width: 40px;
+      }
+    }
   }
 }
 

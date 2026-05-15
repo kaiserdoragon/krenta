@@ -203,7 +203,7 @@ $template_uri = get_template_directory_uri();
   <section class="top_cv">
     <div class="container">
       <p>
-        レンタカーのお問い合わせ・ご予約は<br>
+        レンタカーのお問い合わせ・ご予約は<br class="is-hidden_sp">
         下記からお気軽にお問い合わせください！！
       </p>
       <div class="header--btn">
@@ -412,6 +412,7 @@ $template_uri = get_template_directory_uri();
         <li>
           <div>
             <h3>ご家族用のセカンドカーとして（個人で利用）</h3>
+            <img src="<?php echo esc_url($template_uri . '/img/top/reason_01.jpg'); ?>" alt="ご家族用のセカンドカーとしてレンタカーを利用するイメージ" width="300" height="275" loading="lazy" decoding="async" class="is-hidden_pc u-mb15">
             <p>
               奥様、お子様のセカンドカーとしてレンタカーを<br class="is-hidden_sp">
               ご利用いただいております。<br>
@@ -420,11 +421,12 @@ $template_uri = get_template_directory_uri();
               料金だけで自家用車と同様にお使いいただけます。
             </p>
           </div>
-          <img src="<?php echo esc_url($template_uri . '/img/top/reason_01.jpg'); ?>" alt="ご家族用のセカンドカーとしてレンタカーを利用するイメージ" width="300" height="275" loading="lazy" decoding="async">
+          <img src="<?php echo esc_url($template_uri . '/img/top/reason_01.jpg'); ?>" alt="ご家族用のセカンドカーとしてレンタカーを利用するイメージ" width="300" height="275" loading="lazy" decoding="async" class="is-hidden_sp">
         </li>
         <li>
           <div>
             <h3>単身赴任時の足として（個人で利用）</h3>
+            <img src="<?php echo esc_url($template_uri . '/img/top/reason_02.jpg'); ?>" alt="単身赴任時の移動手段としてレンタカーを利用するイメージ" width="300" height="275" loading="lazy" decoding="async" class="is-hidden_pc u-mb15">
             <p>
               単身赴任の場所でも自動車はあった方が断然便利です。<br>
               こんな時、格安レンタカーがオススメ！<br>
@@ -433,11 +435,12 @@ $template_uri = get_template_directory_uri();
               日常の足としてご利用いただけます。
             </p>
           </div>
-          <img src="<?php echo esc_url($template_uri . '/img/top/reason_02.jpg'); ?>" alt="単身赴任時の移動手段としてレンタカーを利用するイメージ" width="300" height="275" loading="lazy" decoding="async">
+          <img src="<?php echo esc_url($template_uri . '/img/top/reason_02.jpg'); ?>" alt="単身赴任時の移動手段としてレンタカーを利用するイメージ" width="300" height="275" loading="lazy" decoding="async" class="is-hidden_sp">
         </li>
         <li>
           <div>
             <h3>営業車として（法人で利用）</h3>
+            <img src="<?php echo esc_url($template_uri . '/img/top/reason_03.jpg'); ?>" alt="法人の営業車としてレンタカーを利用するイメージ" width="300" height="275" loading="lazy" decoding="async" class="is-hidden_pc u-mb15">
             <p>
               会社所有の営業車の場合、車検や点検、<br class="is-hidden_sp">
               税金など本業とは別に煩わしい業務が増えてしまいます。<br>
@@ -446,11 +449,12 @@ $template_uri = get_template_directory_uri();
               今すぐ活躍できます！
             </p>
           </div>
-          <img src="<?php echo esc_url($template_uri . '/img/top/reason_03.jpg'); ?>" alt="法人の営業車としてレンタカーを利用するイメージ" width="300" height="275" loading="lazy" decoding="async">
+          <img src="<?php echo esc_url($template_uri . '/img/top/reason_03.jpg'); ?>" alt="法人の営業車としてレンタカーを利用するイメージ" width="300" height="275" loading="lazy" decoding="async" class="is-hidden_sp">
         </li>
         <li>
           <div>
             <h3>作業車として（法人で利用）</h3>
+            <img src="<?php echo esc_url($template_uri . '/img/top/reason_04.jpg'); ?>" alt="作業車としてレンタカーを利用するイメージ" width="300" height="275" loading="lazy" decoding="async" class="is-hidden_pc u-mb15">
             <p>
               建設現場内の移動や、資材を積んで現場間の移動など<br class="is-hidden_sp">
               「働く車」としても力を発揮します！<br>
@@ -458,7 +462,7 @@ $template_uri = get_template_directory_uri();
               利用できるのでコスト削減も可能です。
             </p>
           </div>
-          <img src="<?php echo esc_url($template_uri . '/img/top/reason_04.jpg'); ?>" alt="作業車としてレンタカーを利用するイメージ" width="300" height="275" loading="lazy" decoding="async">
+          <img src="<?php echo esc_url($template_uri . '/img/top/reason_04.jpg'); ?>" alt="作業車としてレンタカーを利用するイメージ" width="300" height="275" loading="lazy" decoding="async" class="is-hidden_sp">
         </li>
       </ul>
     </div>
