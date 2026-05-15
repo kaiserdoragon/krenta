@@ -49,12 +49,13 @@
 
   li {
     display: flex;
-    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-start;
     justify-content: space-between;
 
     div {
       width: 100%;
-      max-width: 700px;
+      max-width: 800px;
     }
 
     &:not(:last-child) {
@@ -69,7 +70,7 @@
   // .flow_order--inner
   &--inner {
     box-sizing: border-box;
-    width: min(1150px, 100%);
+    width: min(1250px, 100%);
     padding: 0 min(4vw, 25px);
     margin: auto;
   }
@@ -86,6 +87,10 @@
     text-align: center;
     background: url(../img/top/icon_arrow.png) no-repeat center right 25px / 25px, #0f30df;
     border-radius: 1000px;
+
+    @include max-mq {
+      margin: auto;
+    }
   }
 
   // .flow_order--document
@@ -122,11 +127,32 @@
       flex-direction: column;
     }
   }
+
+  @include max-mq {
+    h3 {
+      margin: 0 auto 30px;
+      font-size: var(--fz22);
+
+      +img {
+        display: block;
+        margin: 0 auto 30px;
+      }
+    }
+
+    p {
+      text-align: center;
+    }
+
+    .header--btn {
+      justify-content: center;
+    }
+  }
 }
 
 .flow_belongings {
   ul {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
     margin-bottom: 30px;
@@ -175,6 +201,7 @@
 
   dt {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     align-items: center;
     margin-bottom: 20px;
@@ -195,6 +222,7 @@
 
   dd {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 
     span {
@@ -260,6 +288,32 @@
     .flow_order--document {
       justify-content: center;
       margin-bottom: 15px;
+    }
+  }
+
+  @include tb-mq {
+    dt {
+      justify-content: center;
+
+      p {
+        width: 80%;
+        font-size: var(--fz14);
+      }
+    }
+
+    dd {
+      justify-content: center;
+
+      p {
+        width: 80%;
+        font-size: var(--fz14);
+      }
+    }
+  }
+
+  @include max-mq {
+    dl {
+      padding: 0 0 30px;
     }
   }
 }

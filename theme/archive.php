@@ -19,15 +19,17 @@
         <?php if (have_posts()) : ?>
           <?php while (have_posts()) : the_post(); ?>
             <div class="news_archive--contents">
-              <time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.m.d'); ?></time>
-              <?php
-              $categories = get_the_category();
-              if (! empty($categories)) {
-                echo '<span>';
-                echo '<a href="' . esc_url(get_category_link($categories[0]->term_id)) . '">' . esc_html($categories[0]->name) . '</a>';
-                echo '</span>';
-              }
-              ?>
+              <div class="news_archive--info">
+                <time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.m.d'); ?></time>
+                <?php
+                $categories = get_the_category();
+                if (! empty($categories)) {
+                  echo '<span>';
+                  echo '<a href="' . esc_url(get_category_link($categories[0]->term_id)) . '">' . esc_html($categories[0]->name) . '</a>';
+                  echo '</span>';
+                }
+                ?>
+              </div>
               <h2>
                 <a href="<?php the_permalink(); ?>">
                   <?php

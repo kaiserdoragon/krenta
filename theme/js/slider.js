@@ -1,11 +1,10 @@
-
 window.onload = function () {
   const swiper = new Swiper(".swiper", {
     loop: true,
     speed: 1500,
-    // autoplay: {
-    //   delay: 2000,
-    // },
+    autoplay: {
+      delay: 2000,
+    },
     effect: "fade",
     fadeEffect: {
       crossFade: true,

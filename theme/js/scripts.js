@@ -83,11 +83,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.documentElement;
 
   if (header) {
-    // ヘッダーの高さを監視し、変化するたびにCSS変数を更新
     const observer = new ResizeObserver((entries) => {
       for (let entry of entries) {
         // border-boxを含めた正確な高さを取得
-        const height = entry.borderBoxSize[0].blockSize;
+        let height = entry.borderBoxSize[0].blockSize;
+
+        // URLのパスに 'price' が含まれているか判定
+        if (window.location.pathname.includes("/price/")) {
+          // 【ここで数値を自由に変更】
+          // パターンA: 完全に別の固定値（例：100px）にする場合
+          height = 0;
+
+          // パターンB: 取得した実際の高さに特定の数値を足す（または引く）場合
+          // height = height + 50;
+        }
+
         root.style.setProperty("--header-height", `${height}px`);
       }
     });

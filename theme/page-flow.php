@@ -92,6 +92,14 @@
               <li>
                 <div>
                   <h3>利用したいレンタカーを選ぶ</h3>
+                  <img
+                    src="<?php echo esc_url($template_uri . '/img/flow/order_01.jpg'); ?>"
+                    alt="車種と料金ページから利用したいレンタカーを選ぶイメージ"
+                    width="350"
+                    height="300"
+                    class="is-hidden_pc"
+                    loading="lazy"
+                    decoding="async">
                   <p>
                     車種と料金ページよりご希望の車種をお探しください。<br>
                     詳細ページにて車両情報や積載部分の内寸などをご確認いただけます。
@@ -105,6 +113,7 @@
                   alt="車種と料金ページから利用したいレンタカーを選ぶイメージ"
                   width="350"
                   height="300"
+                  class="is-hidden_sp"
                   loading="lazy"
                   decoding="async">
               </li>
@@ -112,6 +121,14 @@
               <li>
                 <div>
                   <h3>ご予約・お申し込み</h3>
+                  <img
+                    src="<?php echo esc_url($template_uri . '/img/flow/order_02.jpg'); ?>"
+                    alt="レンタカーを本サイトまたは電話で予約するイメージ"
+                    width="350"
+                    height="300"
+                    class="is-hidden_pc"
+                    loading="lazy"
+                    decoding="async">
                   <p>
                     本サイトまたはお電話にてご予約ください。
                   </p>
@@ -131,6 +148,7 @@
                   alt="レンタカーを本サイトまたは電話で予約するイメージ"
                   width="350"
                   height="300"
+                  class="is-hidden_sp"
                   loading="lazy"
                   decoding="async">
               </li>
@@ -138,6 +156,14 @@
               <li>
                 <div>
                   <h3>予約内容の確認と利用方法のご案内</h3>
+                  <img
+                    src="<?php echo esc_url($template_uri . '/img/flow/order_03.jpg'); ?>"
+                    alt="スタッフが予約内容と空車状況を確認するイメージ"
+                    width="350"
+                    height="300"
+                    class="is-hidden_pc"
+                    loading="lazy"
+                    decoding="async">
                   <p>
                     ご予約後、当社スタッフが予約内容と空車状況を確認いたします。<br>
                     確認後、お手続き方法、レンタカーの引き渡し方法、注意事項などをご案内いたします。
@@ -148,6 +174,7 @@
                   alt="スタッフが予約内容と空車状況を確認するイメージ"
                   width="350"
                   height="300"
+                  class="is-hidden_sp"
                   loading="lazy"
                   decoding="async">
               </li>
@@ -155,6 +182,14 @@
               <li>
                 <div>
                   <h3>ご来店・ご契約</h3>
+                  <img
+                    src="<?php echo esc_url($template_uri . '/img/flow/order_04.jpg'); ?>"
+                    alt="店舗でレンタカーの契約手続きを行うイメージ"
+                    width="350"
+                    height="300"
+                    class="is-hidden_pc"
+                    loading="lazy"
+                    decoding="async">
                   <p>
                     ご予約のお時間までにご来店をお願いいたします。<br>
                     ご予約時間に遅れる場合は、事前に必ずご予約店舗までご連絡ください。<br>
@@ -187,6 +222,7 @@
                   alt="店舗でレンタカーの契約手続きを行うイメージ"
                   width="350"
                   height="300"
+                  class="is-hidden_sp"
                   loading="lazy"
                   decoding="async">
               </li>
@@ -194,6 +230,14 @@
               <li>
                 <div>
                   <h3>ご出発</h3>
+                  <img
+                    src="<?php echo esc_url($template_uri . '/img/flow/order_05.jpg'); ?>"
+                    alt="車体チェックと操作説明を受けて出発するイメージ"
+                    width="350"
+                    height="300"
+                    class="is-hidden_pc"
+                    loading="lazy"
+                    decoding="async">
                   <p>
                     レンタカーの車体チェック、お車の操作方法、万が一の際の対応方法を<br class="is-hidden_sp">
                     ご説明いたします。車体チェックと操作説明が完了しましたらご出発いただけます。<br>
@@ -206,6 +250,7 @@
                   alt="車体チェックと操作説明を受けて出発するイメージ"
                   width="350"
                   height="300"
+                  class="is-hidden_sp"
                   loading="lazy"
                   decoding="async">
               </li>
@@ -213,6 +258,14 @@
               <li>
                 <div>
                   <h3>ご返却</h3>
+                  <img
+                    src="<?php echo esc_url($template_uri . '/img/flow/order_06.jpg'); ?>"
+                    alt="レンタカーを店舗へ返却するイメージ"
+                    width="350"
+                    height="300"
+                    class="is-hidden_pc"
+                    loading="lazy"
+                    decoding="async">
                   <p>
                     レンタカーご利用期間の最終日に、レンタカーを当社までご返却ください。<br>
                     ご利用期間の延長やご利用期間前の返却については、あらかじめメールまたはお電話にてご連絡ください。<br>
@@ -224,6 +277,7 @@
                   alt="レンタカーを店舗へ返却するイメージ"
                   width="350"
                   height="300"
+                  class="is-hidden_sp"
                   loading="lazy"
                   decoding="async">
               </li>
@@ -290,15 +344,27 @@
             <h2 id="flow-question-title" class="ttl">保険・補償についてのよくあるご質問</h2>
 
             <dl>
-              <dt><span>Q</span>車の基本料金のほかに、保険に加入する必要はありますか？</dt>
-              <dd><span>A</span>別途ご加入いただく必要があります。保険料など詳しくはお電話（0120-995-758）にてお問い合わせください。</dd>
+              <dt>
+                <span>Q</span>
+                <p>車の基本料金のほかに、保険に加入する必要はありますか？</p>
+              </dt>
+              <dd>
+                <span>A</span>
+                <p>別途ご加入いただく必要があります。保険料など詳しくはお電話（0120-995-758）にてお問い合わせください。</p>
+              </dd>
             </dl>
 
             <dl>
-              <dt><span>Q</span>万が一事故を起こしてしまった場合はどうすればよいですか？</dt>
+              <dt>
+                <span>Q</span>
+                <p>万が一事故を起こしてしまった場合はどうすればよいですか？</p>
+              </dt>
               <dd>
-                <span>A</span>事故が発生した場合は、現場より警察への連絡と当社への連絡を必ず行ってください。<br>
-                ご連絡がない場合、保険や補償が適用されない場合があります。この場合、修理代金などはお客様のご負担となります。
+                <span>A</span>
+                <p>
+                  事故が発生した場合は、現場より警察への連絡と当社への連絡を必ず行ってください。<br>
+                  ご連絡がない場合、保険や補償が適用されない場合があります。この場合、修理代金などはお客様のご負担となります。
+                </p>
               </dd>
             </dl>
 
