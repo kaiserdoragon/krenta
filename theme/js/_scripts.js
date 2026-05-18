@@ -53,30 +53,7 @@ if (Header) {
   }
 }
 
-// アンカーリンクのスムーススクロール //////////////////////////////////////////////
-// iOSでスムーススクロールをするためには「<script src=" https://polyfill.io/v3/polyfill.min.js?features=smoothscroll"></script>」を読み込む必要がある。
-// const headerHeight = ((load) => {
-//   return load ? document.getElementsByClassName("header")[0].offsetHeight : 0;
-// })(true); // ※ヘッダー高さをロード時にはかりたいときは、ここをtrueにする
 
-// const anchor = document.querySelectorAll("a[href*='#']:not(.is-noscroll)"); // 発火しない場合は「.is-noscroll」
-// [...anchor].forEach((element) => {
-//   const target = ((hash) => {
-//     return hash
-//       ? document.querySelector(element.hash)
-//       : console.error(`リンクが空です。 ${element.outerHTML}`);
-//   })(element.hash);
-
-//   if (target) {
-//     element.addEventListener("click", (e) => {
-//       e.preventDefault();
-//       window.scrollTo({
-//         top: target.offsetTop - headerHeight,
-//         behavior: "smooth",
-//       });
-//     });
-//   }
-// });
 
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".header");
@@ -90,8 +67,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // border-boxを含めた高さを取得
     let height = entry?.borderBoxSize?.[0]?.blockSize ?? header.offsetHeight;
 
-    // URLのパスに 'price' が含まれているか判定
-    if (window.location.pathname.includes("/price/")) {
+    // URLのパスに 'price' または 'flow' が含まれているか判定
+    if (
+      window.location.pathname.includes("/price/") ||
+      window.location.pathname.includes("/flow/")
+    ) {
       if (mediaQuery.matches) {
         // SP時の高さ
         height = 0;
@@ -120,6 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // 初回実行
   updateHeaderHeight();
 });
+
+
 
 // SP(<=767px)のときだけフッター追従ボタンを有効化
 (() => {
