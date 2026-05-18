@@ -120,6 +120,10 @@
     position: relative;
     width: 150px;
     padding: 10px 0;
+
+    @include max-mq {
+      width: calc(100% / 3);
+    }
   }
 
   // .paging--item-gotolist
