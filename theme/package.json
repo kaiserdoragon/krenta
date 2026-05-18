@@ -6,9 +6,7 @@
     "watch": "npm-run-all -p sass postcss",
     "dev-sass": "sass ./scss/style.scss:./css/style.css ./scss/reset.scss:./css/reset.css --no-source-map --style expanded --watch",
     "pro-sass": "sass ./scss/style.scss:./css/style.css ./scss/reset.scss:./css/reset.css --no-source-map --style compressed --watch",
-    "postcss": "postcss --use autoprefixer --no-map  ./css/style.min.css -o ./css/style.min.css --watch",
-    "howto": " コンパイル時にベンダープレフィクスを付与できます「npm run watch」 | sassのコンパイルのみを行います「npm run sass」| ベンダープレフィックスを付与します「npm run postcss」",
-    "test": "stylelint --fix **/*.{css,scss,sass} --custom-syntax postcss-scss",
+    "js-min": "uglifyjs js/scripts.js -c -m --output js/scripts.min.js",
     "imagesize": "node imagesize.mjs",
     "imagemin": "node imagemin.mjs"
   },

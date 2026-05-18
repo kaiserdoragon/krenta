@@ -1,17 +1,1 @@
-window.onload = function () {
-  const swiper = new Swiper(".swiper", {
-    loop: true,
-    speed: 1500,
-    autoplay: {
-      delay: 2000,
-    },
-    effect: "fade",
-    fadeEffect: {
-      crossFade: true,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-  });
-};
+window.onload=function(){new Swiper(".swiper",{loop:!0,speed:1500,autoplay:{delay:2e3},effect:"fade",fadeEffect:{crossFade:!0},pagination:{el:".swiper-pagination",clickable:!0}})};
