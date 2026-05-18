@@ -125,6 +125,10 @@
 
     @include max-mq {
       flex-direction: column;
+
+      li {
+        max-width: 300px;
+      }
     }
   }
 

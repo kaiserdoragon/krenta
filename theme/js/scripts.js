@@ -82,28 +82,43 @@ document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".header");
   const root = document.documentElement;
 
-  if (header) {
-    const observer = new ResizeObserver((entries) => {
-      for (let entry of entries) {
-        // border-boxを含めた正確な高さを取得
-        let height = entry.borderBoxSize[0].blockSize;
+  if (!header) return;
 
-        // URLのパスに 'price' が含まれているか判定
-        if (window.location.pathname.includes("/price/")) {
-          // 【ここで数値を自由に変更】
-          // パターンA: 完全に別の固定値（例：100px）にする場合
-          height = 0;
+  const mediaQuery = window.matchMedia("(max-width: 767px)");
 
-          // パターンB: 取得した実際の高さに特定の数値を足す（または引く）場合
-          // height = height + 50;
-        }
+  const updateHeaderHeight = (entry) => {
+    // border-boxを含めた高さを取得
+    let height = entry?.borderBoxSize?.[0]?.blockSize ?? header.offsetHeight;
 
-        root.style.setProperty("--header-height", `${height}px`);
+    // URLのパスに 'price' が含まれているか判定
+    if (window.location.pathname.includes("/price/")) {
+      if (mediaQuery.matches) {
+        // SP時の高さ
+        height = 0;
+      } else {
+        // PC時の高さ
+        height = 110;
       }
-    });
+    }
 
-    observer.observe(header);
-  }
+    root.style.setProperty("--header-height", `${height}px`);
+  };
+
+  const observer = new ResizeObserver((entries) => {
+    for (const entry of entries) {
+      updateHeaderHeight(entry);
+    }
+  });
+
+  observer.observe(header);
+
+  // PC/SPの切り替わり時にも再計算
+  mediaQuery.addEventListener("change", () => {
+    updateHeaderHeight();
+  });
+
+  // 初回実行
+  updateHeaderHeight();
 });
 
 // SP(<=767px)のときだけフッター追従ボタンを有効化
