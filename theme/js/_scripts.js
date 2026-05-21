@@ -53,8 +53,6 @@ if (Header) {
   }
 }
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".header");
   const root = document.documentElement;
@@ -100,8 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // 初回実行
   updateHeaderHeight();
 });
-
-
 
 // SP(<=767px)のときだけフッター追従ボタンを有効化
 (() => {
@@ -156,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 (function ($, root, undefined) {
-  console.log("jqueryのコードはここ");
+  // console.log("jqueryのコードはここ");
 
   // PC(>=768px)のときだけスクロールで出現するヘッダーを有効化
   $(function () {
