@@ -654,14 +654,23 @@ origintheme_require_template('settings/tgmpa.php');
 origintheme_require_template('settings/settings-import.php');
 origintheme_require_template('settings/sample-post.php');
 
+
+
 /*------------------------------------*\
   CSS読み込み
 \*------------------------------------*/
 
 function origintheme_asset_version($file)
 {
+  $file = '/' . ltrim($file, '/');
+
   $path = get_theme_file_path($file);
-  return file_exists($path) ? (string) filemtime($path) : null;
+
+  if (file_exists($path)) {
+    return (string) filemtime($path);
+  }
+
+  return wp_get_theme()->get('Version');
 }
 
 function origintheme_enqueue_styles()
@@ -718,6 +727,40 @@ function origintheme_remove_style_type_attribute($tag)
   return preg_replace('~\s+type=["\'][^"\']++["\']~', '', $tag);
 }
 add_filter('style_loader_tag', 'origintheme_remove_style_type_attribute', 9);
+
+
+
+function origintheme_force_theme_css_version($src, $handle)
+{
+  $files = array(
+    'reset'         => '/css/reset.css',
+    'swipercss'    => '/css/swiper-bundle.min.css',
+    'scrollhintcss' => '/css/scroll-hint.css',
+    'theme'         => '/style.css',
+    'custom'        => '/css/style.css',
+  );
+
+  if (!isset($files[$handle])) {
+    return $src;
+  }
+
+  $path = get_theme_file_path($files[$handle]);
+
+  if (!file_exists($path)) {
+    return $src;
+  }
+
+  return add_query_arg(
+    'ver',
+    filemtime($path),
+    remove_query_arg('ver', $src)
+  );
+}
+add_filter('style_loader_src', 'origintheme_force_theme_css_version', PHP_INT_MAX, 2);
+
+
+
+
 
 /*------------------------------------*\
   JS読み込み
@@ -791,6 +834,36 @@ function origintheme_add_defer_attribute_for_legacy_wp($tag, $handle, $src)
   return preg_replace('/<script(\s)/i', '<script defer$1', $tag, 1);
 }
 add_filter('script_loader_tag', 'origintheme_add_defer_attribute_for_legacy_wp', 10, 3);
+
+
+function origintheme_force_theme_js_version($src, $handle)
+{
+  $files = array(
+    'scrollhintjs' => '/js/scroll-hint.min.js',
+    'mainscripts' => '/js/scripts.js',
+    'swiperjs'    => '/js/swiper-bundle.min.js',
+    'slider'      => '/js/slider.js',
+  );
+
+  if (!isset($files[$handle])) {
+    return $src;
+  }
+
+  $path = get_theme_file_path($files[$handle]);
+
+  if (!file_exists($path)) {
+    return $src;
+  }
+
+  return add_query_arg(
+    'ver',
+    filemtime($path),
+    remove_query_arg('ver', $src)
+  );
+}
+add_filter('script_loader_src', 'origintheme_force_theme_js_version', PHP_INT_MAX, 2);
+
+
 
 /*------------------------------------*\
   グローバルナビ出力
