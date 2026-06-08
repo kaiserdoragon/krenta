@@ -27,7 +27,7 @@
     box-sizing: border-box;
     width: 615px;
     padding: 10px 0;
-    font-size: 0.7vw;
+    font-size: 0.8vw;
     font-weight: bold;
     color: #fff;
     text-align: center;
@@ -398,10 +398,10 @@
     img {
       width: 100%;
       object-fit: cover;
-      aspect-ratio: 1920 / 1000;
+      aspect-ratio: 1920 / 800;
     }
 
-    @media (width <= 1200px) {
+    @media (width <= 1300px) {
       img {
         aspect-ratio: 1920 / 1150;
         object-position: 65%;
@@ -613,10 +613,10 @@
     img {
       width: 100%;
       object-fit: cover;
-      aspect-ratio: 1920 / 1000;
+      aspect-ratio: 1920 / 800;
     }
 
-    @media (width <= 1200px) {
+    @media (width <= 1300px) {
       img {
         aspect-ratio: 1920 / 1150;
       }
@@ -661,10 +661,10 @@
   img {
     width: 100%;
     object-fit: cover;
-    aspect-ratio: 1920 / 1000;
+    aspect-ratio: 1920 / 800;
   }
 
-  @media (width <= 1200px) {
+  @media (width <= 1300px) {
     img {
       aspect-ratio: 1920 / 1150;
     }
