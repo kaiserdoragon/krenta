@@ -48,14 +48,6 @@
         transform: translateY(-50%);
       }
     }
-
-    @media (width <= 3000px) {
-      width: 410px;
-    }
-
-    @media (width <= 2000px) {
-      width: 325px;
-    }
   }
 
   //.top_mv_01--contents
@@ -417,9 +409,27 @@
     }
   }
 
+
+
+  @media (width <= 3000px) {
+    li {
+      width: 410px;
+    }
+  }
+
+  @media (width <= 2000px) {
+    li {
+      width: 325px;
+    }
+  }
+
   @media (width <= 1400px) {
     ul {
       gap: 10px;
+    }
+
+    li {
+      font-size: var(--fz14);
     }
   }
 
@@ -437,7 +447,7 @@
     }
 
     li {
-      width: 55%;
+      width: 70%;
       padding: 10px 0;
       background: url(../img/top/icon_check.svg) no-repeat left 6vw center / 15px;
 
@@ -452,7 +462,6 @@
   @include max-mq {
     li {
       width: 100%;
-      font-size: var(--fz14);
       background: url(../img/top/icon_check.svg) no-repeat left 6vw center / 15px;
     }
   }
