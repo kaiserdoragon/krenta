@@ -804,6 +804,8 @@ function origintheme_enqueue_scripts()
   origintheme_register_and_enqueue_script('scrollhintjs', 'js/scroll-hint.min.js', array('jquery'), true);
   origintheme_register_and_enqueue_script('mainscripts', 'js/scripts.js', array('jquery', 'scrollhintjs'), true);
 
+  origintheme_register_and_enqueue_script('prohibitedjs', 'js/prohibited.js', array(), true);
+
   if (is_front_page()) {
     origintheme_register_and_enqueue_script('swiperjs', 'js/swiper-bundle.min.js', array(), true);
     origintheme_register_and_enqueue_script('slider', 'js/slider.js', array('jquery', 'swiperjs'), true);
@@ -821,7 +823,7 @@ function origintheme_add_defer_attribute_for_legacy_wp($tag, $handle, $src)
     return $tag;
   }
 
-  $defer_handles = array('mainscripts', 'scrollhintjs', 'swiperjs', 'slider');
+  $defer_handles = array('mainscripts', 'scrollhintjs', 'swiperjs', 'slider', 'prohibitedjs');
 
   if (!in_array($handle, $defer_handles, true)) {
     return $tag;
@@ -843,6 +845,7 @@ function origintheme_force_theme_js_version($src, $handle)
     'mainscripts' => '/js/scripts.js',
     'swiperjs'    => '/js/swiper-bundle.min.js',
     'slider'      => '/js/slider.js',
+    'prohibitedjs' => '/js/prohibited.js',
   );
 
   if (!isset($files[$handle])) {
