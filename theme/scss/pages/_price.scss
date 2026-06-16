@@ -53,7 +53,7 @@
   }
 
   p {
-    font-size: var(--fz23);
+    font-size: var(--fz18);
   }
 
   // .price_kinds--lead
@@ -88,7 +88,7 @@
     position: relative;
     padding: 25px 0;
     margin-bottom: 80px;
-    font-size: 30px;
+    font-size: var(--fz40);
     font-weight: 800;
     color: #fff;
     text-align: center;
@@ -116,7 +116,7 @@
     width: 100%;
     max-width: 160px;
     margin: 0 auto 40px;
-    font-size: 25px;
+    font-size: var(--fz30);
     font-weight: 800;
     color: #002978;
     text-align: center;
@@ -135,7 +135,8 @@
   }
 
   dt {
-    font-size: var(--fz20);
+    padding-bottom: 5px;
+    font-size: var(--fz25);
     font-weight: 700;
     color: #fff;
     text-align: center;
@@ -145,6 +146,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 300px;
+    font-size: var(--fz20);
+    font-weight: 700;
     line-height: 1.5;
   }
 
@@ -182,7 +186,7 @@
     max-width: 800px;
     padding: 0 20px 60px;
     margin: 0 auto 60px;
-    font-size: var(--fz18) !important;
+    font-size: var(--fz20) !important;
     text-align: center;
     border-bottom: 1px dashed #b5b5b5;
 
@@ -193,8 +197,8 @@
 
   // .price_details--num
   &--num {
-    font-size: var(--fz35);
-    font-weight: 800;
+    font-size: var(--fz60);
+    font-weight: 900;
 
     &.-orange {
       color: #fa9315;
@@ -212,7 +216,7 @@
 
   // .price_details--plan
   &--plan {
-    width: calc(100% / 2);
+    width: 70%;
     padding: 5px;
     background: #fa9315;
 
@@ -229,7 +233,7 @@
   &--content {
     position: relative;
     display: flex;
-    gap: 50px;
+    gap: 40px;
     justify-content: center;
     padding: 30px;
     background: #fff;
@@ -253,6 +257,7 @@
 
     @include max-mq {
       flex-direction: column;
+      align-items: center;
 
       &::after {
         transform: translate(-50%, -50%) rotateZ(90deg);

@@ -126,7 +126,7 @@
               <div class="container">
                 <img src="<?php echo esc_url($template_uri . '/img/price/details_01.png'); ?>" alt="軽乗用車Sタイプのレンタカー" width="290" height="165" loading="lazy" decoding="async">
                 <p class="price_details--lead">
-                  一時的な転勤や長期出張での営業車両として、毎日の通勤からちょっとしたお買い物、<br class="is-hidden_sp">
+                  一時的な転勤や長期出張での営業車両として、毎日の通勤からちょっとしたお買い物、
                   送り迎えなどにもコンパクトサイズの軽四は小回りも利くので大変便利。<br>
                   そんな軽四Sタイプの格安レンタカー！商用車として営業車としても活躍中！
                 </p>
