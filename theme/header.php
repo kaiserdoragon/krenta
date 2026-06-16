@@ -9,6 +9,7 @@
 	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico">
 	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/img/icons/apple-touch-icon.png">
 	<?php wp_head(); ?>
+	<meta name="google-site-verification" content="a_vvkjRfT_bVbsYOtF6z6994YLYYraJ_h3dy--usi_Q" />
 </head>
 
 <body>
